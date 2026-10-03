@@ -690,7 +690,7 @@ body.shot #ink i{animation:none}
     </section>
 
     <!-- 4 並行 ───────────────────────── -->
-    <section class="slide" id="s4" data-use="待ち時間" data-steps="3" data-title="待たずに、次を頼める">
+    <section class="slide" id="s4" data-use="待ち時間" data-steps="2" data-title="待たずに、次を頼める">
       <div class="chap"><span class="no">03</span><span class="lb">並行</span><span class="bar"></span></div>
       <h2 class="h" style="margin-bottom:12px">待たずに、<em>次</em>を頼める</h2>
       <p class="t" style="margin-bottom:34px">一つが終わるのを待たなくていい。別の会話で、次を進められる</p>
@@ -704,7 +704,7 @@ body.shot #ink i{animation:none}
           <div class="screen" id="s4app2"></div>
         </div>
       </div>
-      <div class="band wide" data-s="3">一つを待っている間に、次を進められる</div>
+      <div class="band wide" data-s="2">一つを待っている間に、次を進められる</div>
     </section>
 
     <!-- 5 頼める ───────────────────────── -->
@@ -1275,29 +1275,37 @@ var U = {
     if (it[0] === 'cl')   return U.say(ctx, A, U.cl(it[1]), 400);
     if (it[0] === 'perm') return U.say(ctx, A, U.perm(it[1], it[2]), 600).then(function(){ return U.hit(ctx, A, 'once'); });
   }
-  /* 4 並行 ─ 一つを待っている間に、別の会話で次を頼める */
+  /* 4 並行 ─ 一つを待っている間に、別の会話で次を頼める。
+     2つのClaude Codeを、1クリックで本当に同時に動かす（Promise.allで並走） */
   SIM[3] = {
     reset: function(sl){
       sl._L = U.app($(sl, '#s4app1'));
       sl._R = U.app($(sl, '#s4app2'));
     },
     step: function(k, sl, ctx){
+      if (k !== 1) return;
       var L = sl._L, R = sl._R;
-      if (k === 1){
+      function left(){
         return seq(ctx, [
           function(){ return U.type(ctx, L, 'マニュアルをスライドにして', 20); },
           function(){ return U.submit(ctx, L); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 650); },
+          function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 700); },
           function(){ U.add(L, U.stat('作成中…')); }
         ]);
       }
-      if (k === 2){
+      function right(){
         return seq(ctx, [
+          function(){ return ctx.wait(900); },
           function(){ return U.type(ctx, R, '毎月の請求書チェックも手伝って', 18); },
           function(){ return U.submit(ctx, R); },
+          function(){ return U.say(ctx, R, U.tool('読み取り', '請求書フォルダ', '14件'), 650); },
           function(){ return U.think(ctx, R, 700); },
-          function(){ return U.say(ctx, R, U.cl('手順を確認します。<br>まず、今月分の請求書フォルダを見せてください')); }
+          function(){ return U.say(ctx, R, U.cl('手順を確認します。<br>まず、今月分の請求書フォルダを見せてください')); },
+          function(){ U.done(R); }
         ]);
       }
+      return Promise.all([left(), right()]);
     }
   };
 
