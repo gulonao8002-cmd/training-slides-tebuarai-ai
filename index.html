@@ -1285,26 +1285,29 @@ var U = {
     step: function(k, sl, ctx){
       if (k !== 1) return;
       var L = sl._L, R = sl._R;
+      /* 左右を1ミリ秒もズラさず同時に開始する。タイピング速度も揃えて、
+         「2つが本当に同時に動いている」のがキャレットの動きから伝わるようにする */
       function left(){
         return seq(ctx, [
-          function(){ return U.type(ctx, L, 'マニュアルをスライドにして', 20); },
+          function(){ return U.type(ctx, L, 'マニュアルをスライドにして', 22); },
           function(){ return U.submit(ctx, L); },
-          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 650); },
-          function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 700); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 500); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', '前回のスライド', ''), 500); },
+          function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 550); },
           function(){ U.add(L, U.stat('作成中…')); }
         ]);
       }
       function right(){
         return seq(ctx, [
-          function(){ return ctx.wait(900); },
-          function(){ return U.type(ctx, R, '毎月の請求書チェックも手伝って', 18); },
+          function(){ return U.type(ctx, R, '毎月の請求書チェックも手伝って', 22); },
           function(){ return U.submit(ctx, R); },
-          function(){ return U.say(ctx, R, U.tool('読み取り', '請求書フォルダ', '14件'), 650); },
-          function(){ return U.think(ctx, R, 700); },
+          function(){ return U.say(ctx, R, U.tool('読み取り', '請求書フォルダ', '14件'), 550); },
+          function(){ return U.think(ctx, R, 600); },
           function(){ return U.say(ctx, R, U.cl('手順を確認します。<br>まず、今月分の請求書フォルダを見せてください')); },
           function(){ U.done(R); }
         ]);
       }
+      /* 2本のタイムラインを、1つも待たせず並走させる */
       return Promise.all([left(), right()]);
     }
   };
