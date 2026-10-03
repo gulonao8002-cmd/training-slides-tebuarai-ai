@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>手足のついたAI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +41,7 @@ button{font:inherit;color:inherit}
 
 /* ── 舞台 ── */
 #viewport{position:fixed;inset:0;overflow:hidden;background:var(--bg);cursor:default}
-#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;overflow:hidden;background:var(--bg)}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;overflow:clip;background:var(--bg)}
 
 /* 背景：帳簿の罫線と、にじむ藍 */
 #ledger{position:absolute;inset:0;pointer-events:none;opacity:.55;
@@ -692,154 +697,65 @@ body.shot #ink i{animation:none}
 .app .lv.b{background:rgba(255,197,61,.18);color:#FFD27A}
 .app .lv.c{background:rgba(255,155,142,.18);color:#FF9B8E}
 
-/* 14 今日の流れ */
-#s14 .sub{font-size:40px;color:var(--ink2);margin:14px 0 0}
-#s14 .agenda{flex:1;display:flex;flex-direction:column;gap:18px;justify-content:center;min-height:0;margin-top:22px}
-#s14 .ag{position:relative;display:grid;grid-template-columns:90px minmax(0,1fr) 300px 330px;align-items:center;gap:26px;padding:22px 34px;border-radius:16px;background:rgba(17,26,69,.7);border:2px solid var(--line)}
-#s14 .ag .n{font-family:var(--mono);font-size:62px;font-weight:700;color:var(--ya);line-height:1}
-#s14 .ag .nm{font-size:46px;font-weight:700;line-height:1.2}
-#s14 .ag .nm span{display:block;font-size:29px;color:var(--mut);font-weight:400;margin-top:6px}
-#s14 .ag .tm{font-family:var(--mono);font-size:31px;color:var(--ink2);white-space:nowrap}
-#s14 .ag .bw{display:flex;align-items:center;gap:16px}
-#s14 .ag .bar{flex:1;height:22px;border-radius:11px;background:rgba(142,154,208,.18);position:relative;overflow:hidden}
-#s14 .ag .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:11px;background:var(--mut);width:0;transition:width 1s var(--e-in) .25s}
-#s14 .ag.in .bar i{width:var(--w)}
-#s14 .ag.main .bar i{background:var(--ya)}
-#s14 .ag .bw b{font-family:var(--mono);font-size:32px;min-width:84px;text-align:right}
-#s14 .ag .glow{position:absolute;inset:-3px;border:4px solid var(--ya);border-radius:18px;box-shadow:0 0 40px rgba(255,197,61,.35)}
-
-/* 15 作業フォルダ */
-#s15 .lay{grid-template-columns:620px 1fr}
-
-/* 16 できましたか */
-#s16 .lay{grid-template-columns:1fr;align-content:center;gap:28px}
-#s16 .chk{display:grid;grid-template-columns:120px 1fr;gap:34px;align-items:center;padding:30px 44px;border-radius:18px;border:2px solid var(--line);background:rgba(17,26,69,.65)}
-#s16 .chk .ring{width:120px;height:120px;border-radius:50%;border:5px solid var(--line);display:grid;place-items:center;transition:all .5s var(--e-in)}
-#s16 .chk .ring svg{width:70px;height:70px}
-#s16 .chk .ring path{fill:none;stroke:#0A1030;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70;transition:stroke-dashoffset .6s var(--e-in) .25s}
-#s16 .chk.in .ring{background:var(--ok);border-color:var(--ok)}
-#s16 .chk.in .ring path{stroke-dashoffset:0}
-#s16 .chk .t{font-size:50px;font-weight:700;line-height:1.3}
-#s16 .chk .s{font-size:32px;color:var(--mut);margin-top:6px}
-#s16 .ask{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-#s16 .ask .t{font-size:38px;color:var(--ink2)}
-
-/* 17 業務を1つ選ぶ */
-#s17 .lay{grid-template-columns:600px 1fr;align-items:stretch}
-#s17 .q{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:36px 40px;border-radius:18px;border:2px solid var(--line);background:rgba(17,26,69,.65)}
-#s17 .q .ql{font-size:28px;font-weight:700;color:var(--ya);letter-spacing:.2em}
-#s17 .q .qt{font-size:46px;font-weight:700;line-height:1.45;text-wrap:balance}
-#s17 .mind{display:flex;flex-direction:column;justify-content:center;gap:36px;min-width:0}
-#s17 .ml{display:flex;align-items:center;gap:22px;font-size:42px;font-weight:700}
-#s17 .ml span{font-family:var(--mono);font-size:30px;color:#14163A;background:var(--ya);border-radius:8px;padding:2px 16px}
-#s17 .flow{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding-top:10px}
-#s17 .flow::before{content:"";position:absolute;left:8%;right:8%;top:56px;height:4px;background:var(--line)}
-#s17 .nd{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:27px;color:var(--mut);text-align:center;transition:color .4s}
-#s17 .nd i{width:92px;height:92px;border-radius:50%;background:var(--bg);border:4px solid var(--line);display:grid;place-items:center;font-style:normal;font-family:var(--mono);font-size:38px;font-weight:700;transition:all .45s var(--e-spring)}
-#s17 .nd.on{color:var(--ink)}
-#s17 .nd.on i{border-color:var(--ya);background:var(--ya);color:#14163A;transform:scale(1.1);box-shadow:0 0 40px rgba(255,197,61,.45)}
-#s17 .tm{display:flex;align-items:center;gap:22px}
-#s17 .tm svg{width:110px;height:110px;transform:rotate(-90deg);flex:none}
-#s17 .tm circle{fill:none;stroke-width:12}
-#s17 .tm .bg{stroke:var(--line)}
-#s17 .tm .fg{stroke:var(--ya);stroke-linecap:round;stroke-dasharray:289;stroke-dashoffset:0}
-#s17 .tm .tt{font-size:34px;color:var(--ink2);line-height:1.4}
-#s17 .tm .tt b{font-family:var(--mono);color:var(--ya);font-size:48px}
-
-/* 18 インタビュー */
-#s18 .lay{grid-template-columns:690px 1fr;gap:48px}
-
-/* 19 Word */
-#s19 .lay{grid-template-columns:590px 1fr}
-.paper{position:absolute;inset:0;border-radius:20px;overflow:hidden;background:#DDE3EE;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1);display:flex;flex-direction:column}
-.paper .wb{flex:none;display:flex;align-items:center;gap:14px;height:58px;padding:0 22px;background:#2B579A;color:#fff;font-size:24px;font-weight:700}
-.paper .wb b{display:grid;place-items:center;width:34px;height:34px;border-radius:6px;background:#fff;color:#2B579A;font-family:Arial,sans-serif;font-size:22px}
-.paper .pg{flex:1;margin:22px 40px 0;background:#fff;color:#1F1E1C;padding:30px 44px;box-shadow:0 6px 24px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:12px;overflow:hidden}
-.paper .pg h4{margin:0 0 4px;font-family:var(--mincho);font-size:44px;font-weight:800;border-bottom:3px solid #2B579A;padding-bottom:8px}
-.paper .pg p{margin:0;font-size:25px;line-height:1.45}
-.paper .pg p b{color:#2B579A}
-.paper .pg p mark{background:#FFE58A;padding:0 4px}
-
-/* 20 別のセッション */
-#s20 .lay{grid-template-columns:600px 1fr}
-#s20 .scr{display:flex;flex-direction:column;gap:12px}
-.tabs{flex:none;display:flex;gap:10px}
-.tabs .tab{display:flex;align-items:center;gap:12px;font-size:26px;color:var(--mut);border:2px solid var(--line);border-radius:12px;padding:8px 22px;background:rgba(17,26,69,.6);white-space:nowrap;transition:all .3s}
-.tabs .tab.on{color:var(--ink);border-color:var(--ya);background:rgba(255,197,61,.1)}
-.tabs .tab.hit{transform:scale(.95);box-shadow:0 0 0 6px rgba(255,197,61,.4)}
-.tabs .tab i{width:14px;height:14px;border-radius:50%;background:var(--mut);flex:none}
-.tabs .tab i.ok{background:var(--ok)}
-.tabs .tab i.busy{background:var(--cc);animation:pulse 1s ease-in-out infinite}
-#s20 .hosts{flex:1;min-height:0;position:relative}
-#s20 .hosts > div{position:absolute;inset:0}
-#s20 .hosts > div.off{visibility:hidden}
-
-/* 21 共有フォルダ */
-#s21 .lay{grid-template-columns:1fr;align-content:center}
-.fx{display:grid;grid-template-columns:1fr 90px 1.1fr;gap:0;align-items:stretch;height:100%}
-.fx .win{--r:#F7F6F2;background:var(--win);color:var(--win-ink);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);display:flex;flex-direction:column;min-width:0}
-.fx .tb{flex:none;display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--win-line);background:#ECEAE3;font-size:25px;font-weight:700}
-.fx .tb::before{content:"";width:14px;height:14px;border-radius:50%;background:#E8685F;box-shadow:24px 0 0 #E9B84C,48px 0 0 #5EBE62;margin-right:58px}
-.fx .path{padding:10px 22px;font-size:23px;color:var(--win-mut);border-bottom:1px solid var(--win-line);background:#FAF9F5}
-.fx .path em{font-style:normal;color:#B26A00;font-weight:700}
-.fx .fl{flex:1;display:flex;flex-direction:column;gap:2px;padding:14px 12px;min-height:0;overflow:hidden}
-.fx .f{display:flex;align-items:center;gap:16px;padding:8px 14px;border-radius:8px;font-size:26px;white-space:nowrap;transition:background .4s}
-.fx .f .ic{width:30px;height:36px;flex:none}
-.fx .f .st{margin-left:auto;font-size:21px;color:var(--win-mut)}
-.fx .f.me{background:#EFE9D2}
-.fx .f.new{background:#DDF3E5;animation:flyIn .9s var(--e-in) both}
-.fx .f.late .st{color:#B26A00;font-weight:700}
-.fx .f.sent .st::after{content:"コピー済み ✓";color:#1E7A4C;font-weight:700}
-@keyframes flyIn{from{opacity:0;transform:translateX(-340px) scale(.9)}to{opacity:1;transform:none}}
-.snap .fx .f.new{animation:none}
-.fx .mid{display:grid;place-items:center;color:var(--ya);font-size:60px;font-weight:700}
-.fx .cnt{flex:none;padding:12px 22px;border-top:1px solid var(--win-line);font-size:23px;color:var(--win-mut);background:#FAF9F5;display:flex;gap:10px;align-items:center}
-.fx .cnt b{font-family:var(--mono);color:var(--win-ink);font-size:27px}
-
-/* 22 試す */
-#s22 .lay{grid-template-columns:600px 1fr}
-.helpbox{position:absolute;inset:0;border-radius:20px;background:#262624;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;color:#F5F4EE}
-.helpbox svg{width:170px;height:170px;transform-origin:50% 90%;animation:wave 1.6s ease-in-out infinite}
-@keyframes wave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
-.helpbox .t1{font-size:56px;font-weight:700}
-.helpbox .t2{font-size:34px;color:#A8A49A}
-
-/* 23 迷ったら */
-#s23 .lay{grid-template-columns:660px 1fr;gap:48px}
-
-/* 24 気をつける */
-#s24 .tiles{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:28px;min-height:0;margin-top:30px}
-#s24 .tile{display:flex;flex-direction:column;gap:12px;justify-content:center;padding:26px 36px;border-radius:18px;border:2px solid #7A3B4A;background:rgba(255,111,111,.07);min-width:0}
-#s24 .tile.ok{border-color:#2F7F63;background:rgba(94,214,160,.08)}
-#s24 .tile .tag{align-self:flex-start;font-size:26px;font-weight:700;color:#14163A;background:var(--ng);border-radius:6px;padding:1px 16px;letter-spacing:.1em}
-#s24 .tile.ok .tag{background:var(--ok)}
-#s24 .tile .tt{font-size:54px;font-weight:700;line-height:1.2}
-#s24 .tile .ex{font-size:30px;color:var(--ink2);line-height:1.5}
-#s24 .tile .demo{position:relative;display:inline-block;font-family:var(--mono);font-size:30px;color:var(--ink);background:rgba(255,255,255,.07);border-radius:8px;padding:4px 14px;margin-top:2px}
-#s24 .tile .demo i{position:absolute;left:-4px;right:-4px;top:8%;bottom:8%;background:#050816;border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .55s var(--e-in) .7s}
-#s24 .tile.in .demo i{transform:scaleX(1)}
-
-/* 25 1冊に */
-#s25 .lay{grid-template-columns:600px 1fr;gap:48px}
-#s25 .merge{position:absolute;inset:0;display:grid;place-items:center}
-#s25 .book{position:relative;width:440px;height:580px;border-radius:8px 18px 18px 8px;background:linear-gradient(90deg,#0E1A52 0 22px,#1C2C80 22px);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 2px rgba(255,197,61,.5);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;text-align:center;padding:0 40px 0 62px}
-#s25 .book .bt{font-family:var(--mincho);font-size:46px;line-height:1.35;white-space:nowrap}
-#s25 .book .bv{font-size:36px;color:var(--ya);font-weight:700}
-#s25 .book .bm{font-size:26px;color:var(--ink2);line-height:1.5}
-
-/* 26 持ち帰る */
-#s26 .lay{grid-template-columns:600px 1fr;gap:70px}
-#s26 .take{display:flex;flex-direction:column;gap:20px;justify-content:center}
-#s26 .take .cap{font-size:30px;font-weight:700;color:var(--ya);letter-spacing:.2em;margin:0}
-#s26 .tk{display:flex;align-items:center;gap:26px;padding:20px 30px;border-radius:16px;border:2px solid var(--line);background:rgba(17,26,69,.7)}
-#s26 .tk .ico{width:64px;height:76px;flex:none}
-#s26 .tk .ico svg{width:100%;height:100%}
-#s26 .tk .t{font-size:40px;font-weight:700;line-height:1.25}
-#s26 .tk .s{font-size:27px;color:var(--mut);margin-top:2px}
-#s26 .habits .r:nth-child(2){transition-delay:.15s}
-#s26 .habits .r:nth-child(3){transition-delay:.3s}
-.app .steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:2px}
+/* 実習：開いた時点で依頼文の全文が読める */
+.practice{padding-top:128px;transition:none}
+.slide.practice.on{opacity:1;transform:none;filter:none;transition:none}
+.slide.practice.leaving{visibility:hidden;opacity:0;transition:none}
+.work-flow{position:absolute;left:260px;right:150px;top:34px;display:flex;align-items:center;gap:20px;font-size:26px;color:var(--mut)}
+.flow-item{display:flex;align-items:center;gap:12px;padding:8px 22px;border:2px solid var(--line);border-radius:999px}
+.flow-item b{font-family:var(--mono);font-size:25px}
+.flow-item.now{background:var(--ya);border-color:var(--ya);color:#14163A;font-weight:700}
+.flow-arrow{color:var(--mut)}
+.work-lead{font-size:36px;line-height:1.5;color:var(--ink2);margin:24px 0 0}
+.work-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:50px 0 0}
+.work-card{min-width:0;padding:34px 30px;background:rgba(17,26,69,.8);border:2px solid var(--line);border-radius:20px}
+.work-no{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:var(--ya);color:#14163A;font:700 34px var(--mono)}
+.work-card h3{font-size:38px;line-height:1.35;margin:24px 0 18px;word-break:normal}
+.work-card p{font-size:29px;line-height:1.55;color:var(--ink2);margin:0}
+.work-footer{font-size:29px;line-height:1.5;color:var(--ink2);margin:auto 0 0;padding-top:22px;border-top:2px solid var(--line)}
+.work-timing{display:flex;flex-direction:column;gap:18px;margin:36px 0;font-size:30px;color:var(--ink2)}
+.work-timing b{color:var(--ya)}
+.work-question{margin-top:34px;border-left:7px solid var(--ya);padding:14px 30px;background:rgba(17,26,69,.65);border-radius:0 16px 16px 0}
+.work-question span{font-size:27px;color:var(--ya);font-weight:700}
+.work-question p{font-size:39px;margin:12px 0 16px}
+.work-question small{font-size:28px;color:var(--mut)}
+.work-cards.compact{margin-top:28px}
+.compact .work-card{padding:24px 28px}
+.compact .work-card h3{font-size:34px;margin:16px 0 12px}
+.compact .work-card p{font-size:27px}
+.compact .work-no{width:52px;height:52px;font-size:28px}
+.setup .work-cards{margin-top:38px}
+.setup .work-card h3{font-size:34px}
+.setup .work-card{padding:28px}
+.setup .work-card p{font-size:28px}
+.setup-file{display:flex;align-items:center;gap:26px;margin-top:28px;padding:22px 30px;border:2px solid var(--line);border-radius:16px;background:rgba(17,26,69,.65)}
+.file-symbol{display:grid;place-items:center;flex:none;width:70px;height:90px;border-radius:8px;background:#4B5BB8;font:700 24px var(--mono)}
+.setup-file b{font-size:35px}
+.setup-file p{font-size:27px;color:var(--mut);margin:12px 0 0}
+.setup-note{font-size:26px;line-height:1.5;color:var(--ink2);margin:22px 0}
+.prompt-page .h{font-size:70px}
+.prompt-layout{display:grid;grid-template-columns:minmax(0,1040px) minmax(0,1fr);gap:42px;margin:34px 0 28px;align-items:start}
+.prompt-page .pcard .ph{padding:16px 26px}
+.prompt-page .pcard .pt{font-size:27px;letter-spacing:0}
+.prompt-page .pcard .copy{font-size:26px;padding:10px 24px;min-width:130px;justify-content:center}
+.prompt-text{padding:20px 30px 24px;user-select:text}
+.prompt-line{font-size:29px;line-height:1.6;margin:0;padding:12px 0;overflow-wrap:anywhere}
+.prompt-line + .prompt-line{border-top:1px solid rgba(142,154,208,.22)}
+.prompt-help{padding-top:18px;min-width:0}
+.prompt-help h3{font-size:30px;line-height:1.45;color:var(--ya);margin:0 0 24px}
+.prompt-help ol{padding-left:35px;margin:0;color:var(--ink2);font-size:28px;line-height:1.55}
+.prompt-help li{padding-left:4px;margin:0 0 24px}
+.done-check{border-top:2px solid var(--line);padding-top:24px;margin-top:32px}
+.done-check span{font-size:25px;color:var(--ok);font-weight:700}
+.done-check p{font-size:29px;line-height:1.55;margin:12px 0 0}
+.prompt-page .work-footer{font-size:27px}
+.closing .wrap{gap:28px}
+.closing .wrap p{margin:0}
+.closing-next{font-size:32px;line-height:1.6;margin:28px 0 0;color:var(--ink2)}
+.closing .wrap .closing-next{margin:24px 0 0}
 </style>
+</head>
+<body>
 
 <div id="viewport" lang="ja">
   <div id="stage">
@@ -1070,306 +986,94 @@ body.shot #ink i{animation:none}
       </div>
     </section>
 
-    <!-- 11 今日やること ───────────────────────── -->
-    <section class="slide" id="s12" data-use="⑤冒頭" data-steps="4" data-title="今日やること　マニュアルを作る">
-      <div class="chap"><span class="no">10</span><span class="lb">今日</span><span class="bar"></span></div>
-      <h2 class="h">今日やること</h2>
-      <div class="lay">
-        <div class="left">
-          <p class="t-l" style="color:var(--ink2);font-size:44px;white-space:nowrap">自分がいつもやっている仕事を</p>
-          <p class="h-l" style="font-size:80px">AIに聞き出して<br>もらって、<br><em>マニュアル</em>にする</p>
-          <div class="swap">
-            <p class="t" data-only="1,2">AIが1問ずつ質問してきます。<br><b style="color:var(--ya)">それに答えてください</b></p>
-            <p class="t" data-only="3">皆さんは、喋るだけでいいです。<br><b style="color:var(--ya)">書くのはAIです</b></p>
-            <p class="t" data-only="4">10人分を合体させて、<br><b style="color:var(--ya)">事務所のマニュアル第1版</b>にします</p>
-          </div>
-        </div>
-        <div class="scr">
-          <div id="s12app" data-only="1,2,3" style="position:absolute;inset:0"></div>
-          <div class="merge" data-only="4"><div class="sheets" id="s12sheets"></div></div>
-        </div>
-      </div>
-    </section>
+<section class="slide practice overview" id="s12" data-use="今日やること" data-steps="1" data-title="今日やること　話して、形にして、任せる">
+<div class="chap"><span class="no">10</span><span class="lb">今日</span><span class="bar"></span></div>
+<h2 class="h">自分の仕事を、<em>AIと形にする</em></h2>
+<p class="work-lead">話して伝える。資料にする。小さな仕事を任せてみる。</p>
+<div class="work-cards">
+<div class="work-card"><span class="work-no">1</span><h3>説明資料を作る</h3><p>AIの質問に答えて、<br>普段の進め方を残す</p></div>
+<div class="work-card"><span class="work-no">2</span><h3>スライドにする</h3><p>新人に説明できる<br>5枚のスライドを作る</p></div>
+<div class="work-card"><span class="work-no">3</span><h3>仕事を任せる</h3><p>下書き・チェック表・整理を<br>1つ、実際に頼んでみる</p></div>
+</div>
+<div class="work-timing"><span><b>最初の約90分</b>　説明資料とスライドを作る</span><span><b>残りの約30分</b>　仕事を任せて、結果を確認する</span></div>
+<p class="work-footer">うまく話せなくても大丈夫。AIが一つずつ聞いてくれます。</p>
+</section>
 
-    <!-- 12 締め ───────────────────────── -->
-    <section class="slide" id="s13" data-use="⑨締め" data-steps="3" data-title="締め　事務所の一番の資産">
-      <canvas id="s13cv" width="1920" height="1080"></canvas>
-      <div class="wrap">
-        <p class="l1">事務所の一番の資産は</p>
-        <p class="l2" data-s="2">皆さんの<em>頭の中</em>にある</p>
-        <p class="l3" data-s="3">それを、今日かたちにします</p>
-      </div>
-    </section>
+<section class="slide practice choose" id="s14" data-use="業務を選ぶ" data-steps="1" data-title="いつもの業務を1つ選ぶ">
+<div class="chap"><span class="no">01</span><span class="lb">えらぶ</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
+<h2 class="h">いつもの業務を、<em>1つ選ぶ</em></h2>
+<p class="work-lead">新人に「普段はこう進めています」と話せる仕事にしましょう。</p>
+<div class="work-question"><span>たとえば</span><p>月次の記帳／資料の回収／試算表のチェック</p><small>実際の顧問先の情報は使わず、一般的な進め方を話します。</small></div>
+<div class="work-cards compact">
+<div class="work-card"><span class="work-no">1</span><h3>何から始める？</h3><p>最初に見る資料や、<br>仕事が始まるきっかけ</p></div>
+<div class="work-card"><span class="work-no">2</span><h3>どんな順番？</h3><p>普段の進め方を、<br>ざっくり思い出す</p></div>
+<div class="work-card"><span class="work-no">3</span><h3>どこで迷う？</h3><p>自分で確認する点や、<br>先輩に相談するところ</p></div>
+</div>
+<p class="work-footer">まだ書かなくて大丈夫。細かい例外は、あとから足せます。</p>
+</section>
 
-    <!-- ═══════════ 実践パート ③〜⑥（14枚目〜）。この下に追記する ═══════════ -->
+<section class="slide practice setup" id="s15" data-use="準備と確認" data-steps="1" data-title="準備して、そのまま始める">
+<div class="chap"><span class="no">02</span><span class="lb">準備</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
+<h2 class="h">準備して、<em>そのまま始める</em></h2>
+<div class="work-cards">
+<div class="work-card"><span class="work-no">1</span><h3>Claudeを開く</h3><p>講師と一緒に開き、<br>文字を入力できるか確認する</p></div>
+<div class="work-card"><span class="work-no">2</span><h3>保存先を確認</h3><p>今日の資料は<br>デスクトップに保存する</p></div>
+<div class="work-card"><span class="work-no">3</span><h3>実際の情報は使わない</h3><p>顧問先名・個人名・金額は<br>架空の表現にする</p></div>
+</div>
+<div class="setup-file"><span class="file-symbol">MD</span><div><b>新人向けの説明資料.md</b><p>次の依頼で作るファイルです。今は用意しなくて大丈夫。</p></div></div>
+<p class="setup-note">Claude Codeで保存するときは、作業フォルダを「デスクトップ」にします。<br>保存できない画面では、できた資料をダウンロードしてデスクトップへ。</p>
+<p class="work-footer">入力できたら準備完了。困ったら手を挙げてください。</p>
+</section>
 
-    <!-- 14 今日の流れ ───────────────────────── -->
-    <section class="slide hs" id="s14" data-use="導入" data-phase="0" data-steps="6" data-title="今日の流れ　③準備から⑥まとめ">
-      <div class="chap"><span class="no">00</span><span class="lb">流れ</span><span class="bar"></span></div>
-      <h2 class="h">ここからは、見るのではなく<em>触る</em></h2>
-      <div class="agenda">
-        <div class="ag" data-s="2"><span class="n">③</span><div class="nm">準備<span>作業フォルダを選ぶ</span></div><div class="tm">14:20〜14:30</div><div class="bw"><div class="bar"><i style="--w:20%"></i></div><b>10分</b></div></div>
-        <div class="ag main" data-s="3"><span class="n">④</span><div class="nm">マニュアル作り<span>自分の業務を、AIにまとめてもらう</span></div><div class="tm">14:30〜15:00</div><div class="bw"><div class="bar"><i style="--w:60%"></i></div><b>30分</b></div><div class="glow" data-s="6"></div></div>
-        <div class="ag main" data-s="4"><span class="n">⑤</span><div class="nm">自分の業務で試す<span>ほかの仕事も、やらせてみる</span></div><div class="tm">15:00〜15:50</div><div class="bw"><div class="bar"><i style="--w:100%"></i></div><b>50分</b></div><div class="glow" data-s="6"></div></div>
-        <div class="ag" data-s="5"><span class="n">⑥</span><div class="nm">まとめ<span>10人分が、1冊になる</span></div><div class="tm">15:50〜16:00</div><div class="bw"><div class="bar"><i style="--w:20%"></i></div><b>10分</b></div></div>
-      </div>
-      <div class="band wide" data-s="6" style="margin-top:26px">④と⑤が、今日のメイン。合わせて80分</div>
-    </section>
+<section class="slide practice prompt-page" id="s18" data-use="実習1" data-steps="1" data-title="書かずに、聞かれて答える">
+<div class="chap"><span class="no">03</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item now"><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
+<h2 class="h">書かずに、<em>聞かれて答える</em></h2>
+<div class="prompt-layout">
+<div class="pcard">
+<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div>
+<div class="prompt-text" data-prompt="interview"><p class="prompt-line">私の担当業務について、新人向けの説明資料を作りたいです。</p><p class="prompt-line">普段の進め方が分かるように、必要なことを5つまで、一つずつ質問してください。細かい例外は今は聞かなくて大丈夫です。</p><p class="prompt-line">答えをもとに資料を作り、AIに任せられそうなことと、私が最後に確認すべきことも書いてください。</p><p class="prompt-line">顧問先名・個人名・実際の金額は書かず、デスクトップに「新人向けの説明資料.md」として保存してください。</p></div>
+</div>
+<aside class="prompt-help"><h3>コピー → 貼り付け → 送信</h3><ol><li>AIの質問に、一つずつ答える</li><li>思い出せないところは、そのまま伝える</li><li>できた資料を読み、普段の進め方と合っているか見る</li></ol><div class="done-check"><span>次へ進む目安</span><p>説明資料ができて、<br>自分の仕事の流れが書かれている</p></div></aside>
+</div>
+<p class="work-footer">完成度は気にしなくて大丈夫。まずは普段の進め方を残します。</p>
+</section>
 
-    <!-- 15 ③ 作業フォルダ ───────────────────────── -->
-    <section class="slide hs" id="s15" data-use="③ 準備" data-phase="3" data-steps="4" data-title="③ 作業フォルダを選ぶ">
-      <div class="chap"><span class="no">③</span><span class="lb">フォルダ</span><span class="bar"></span></div>
-      <h2 class="h">作業フォルダを<em>選ぶ</em></h2>
-      <div class="lay">
-        <div class="rail">
-          <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">フォルダ名を押す</div><div class="s">入力欄の、左下にあります</div></div></div>
-          <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">「研修用フォルダ」を選ぶ</div><div class="s">今日は、ここで作業します</div></div></div>
-          <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">@ を打つ</div><div class="s">フォルダの中のファイルが、候補に出ます</div></div></div>
-        </div>
-        <div class="scr" id="s15app"></div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">候補が出たら、準備は完了です</div>
-    </section>
+<section class="slide practice prompt-page" id="s20" data-use="実習2" data-steps="1" data-title="説明資料を、5枚のスライドに">
+<div class="chap"><span class="no">04</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item now"><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
+<h2 class="h">説明資料を、<em>5枚のスライドに</em></h2>
+<div class="prompt-layout">
+<div class="pcard">
+<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div>
+<div class="prompt-text" data-prompt="slide"><p class="prompt-line">@新人向けの説明資料.md</p><p class="prompt-line">この資料を、新人に見せる5枚のHTMLスライドにしてください。</p><p class="prompt-line">「何をする仕事か・最初に確認するもの・仕事の流れ・迷ったときの対応・AIに任せられることと人が確認すること」を1枚ずつにして、Artifactを作ってください。</p><p class="prompt-line">顧問先名・個人名・実際の金額は入れず、分からないことは「要確認」と書いてください。</p></div>
+</div>
+<aside class="prompt-help"><h3>資料をClaudeへ渡す</h3><ol><li>チャット画面で、説明資料の.mdファイルを添付する</li><li>依頼文をコピーして送り、Artifactを作る</li><li>新人に見せるつもりで、内容を確認する</li></ol><div class="done-check"><span>次へ進む目安</span><p>5枚のスライドができて、<br>自分の説明と合っている</p></div></aside>
+</div>
+<p class="work-footer">同じ説明資料を使います。共有する場合は社内限定にしてください。</p>
+</section>
 
-    <!-- 16 ③ できましたか ───────────────────────── -->
-    <section class="slide hs" id="s16" data-use="③ 確認" data-phase="3" data-steps="4" data-title="③ できましたか？">
-      <div class="chap"><span class="no">③</span><span class="lb">確認</span><span class="bar"></span></div>
-      <h2 class="h">できましたか？</h2>
-      <div class="lay">
-        <div class="chk" data-s="2"><span class="ring"><svg viewBox="0 0 70 70" aria-hidden="true"><path d="M14 36l15 15 28-31"/></svg></span><div><div class="t">左下が「研修用フォルダ」になっている</div><div class="s">入力欄の左下を見てください</div></div></div>
-        <div class="chk" data-s="3"><span class="ring"><svg viewBox="0 0 70 70" aria-hidden="true"><path d="M14 36l15 15 28-31"/></svg></span><div><div class="t">@ を打つと、ファイルの候補が出る</div><div class="s">候補が出たら、ここまでは完璧です</div></div></div>
-        <div class="ask" data-s="4"><div class="band">できた人から、手を挙げてください</div><div class="t">うまく出ない人も、手を挙げてください。近くの講師が行きます</div></div>
-      </div>
-    </section>
+<section class="slide practice prompt-page" id="s23" data-use="実習3" data-steps="1" data-title="AIに、小さな仕事を任せる">
+<div class="chap"><span class="no">05</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item now"><b>3</b>仕事を任せる</span></div>
+<h2 class="h">AIに、<em>小さな仕事を任せる</em></h2>
+<div class="prompt-layout">
+<div class="pcard">
+<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div>
+<div class="prompt-text" data-prompt="task"><p class="prompt-line">@新人向けの説明資料.md</p><p class="prompt-line">この資料をもとに、AIに任せられそうな小さな仕事を1つ選び、実際にやってください。</p><p class="prompt-line">顧問先の実際の情報は使わず、下書き・チェック表・資料の整理のどれかを作って、デスクトップに保存してください。</p><p class="prompt-line">仕訳の確定や申告、メール送信、会計ソフトへの登録は行わず、最後にAIに任せたことと自分が確認することを教えてください。</p></div>
+</div>
+<aside class="prompt-help"><h3>Claude Codeへ渡す</h3><ol><li>作業フォルダを「デスクトップ」にする</li><li>@で説明資料を選び、依頼文を送る</li><li>できたファイルと、AIの報告を確認する</li></ol><div class="done-check"><span>次へ進む目安</span><p>小さな成果物ができて、<br>自分が確認する点が分かる</p></div></aside>
+</div>
+<p class="work-footer">早く終わった人から進めてOK。下書き・チェック表・整理から試します。</p>
+</section>
 
-    <!-- 17 ④-1 業務を選ぶ ───────────────────────── -->
-    <section class="slide hs" id="s17" data-use="④-1 選ぶ" data-phase="4" data-sub="1" data-steps="4" data-title="④-1 業務を1つ選ぶ（3分）">
-      <div class="chap"><span class="no">④</span><span class="lb">えらぶ</span><span class="bar"></span></div>
-      <h2 class="h">「自分が抜けたら困る」業務を<em>1つ</em></h2>
-      <div class="lay">
-        <div class="q" data-s="2"><div class="ql">たとえば</div><div class="qt">明日から自分が休んだら、誰かに引き継がないといけない仕事</div></div>
-        <div class="mind">
-          <div class="ml">頭の中で、最初から最後まで流す<span>3分</span></div>
-          <div class="flow" id="s17flow">
-            <div class="nd"><i>1</i>はじめ</div><div class="nd"><i>2</i></div><div class="nd"><i>3</i></div><div class="nd"><i>4</i></div><div class="nd"><i>5</i></div><div class="nd"><i>6</i>おわり</div>
-          </div>
-          <div class="tm" data-s="3">
-            <svg viewBox="0 0 110 110" aria-hidden="true"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" id="s17ring" cx="55" cy="55" r="46"/></svg>
-            <div class="tt"><b>3分</b><br>手元に何も書かなくていい</div>
-          </div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">まだ書かない。きれいに思い出さなくていい</div>
-    </section>
-
-    <!-- 18 ④-2 インタビュー ───────────────────────── -->
-    <section class="slide hs" id="s18" data-use="④-2 聞かれる" data-phase="4" data-sub="2" data-steps="5" data-title="④-2 AIにインタビューさせる（15分）">
-      <div class="chap"><span class="no">④</span><span class="lb">インタビュー</span><span class="bar"></span></div>
-      <h2 class="h">書くのではなく、<em>聞かれて答える</em></h2>
-      <div class="lay">
-        <div class="col">
-          <div class="pcard">
-            <div class="ph"><span class="pt">配る指示文</span><button type="button" class="copy" data-p="interview"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
-            <div class="pb clip">私は税理士事務所で働いています。私が担当している業務の手順書（マニュアル）を作りたいです。
-
-いきなり書き始めないでください。まず私に質問してください。1回に1つずつ、全部で10問くらい聞いてください。</div>
-            <div class="more">… 全文は［コピー］で</div>
-          </div>
-          <div class="rail sm">
-            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">コピーして、貼って、送る</div></div></div>
-            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">聞かれたことに、答える</div></div></div>
-            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">あいまいなら、聞き返される</div></div></div>
-          </div>
-        </div>
-        <div class="scr" id="s18app"></div>
-      </div>
-      <div class="band wide" data-s="5" style="margin-top:28px">答えがあいまいでも大丈夫。AIが聞き返してくれます</div>
-    </section>
-
-    <!-- 19 ④-3 Word ───────────────────────── -->
-    <section class="slide hs" id="s19" data-use="④-3 Word" data-phase="4" data-sub="3" data-steps="4" data-title="④-3 Wordのマニュアルにする（8分）">
-      <div class="chap"><span class="no">④</span><span class="lb">Word</span><span class="bar"></span></div>
-      <h2 class="h">聞き終わったら、<em>Word</em>にしてもらう</h2>
-      <div class="lay">
-        <div class="col">
-          <div class="rail">
-            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">「Wordにして」と頼む</div></div></div>
-            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">保存の確認は<br>「一度だけ許可」</div></div></div>
-            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">できたら、開いて見る</div></div></div>
-          </div>
-          <div class="pcard">
-            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="word"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
-            <div class="pb">ここまでの話をマニュアルにして、Wordファイルで保存して</div>
-          </div>
-        </div>
-        <div class="scr" id="s19scr">
-          <div id="s19app" style="position:absolute;inset:0"></div>
-          <div class="paper" data-s="4">
-            <div class="wb"><b>W</b>月次報告の手順.docx</div>
-            <div class="pg">
-              <h4>月次報告の手順</h4>
-              <p><b>1　目的</b>　顧問先に、毎月の数字を報告する</p>
-              <p><b>2　いつ</b>　毎月10日まで</p>
-              <p><b>3　使うもの</b>　会計ソフト／通帳のコピー</p>
-              <p><b>4　手順</b>　取り込む → 確認する → 報告書にまとめる</p>
-              <p><b>5　間違えやすいところ</b>　<mark>通帳の日付と、仕訳の日付のずれ</mark></p>
-              <p><b>6　困ったとき</b>　先輩に聞く</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">自分の言葉が、そのままマニュアルになった</div>
-    </section>
-
-    <!-- 20 ④-4 スライド版 ───────────────────────── -->
-    <section class="slide hs" id="s20" data-use="④-4 省略可" data-phase="4" data-sub="4" data-steps="4" data-title="④-4 スライド版は、別のセッションで（2分）">
-      <div class="chap"><span class="no">④</span><span class="lb">スライド</span><span class="bar"></span></div>
-      <h2 class="h">スライド版は、<em>別のセッション</em>で</h2>
-      <div class="lay">
-        <div class="col">
-          <div class="rail sm">
-            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">新しいセッションを開く</div></div></div>
-            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">@ でWordを選んで、貼る</div></div></div>
-            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">待たずに、次へ進む</div></div></div>
-          </div>
-          <div class="pcard">
-            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
-            <div class="pb"><span class="at">@Wordファイル</span> ← @ で選ぶ
-を見て、同じ内容をスライドにして</div>
-          </div>
-        </div>
-        <div class="scr" id="s20scr">
-          <div class="tabs"><span class="tab on" id="s20t1">セッション1<i class="ok"></i></span><span class="tab" id="s20t2">＋ 新しいセッション<i></i></span></div>
-          <div class="hosts"><div id="s20h1"></div><div id="s20h2" class="off"></div></div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">できるのを待たない。できたら、あとで置けばいい</div>
-    </section>
-
-    <!-- 21 ④-5 共有フォルダ ───────────────────────── -->
-    <section class="slide hs" id="s21" data-use="④-5 保存" data-phase="4" data-sub="5" data-steps="4" data-title="④-5 共有フォルダに保存する（2分）">
-      <div class="chap"><span class="no">④</span><span class="lb">保存</span><span class="bar"></span></div>
-      <h2 class="h">できたファイルを、<em>共有フォルダ</em>へ</h2>
-      <div class="lay">
-        <div class="scr" id="s21scr">
-          <div class="fx">
-            <div class="win">
-              <div class="tb">研修用フォルダ</div>
-              <div class="path">自分のパソコン</div>
-              <div class="fl" id="s21l"></div>
-            </div>
-            <div class="mid">→</div>
-            <div class="win">
-              <div class="tb">共有フォルダ</div>
-              <div class="path">場所：<em>当日、講師がご案内します</em></div>
-              <div class="fl" id="s21r"></div>
-              <div class="cnt">ファイル数　<b id="s21n">4</b></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">置くのは手順書だけ。顧問先のデータは置かない</div>
-    </section>
-
-    <!-- 22 ⑤ 試す ───────────────────────── -->
-    <section class="slide hs" id="s22" data-use="⑤ 試す" data-phase="5" data-steps="4" data-title="⑤ 自分の業務で試す（50分）">
-      <div class="chap"><span class="no">⑤</span><span class="lb">試す</span><span class="bar"></span></div>
-      <h2 class="h">④のやり方で、<em>ほかの業務</em>も</h2>
-      <div class="lay">
-        <div class="rail">
-          <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">まず、AIに聞く</div><div class="s">「〇〇したい。どういう手順？」</div></div></div>
-          <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">詰まったら、手を挙げる</div><div class="s">近くの講師が、席まで行きます</div></div></div>
-          <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">うまくいったら、残す</div><div class="s">頼み方を書いておけば、次も使える</div></div></div>
-        </div>
-        <div class="scr" id="s22scr">
-          <div id="s22app" style="position:absolute;inset:0"></div>
-          <div class="helpbox" data-only="3">
-            <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="#FFC53D"><rect x="30" y="52" width="60" height="52" rx="22"/><rect x="30" y="20" width="12" height="46" rx="6"/><rect x="46" y="10" width="12" height="56" rx="6"/><rect x="62" y="14" width="12" height="52" rx="6"/><rect x="78" y="24" width="12" height="42" rx="6"/><rect x="12" y="58" width="12" height="34" rx="6" transform="rotate(-30 18 75)"/></g></svg>
-            <div class="t1">手を挙げてください</div>
-            <div class="t2">近くの講師が、席まで行きます</div>
-          </div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">正解はありません。失敗しても、やり直せば大丈夫</div>
-    </section>
-
-    <!-- 23 ⑤ 迷ったら ───────────────────────── -->
-    <section class="slide hs" id="s23" data-use="⑤ 迷ったら" data-phase="5" data-steps="4" data-title="⑤ 何を任せたらいいか、迷ったら">
-      <div class="chap"><span class="no">⑤</span><span class="lb">迷ったら</span><span class="bar"></span></div>
-      <h2 class="h">何を任せるか迷ったら、<em>業務を並べる</em></h2>
-      <div class="lay">
-        <div class="col">
-          <div class="rail sm">
-            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">自分の業務を、箇条書きにする</div></div></div>
-            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">指示文と一緒に送る</div></div></div>
-            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">任せられそうなものを、1つ試す</div></div></div>
-          </div>
-          <div class="pcard">
-            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
-            <div class="pb">私が普段やっている業務を箇条書きにします。それぞれ、Claude Codeにどこまで任せられるか教えてください。</div>
-          </div>
-        </div>
-        <div class="scr" id="s23app"></div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">全部は任せない。まず1つ、試してみる</div>
-    </section>
-
-    <!-- 24 ⑤ 気をつける ───────────────────────── -->
-    <section class="slide hs" id="s24" data-use="⑤ 注意" data-phase="5" data-steps="5" data-title="⑤ もう一度、気をつける">
-      <div class="chap"><span class="no">⑤</span><span class="lb">やくそく</span><span class="bar"></span></div>
-      <h2 class="h">試す前に、もう一度<em>約束</em></h2>
-      <div class="tiles">
-        <div class="tile" data-s="2"><span class="tag">入れない</span><div class="tt">個人情報</div><div class="ex">名前・マイナンバー・給与</div><div><span class="demo">山田 太郎　月給 38万円<i></i></span></div></div>
-        <div class="tile" data-s="3"><span class="tag">貼らない</span><div class="tt">パスワード</div><div class="ex">ログインの情報は、チャットに書かない</div><div><span class="demo">パスワード： Taro-2026!<i></i></span></div></div>
-        <div class="tile" data-s="4"><span class="tag">置かない</span><div class="tt">顧問先のデータ</div><div class="ex">共有フォルダには、手順書だけ</div><div><span class="demo">なにわ製作所_決算.xlsx<i></i></span></div></div>
-        <div class="tile ok" data-s="5"><span class="tag">見る</span><div class="tt">結果は、人が確認する</div><div class="ex">AIは下書き係。最後に見るのは、人</div></div>
-      </div>
-    </section>
-
-    <!-- 25 ⑥ 1冊に ───────────────────────── -->
-    <section class="slide hs" id="s25" data-use="⑥ 講師が操作" data-phase="6" data-steps="4" data-title="⑥ 10人分が、1冊になりました">
-      <div class="chap"><span class="no">⑥</span><span class="lb">まとめ</span><span class="bar"></span></div>
-      <h2 class="h"><em>10人分</em>の手順書を、1冊に</h2>
-      <div class="lay">
-        <div class="col">
-          <p class="t" style="margin:0">15:00ごろから、裏で動かしておきました。共有フォルダの手順書を、全部まとめて頼みます</p>
-          <div class="pcard">
-            <div class="ph"><span class="pt">指示文</span><span class="tag">講師用</span><button type="button" class="copy" data-p="merge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
-            <div class="pb clip">このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして</div>
-          </div>
-        </div>
-        <div class="scr">
-          <div id="s25app" data-only="1,2,3" style="position:absolute;inset:0"></div>
-          <div class="merge" data-only="4"><div class="book"><div class="bt">ファインブレーン<br>業務マニュアル</div><div class="bv">第1版</div><div class="bm">10人分の手順書<br>目次つき　42ページ</div></div></div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">10人分の頭の中が、今日の2時間で1冊になりました</div>
-    </section>
-
-    <!-- 26 ⑥ 持ち帰る ───────────────────────── -->
-    <section class="slide hs" id="s26" data-use="⑥ 締め" data-phase="6" data-steps="4" data-title="⑥ 持ち帰るもの、続けること">
-      <div class="chap"><span class="no">⑥</span><span class="lb">つづける</span><span class="bar"></span></div>
-      <h2 class="h">持ち帰って、<em>続ける</em></h2>
-      <div class="lay">
-        <div class="take" data-s="2">
-          <p class="cap">持ち帰るもの</p>
-          <div class="tk"><span class="ico" data-i="docx"></span><div><div class="t">自分のマニュアル</div><div class="s">Word版</div></div></div>
-          <div class="tk"><span class="ico" data-i="pptx"></span><div><div class="t">自分のマニュアル</div><div class="s">スライド版</div></div></div>
-        </div>
-        <div class="rail habits">
-          <div class="r" data-s="3"><span class="n">1</span><div><div class="t">使ったあとに、1行メモ</div><div class="s">うまくいったこと、困ったこと</div></div></div>
-          <div class="r" data-s="3"><span class="n">2</span><div><div class="t">詰まったら、まずClaudeに聞く</div><div class="s">人に聞く前に、一度</div></div></div>
-          <div class="r" data-s="3"><span class="n">3</span><div><div class="t">週に1回は使う</div><div class="s">うまくいった頼み方は、事務所で共有</div></div></div>
-        </div>
-      </div>
-      <div class="band wide" data-s="4" style="margin-top:28px">フォロー会の日程は、あらためてお知らせします</div>
-    </section>
-
+<section class="slide practice closing" id="s13" data-use="締め" data-steps="1" data-title="事務所の一番の資産を、今日かたちにした">
+<canvas id="s13cv" width="1920" height="1080"></canvas>
+<div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにしました</p>
+<p class="closing-next">次は、今日作った説明資料を使って<br>普段の仕事で小さな作業を一つ、頼んでみましょう。</p></div>
+</section>
   </div>
 </div>
 
 <div id="ticks"></div>
-<div id="num">01 / 12</div>
+<div id="num">01 / 18</div>
 <button type="button" id="gridBtn" aria-label="スライド一覧を開く">一覧 G</button>
 <div id="hint" role="status"></div>
 <div id="grid" hidden><div class="gwrap"></div></div>
@@ -1382,6 +1086,7 @@ body.shot #ink i{animation:none}
       <dt>数字キー</dt><dd>そのスライドへ（11 は 1 を2回）</dd>
       <dt>G</dt><dd>一覧</dd>
       <dt>A</dt><dd>自動再生（待ち時間に流しっぱなし）</dd>
+      <dt>C</dt><dd>いま表示している実習の依頼文をコピー</dd>
       <dt>Z</dt><dd>このスライドの完成形</dd>
       <dt>R</dt><dd>このスライドを最初から</dd>
       <dt>B</dt><dd>画面を黒くする</dd>
@@ -1744,10 +1449,10 @@ var U = {
       ['tool', '読み取り', '通帳_1月.csv', '62行'],
       ['tool', '読み取り', '仕訳_1月.csv', '58行'],
       ['cl', '合わないところが <b>3件</b> あります。<br>1件目は 1月15日の 32,400円 です'] ] },
-    { ask: '[[@manual]] フォルダの手順書を、1冊にまとめて', run: [
-      ['tool', '読み取り', 'manual フォルダ', '10ファイル'],
-      ['tool', '作成', '事務所マニュアル_第1版.md', '完了', 'ok'],
-      ['file', '事務所マニュアル_第1版.md', '目次つき・重なった説明は1つに', 'md'] ] }
+    { ask: '[[@説明資料]] を読んで、重なった説明を整理して', run: [
+      ['tool', '読み取り', '説明資料フォルダ', '10ファイル'],
+      ['tool', '作成', '説明資料_まとめ.md', '完了', 'ok'],
+      ['file', '説明資料_まとめ.md', '目次つき・重なった説明は1つに', 'md'] ] }
   ];
   function runItem(ctx, A, it){
     if (it[0] === 'tool') return U.say(ctx, A, U.tool(it[1], it[2], it[3], it[4]), 650);
@@ -1769,9 +1474,9 @@ var U = {
          「2つが本当に同時に動いている」のがキャレットの動きから伝わるようにする */
       function left(){
         return seq(ctx, [
-          function(){ return U.type(ctx, L, 'マニュアルをスライドにして', 22); },
+          function(){ return U.type(ctx, L, '説明資料をスライドにして', 22); },
           function(){ return U.submit(ctx, L); },
-          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 1000); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', '新人向けの説明資料.md', ''), 1000); },
           function(){ return U.say(ctx, L, U.tool('読み取り', '前回のスライド', ''), 1000); },
           function(){ return U.say(ctx, L, U.tool('読み取り', '参考画像フォルダ', '8件'), 1000); },
           function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 1100); },
@@ -2070,72 +1775,8 @@ var U = {
     }
   };
 
-  /* 11 今日やること ─ AIが聞いて、マニュアルにして、10人分が1冊に */
-  var JOBS = ['月次の記帳', '通帳の取り込み', '資料の回収', '試算表チェック', '年末調整', '給与計算', '請求書の発行', '償却資産', '届出の管理', '月次報告'];
-  SIM[11] = {
-    reset: function(sl){
-      sl._A = U.app($(sl, '#s12app'));
-      var sh = $(sl, '#s12sheets'); sh.innerHTML = '';
-      JOBS.forEach(function(j, i){
-        var d = document.createElement('div'); d.className = 'sheet';
-        d.innerHTML = '<b>' + j + '</b><i></i><i style="width:80%"></i><i></i><i style="width:60%"></i><i></i>';
-        var ang = i / JOBS.length * Math.PI * 2;
-        d.style.transform = 'translate(' + Math.round(Math.cos(ang) * 250) + 'px,' + Math.round(Math.sin(ang) * 190) + 'px) rotate(' + ((i % 2 ? 1 : -1) * (5 + i)) + 'deg)';
-        sh.appendChild(d);
-      });
-      var book = document.createElement('div'); book.className = 'book';
-      book.innerHTML = '<div class="bt">ファインブレーン<br>業務マニュアル</div><div class="bv">第1版</div>';
-      sh.appendChild(book);
-    },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 1){
-        U.add(A, '<div class="msg user">（配られた指示文を貼る）<br>私の業務の手順書を作りたい。<br>まず1問ずつ質問して</div>');
-        return;
-      }
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return U.think(ctx, A, 800); },
-          function(){ return U.say(ctx, A, U.cl('<b>質問 1</b>　その業務は、何のためにやりますか？'), 1000); },
-          function(){ return U.type(ctx, A, '顧問先に、毎月の数字を報告するため', 18); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 600); },
-          function(){ return U.say(ctx, A, U.cl('<b>質問 2</b>　毎月いつ頃、何を使ってやりますか？'), 1000); },
-          function(){ return U.type(ctx, A, '10日までに。会計ソフトと通帳のコピー', 18); },
-          function(){ return U.submit(ctx, A); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.say(ctx, A, U.sep('…このあと、質問が8つほど続きます'), 700); },
-          function(){ return U.think(ctx, A, 700); },
-          function(){ return U.say(ctx, A, U.cl('ありがとうございます。手順書にまとめます'), 600); },
-          function(){ return U.say(ctx, A, U.perm('manual\\月次報告の手順.md', '書き込み'), 600); },
-          function(){ return U.hit(ctx, A, 'once'); },
-          function(){ return U.say(ctx, A, U.tool('作成', 'manual\\月次報告の手順.md', '完了', 'ok'), 500); },
-          function(){ U.done(A); return U.say(ctx, A, U.file('月次報告の手順.md', 'manual フォルダに保存しました', 'md')); }
-        ]);
-      }
-      if (k === 4){
-        var sheets = $$(sl, '.sheet'), book = $(sl, '.book');
-        if (ctx.instant){
-          sheets.forEach(function(s){ s.style.transform = 'translate(0,0) scale(.9)'; s.style.opacity = 0; });
-          book.classList.add('in'); return;
-        }
-        return seq(ctx, [
-          function(){ return ctx.wait(700); },
-          function(){
-            sheets.forEach(function(s, i){ setTimeout(function(){ if (ctx.alive()) s.style.transform = 'translate(0,0) rotate(' + (i % 2 ? 2 : -2) + 'deg)'; }, i * 140); });
-            return ctx.wait(140 * sheets.length + 900);
-          },
-          function(){ sheets.forEach(function(s){ s.style.opacity = 0; }); book.classList.add('in'); }
-        ]);
-      }
-    }
-  };
-
   /* 12 締め ─ 散らばった光が、10人の頭に集まり、1冊のかたちになる */
-  SIM[12] = (function(){
+  SIM[17] = (function(){
     var P = [], raf = 0, mode = 1, cv, cx, rnd = 1;
     function r(){ rnd = (rnd * 16807) % 2147483647; return rnd / 2147483647; }
     function book(n){
@@ -2190,6 +1831,7 @@ var U = {
     return {
       reset: function(){ if (!cv) init(); rnd = 1; P.forEach(function(p){ p.x = r()*1920; p.y = r()*1080; }); setMode(1); },
       step: function(k){
+        k = 3;
         setMode(k);
         if (window.DECK_REDUCED && window.DECK_REDUCED()){ if (k >= 2) P.forEach(function(p){ p.x = p.tx; p.y = p.ty; }); draw(); return; }
         if (!raf) raf = requestAnimationFrame(frame);
@@ -2445,7 +2087,7 @@ var U = {
     cancelDigits();
     if (auto) setAuto(false);
     if (document.body.classList.contains('black')){ document.body.classList.remove('black'); return; }
-    if (e.target.closest('button, a')) return;
+    if (e.target.closest('button, a, .prompt-text')) return;
     (e.clientX < window.innerWidth * 0.18) ? prev() : next();
   });
   document.getElementById('gridBtn').addEventListener('click', function(e){ e.stopPropagation(); toggleGrid(); });
@@ -2478,371 +2120,53 @@ var U = {
 </script>
 
 <script>
-/* ═══════════════ 実践パート ③〜⑥（14枚目〜）の動き ═══════════════
-   追記専用。上の <script> が先に動いて SIM と U ができている前提。
-   スライド番号 n の動きは SIM[n-1]。14枚目は SIM[13]。 */
+/* 実習のコピーは、画面に見えている全文をそのまま使う。 */
 (function(){
   'use strict';
-  var $ = function(sl, q){ return sl.querySelector(q); };
-  var $$ = function(sl, q){ return [].slice.call(sl.querySelectorAll(q)); };
-  function seq(ctx, fns){ var p = Promise.resolve(); fns.forEach(function(f){ p = p.then(f); }); return p; }
-
-  /* Word / PowerPoint のアイコン（既存の md アイコンの色違い） */
-  ICON.docx = ICON.md.replace(/#4B5BB8/g, '#2B579A').replace('>MD<', '>DOC<');
-  ICON.pptx = ICON.md.replace(/#4B5BB8/g, '#C43E1C').replace('>MD<', '>PPT<');
-  $$(document, '#s26 .ico').forEach(function(e){ e.innerHTML = ICON[e.getAttribute('data-i')] || ''; });
-
-  /* ───────── 配る指示文（全文）。画面には先頭だけ出し、［コピー］で全文を取り出す ───────── */
-  var PROMPTS = {
-    interview:
-      "私は日本の市役所で働いています。\n\n窓口対応、申請受付、審査、通知、台帳更新、照会対応、\n庁内調整、会計・契約、福祉、税、子育てなどの日常業務のうち、\n私が担当する1つの仕事のやり方を、AIに分かる形で残したいです。\n\nこれは庁内のAI研修です。\n市役所の基本的な説明は不要です。\n\n細かい例外や制度の条文を全部確認するより、\nまずは「通常はどう進めているか」が分かる短い手順書にすることを優先してください。\n質問は1つずつ、次の5問だけしてください。\n\n1. 今回、どの業務を手順書にしますか？ いつ・何をきっかけに始まりますか？\n2. 始める前に、どの申請書・資料・台帳・システムを確認しますか？\n3. 普段はどんな順番で進めますか？\n4. 判断に迷うところ、係長・課長・他課・関係機関に確認するところはどこですか？\n5. 終わったら何を記録・保存・連絡しますか？ また、時間がかかるところはどこですか？\n\n足りない場合だけ、追加で2問まで質問してください。\n私が「分からない」「思い出せない」と答えたところは、\n推測せず「要確認」と書いて先に進んでください。\n\n住民名、住所、生年月日、マイナンバー、電話番号、口座情報、\n実際の申請内容、個別の金額などは書かず、\n「申請者」「対象者」「関係書類」のような一般的な表現に置き換えてください。\n\n質問が終わったら、新しく配属された職員でも分かる\n短い手順書にしてください。\n\n最後に、\n・Claude Codeに任せやすい下書き・整理・確認作業\n・職員が必ず確認して判断・決裁すること\nを、それぞれ2つずつ書いてください。\n\n制度上の判断、支給・不支給の決定、外部システムへの登録、\n住民への正式な連絡は、AIに任せる作業としては提案しないでください。\n\n手順書をデスクトップに\n「私の仕事の手順書.md」\nという名前で保存してください。",
-    word:  'ここまでの話をマニュアルにして、Wordファイルで保存して',
-    slide: "@私の仕事の手順書.md\n\nこの手順書を、庁内の職員が見てすぐ分かる\nHTMLスライドにしてください。\n\nスライドは5枚にしてください。\n\n1. 業務名と、始めるきっかけ\n2. 事前に確認する資料・台帳・システム\n3. 基本の進め方\n4. 判断に迷う点と、確認・相談する相手\n5. AIに任せやすい下書き作業と、職員が必ず判断・決裁すること\n\n専門用語は市役所職員向けの言葉のまま使ってよいですが、\n新しく配属された職員にも読める短い表現にしてください。\n\n住民名、住所、生年月日、マイナンバー、電話番号、口座情報、\n実際の申請内容や個別の金額は入れないでください。\n手順書にない制度・帳票名・ルールは作らず、\n分からないところは「要確認」と表示してください。\n\n全体を「庁内共有用・業務手順書ドラフト」とし、\n1枚ずつ読みやすいシンプルなデザインにしてください。\n\n完成したらArtifactとして表示してください。\n共有は庁内メンバーだけにしてください。\n共有操作ができない場合は、最後に\n「Share画面で庁内メンバーを追加し、Can viewを選んでください」\nと1行だけ案内してください。",
-    list:  "@私の仕事の手順書.md\n\nこの手順書をもとに、Claude Codeに任せやすい作業を1つ選び、\n実際に作業してください。\n\n対象は、下書き作成、チェックリスト化、資料の整理、\n庁内向けの説明文案、確認項目の抽出など、\n職員が最後に確認できる安全な作業にしてください。\n\n実在する住民情報、申請情報、口座情報、個別の金額は使わず、\n研修用の架空情報だけを使ってください。\n元のファイルは変更せず、成果物はデスクトップに新しく保存してください。\n\n制度上の判断、支給・不支給の決定、決裁、\n外部システムへの登録、住民への正式な連絡は行わず、\n職員が確認するための下書きや整理までにしてください。\n\n質問を増やしすぎず、安全にできる作業が見つかったら進めてください。\n安全な対象が見つからない場合は、\nこの手順書に合う「確認チェックリスト」のたたき台を作ってください。\n\n終わったら、次の4点を短く報告してください。\n\n・AIに任せた作業\n・作成したファイル\n・手順書のどこを使ったか\n・職員が最後に確認すること",
-    merge: 'このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして'
-  };
-
-  function copyText(t){
+  function copyText(text){
     function fallback(){
-      return new Promise(function(res, rej){
-        var ta = document.createElement('textarea');
-        ta.value = t; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0';
-        document.body.appendChild(ta); ta.select();
-        var ok = false; try { ok = document.execCommand('copy'); } catch(e){}
-        document.body.removeChild(ta);
-        ok ? res() : rej();
-      });
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch(e){}
+      ta.remove();
+      return ok ? Promise.resolve() : Promise.reject(new Error('copy failed'));
     }
     if (navigator.clipboard && window.isSecureContext){
-      return navigator.clipboard.writeText(t).catch(fallback);
+      return navigator.clipboard.writeText(text).catch(fallback);
     }
     return fallback();
   }
   function doCopy(btn){
-    var t = PROMPTS[btn.getAttribute('data-p')]; if (!t) return;
-    var lb = btn.querySelector('.cl');
-    copyText(t).then(function(){
-      btn.classList.add('done'); lb.textContent = 'コピーしました';
+    var card = btn.closest('.pcard');
+    var text = [].map.call(card.querySelectorAll('.prompt-line'), function(line){ return line.textContent; }).join('\n');
+    var label = btn.querySelector('.cl');
+    copyText(text).then(function(){
+      btn.classList.add('done'); label.textContent = 'コピーしました';
     }).catch(function(){
-      btn.classList.remove('done'); lb.textContent = 'コピーできませんでした';
+      label.textContent = '本文を選択してコピー';
     }).then(function(){
-      setTimeout(function(){ btn.classList.remove('done'); lb.textContent = 'コピー'; }, 2200);
+      clearTimeout(btn._copyTimer);
+      btn._copyTimer = setTimeout(function(){ btn.classList.remove('done'); label.textContent = 'コピー'; }, 2200);
     });
   }
-  /* ボタンの上のクリックは、既存の進行（button は除外）に影響しない */
   document.addEventListener('click', function(e){
-    var b = e.target.closest && e.target.closest('.copy'); if (b) doCopy(b);
+    var btn = e.target.closest('.copy');
+    if (btn) doCopy(btn);
   });
-  /* C キー：いま見ているスライドの指示文をコピー（講師用） */
   document.addEventListener('keydown', function(e){
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.key === 'c' || e.key === 'C'){ var b = document.querySelector('.slide.on .copy'); if (b) doCopy(b); }
+    if (e.key === 'c' || e.key === 'C'){
+      var btn = document.querySelector('.slide.on .copy');
+      if (btn) doCopy(btn);
+    }
   });
-
-  /* ───────── 現在地の帯（上）。各スライドの data-phase / data-sub から描く ───────── */
-  var PH = [
-    { k: 3, no: '③', nm: '準備',   tm: '〜14:30' },
-    { k: 4, no: '④', nm: '作る',   tm: '〜15:00' },
-    { k: 5, no: '⑤', nm: '試す',   tm: '〜15:50' },
-    { k: 6, no: '⑥', nm: 'まとめ', tm: '〜16:00' }
-  ];
-  $$(document, '.slide[data-phase]').forEach(function(sl){
-    var p = parseInt(sl.getAttribute('data-phase'), 10); if (!p) return;
-    var sub = parseInt(sl.getAttribute('data-sub') || '0', 10), html = '';
-    PH.forEach(function(o, i){
-      var cls = o.k < p ? 'done' : (o.k === p ? 'now' : '');
-      var dots = '';
-      if (o.k === p && o.k === 4 && sub){
-        dots = '<span class="sub">';
-        for (var j = 1; j <= 5; j++) dots += '<i class="' + (j < sub ? 'past' : (j === sub ? 'on' : '')) + '"></i>';
-        dots += '</span>';
-      }
-      html += (i ? '<span class="ln"></span>' : '') +
-        '<span class="p ' + cls + '"><span class="no">' + o.no + '</span>' + o.nm + '<span class="tm">' + o.tm + '</span>' + dots + '</span>';
-    });
-    var w = document.createElement('div'); w.className = 'where'; w.setAttribute('aria-label', '今日の流れの現在地'); w.innerHTML = html;
-    sl.insertBefore(w, sl.firstChild);
-  });
-
-  var PASTE = '<span class="pst">貼り付けたテキスト　+9行</span>';
-
-  /* 15 ③ 作業フォルダ ─ フォルダ名を押す → 選ぶ → @ で候補が出る */
-  SIM[14] = {
-    reset: function(sl){
-      var A = sl._A = U.app($(sl, '#s15app'), { mention: true, folder: 'フォルダを選択' });
-      A.chip = A.root.querySelector('.r2 .chip');
-      A.pop = U.h('<div class="fpop"><div class="fh">フォルダを選ぶ</div><div class="op">' + ICON.folder + 'デスクトップ</div><div class="op sel">' + ICON.folder + '研修用フォルダ</div><div class="op">' + ICON.folder + 'ドキュメント</div></div>');
-      A.inp.appendChild(A.pop);
-      A.mention.innerHTML = [['通帳_1月.csv', 'csv'], ['請求書_サンプル.xlsx', 'xlsx'], ['作業メモ.md', 'md']].map(function(o, i){
-        return '<div class="op' + (i === 0 ? ' sel' : '') + '">' + ICON[o[1]] + o[0] + '</div>';
-      }).join('');
-    },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 2){
-        return ctx.wait(500).then(function(){ A.chip.classList.add('ring'); A.pop.classList.add('show'); });
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ A.pop.querySelector('.op.sel').classList.add('hit'); return ctx.wait(650); },
-          function(){ A.pop.classList.remove('show'); A.chip.classList.remove('ring'); A.chip.innerHTML = ICON.folder + '研修用フォルダ'; return ctx.wait(300); }
-        ]);
-      }
-      if (k === 4){
-        if (ctx.instant){
-          A.ph.hidden = true; A.caret.hidden = false; A.inp.classList.add('focus');
-          A.tx.innerHTML = '<span class="at">@通帳_1月.csv</span>'; return;
-        }
-        return seq(ctx, [
-          function(){ return ctx.wait(400); },
-          function(){ return U.type(ctx, A, '@', 4); },
-          function(){ A.send.classList.remove('go'); A.mention.classList.add('show'); return ctx.wait(1700); },
-          function(){ A.mention.querySelector('.op.sel').classList.add('hit'); return ctx.wait(500); },
-          function(){ A.mention.classList.remove('show'); A.tx.innerHTML = '<span class="at">@通帳_1月.csv</span>'; return ctx.wait(300); }
-        ]);
-      }
-    }
-  };
-
-  /* 17 ④-1 業務を選ぶ ─ 頭の中で、最初から最後まで流す */
-  SIM[16] = {
-    reset: function(sl){
-      $$(sl, '.nd').forEach(function(n){ n.classList.remove('on'); });
-      var r = $(sl, '#s17ring'); r.style.transition = 'none'; r.style.strokeDashoffset = '0';
-    },
-    step: function(k, sl, ctx){
-      if (k !== 3) return;
-      var nds = $$(sl, '.nd'), r = $(sl, '#s17ring');
-      if (ctx.instant){ nds.forEach(function(n){ n.classList.add('on'); }); r.style.strokeDashoffset = '289'; return; }
-      void r.getBoundingClientRect();
-      r.style.transition = 'stroke-dashoffset 6s linear'; r.style.strokeDashoffset = '289';
-      return seq(ctx, nds.map(function(n){ return function(){ n.classList.add('on'); return ctx.wait(950); }; }));
-    }
-  };
-
-  /* 18 ④-2 インタビュー ─ 指示文を貼る → 1問ずつ聞かれる → あいまいなら聞き返される */
-  SIM[17] = {
-    reset: function(sl){ sl._A = U.app($(sl, '#s18app')); },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return ctx.wait(500); },
-          function(){ A.ph.hidden = true; A.caret.hidden = false; A.inp.classList.add('focus'); A.tx.innerHTML = PASTE; A.send.classList.add('go'); return ctx.wait(1300); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 900); },
-          function(){ return U.say(ctx, A, U.cl('わかりました。まず質問しますね。<br>全部で10問です'), 800); },
-          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>質問 1 / 10</b>　その業務は、何のためにやりますか？'), 600); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.type(ctx, A, '顧問先に、毎月の数字を報告するため', 20); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 700); },
-          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>質問 2 / 10</b>　毎月いつ頃、何を使ってやりますか？'), 600); }
-        ]);
-      }
-      if (k === 4){
-        return seq(ctx, [
-          function(){ return U.type(ctx, A, 'うーん、ケースバイケースで…', 14); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 800); },
-          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>聞き返し</b>　ケースバイケース、とのことですが、<br>たとえば先月は、どうでしたか？'), 600); }
-        ]);
-      }
-      if (k === 5){
-        return U.say(ctx, A, U.sep('…このあと、質問が7つほど続きます'), 400);
-      }
-    }
-  };
-
-  /* 19 ④-3 Word ─ 「Wordにして」→ 許可 → ファイルができる → 開いて見る */
-  SIM[18] = {
-    reset: function(sl){ sl._A = U.app($(sl, '#s19app')); },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 1){
-        U.add(A, U.sep('…10問の質問が、終わったところ'));
-        U.add(A, U.cl('ありがとうございます。<br>聞きたいことは、以上です'));
-        return;
-      }
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return ctx.wait(500); },
-          function(){ return U.type(ctx, A, 'ここまでの話をマニュアルにして、\nWordファイルで保存して', 20); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 800); },
-          function(){ return U.say(ctx, A, U.cl('Wordで作ります。<br>間違えやすいところは、目立たせますね'), 700); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.say(ctx, A, U.perm('manual\\月次報告の手順.docx', '書き込み'), 700); },
-          function(){ return U.hit(ctx, A, 'once'); },
-          function(){ return U.say(ctx, A, U.tool('作成', 'manual\\月次報告の手順.docx', '完了', 'ok'), 500); },
-          function(){ U.done(A); return U.say(ctx, A, U.file('月次報告の手順.docx', 'manual フォルダに保存しました', 'docx')); }
-        ]);
-      }
-    }
-  };
-
-  /* 20 ④-4 スライド版 ─ 新しいセッションを開き、待たずに次へ */
-  function s20show(sl, n){
-    $(sl, '#s20h1').classList.toggle('off', n !== 1);
-    $(sl, '#s20h2').classList.toggle('off', n !== 2);
-    $(sl, '#s20t1').classList.toggle('on', n === 1);
-    $(sl, '#s20t2').classList.toggle('on', n === 2);
-  }
-  SIM[19] = {
-    reset: function(sl){
-      var A1 = sl._A1 = U.app($(sl, '#s20h1')), A2 = sl._A2 = U.app($(sl, '#s20h2'));
-      $(sl, '#s20t2').innerHTML = '＋ 新しいセッション<i></i>';
-      $(sl, '#s20t2').classList.remove('hit');
-      s20show(sl, 1);
-      U.add(A1, U.cl('Wordファイルを作りました'));
-      U.add(A1, U.file('月次報告の手順.docx', 'manual フォルダに保存しました', 'docx'));
-    },
-    step: function(k, sl, ctx){
-      var A1 = sl._A1, A2 = sl._A2, t2 = $(sl, '#s20t2');
-      if (k === 2){
-        return seq(ctx, [
-          function(){ t2.classList.add('hit'); return ctx.wait(550); },
-          function(){ t2.classList.remove('hit'); t2.innerHTML = 'セッション2<i></i>'; s20show(sl, 2); U.add(A2, U.sep('新しいセッション')); return ctx.wait(300); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.type(ctx, A2, '[[@月次報告の手順.docx]] を見て、\n同じ内容をスライドにして', 22); },
-          function(){ return U.submit(ctx, A2); },
-          function(){ return U.think(ctx, A2, 700); },
-          function(){ return U.say(ctx, A2, U.tool('読み取り', '月次報告の手順.docx', '1ファイル'), 500); },
-          function(){ t2.querySelector('i').className = 'busy'; return U.say(ctx, A2, U.stat('スライドを作っています…'), 300); }
-        ]);
-      }
-      if (k === 4){
-        return seq(ctx, [
-          function(){ return ctx.wait(500); },
-          function(){ s20show(sl, 1); U.add(A1, U.sep('スライド版は、裏で作成中')); return ctx.wait(300); }
-        ]);
-      }
-    }
-  };
-
-  /* 21 ④-5 共有フォルダ ─ できたファイルを置く。スライド版は、できしだい追加で */
-  var OTHERS = [['経理_給与計算の手順.docx', 'docx'], ['法人_決算の流れ.docx', 'docx'], ['総務_来客対応.pptx', 'pptx'], ['相続_案内状の作り方.docx', 'docx']];
-  function row(name, kind, cls, st){ return '<div class="f ' + (cls || '') + '">' + ICON[kind] + '<span>' + name + '</span><span class="st">' + (st || '') + '</span></div>'; }
-  SIM[20] = {
-    reset: function(sl){
-      $(sl, '#s21l').innerHTML = row('月次報告の手順.docx', 'docx', 'me') + row('月次報告の手順.pptx', 'pptx', 'me late', '作成中…');
-      $(sl, '#s21l').lastChild.style.opacity = '.45';
-      $(sl, '#s21r').innerHTML = OTHERS.map(function(o){ return row(o[0], o[1]); }).join('');
-      $(sl, '#s21n').textContent = '4';
-    },
-    step: function(k, sl, ctx){
-      var L = $(sl, '#s21l'), R = $(sl, '#s21r'), N = $(sl, '#s21n');
-      if (k === 2){
-        var f1 = L.children[0]; f1.classList.add('sent'); f1.querySelector('.st').textContent = '';
-        R.insertAdjacentHTML('beforeend', row('月次報告の手順.docx', 'docx', 'new'));
-        N.textContent = '5';
-      }
-      if (k === 3){
-        var f2 = L.children[1]; f2.style.opacity = ''; f2.classList.remove('late'); f2.classList.add('sent'); f2.querySelector('.st').textContent = '';
-        R.insertAdjacentHTML('beforeend', row('月次報告の手順.pptx', 'pptx', 'new'));
-        N.textContent = '6';
-      }
-    }
-  };
-
-  /* 22 ⑤ 試す ─ まずAIに聞く → 詰まったら手を挙げる → うまくいったら残す */
-  SIM[21] = {
-    reset: function(sl){ sl._A = U.app($(sl, '#s22app')); },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return ctx.wait(400); },
-          function(){ return U.type(ctx, A, '毎月の月末チェックを、やらせたい。\nどういう手順？', 20); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 800); },
-          function(){ return U.say(ctx, A, U.cl('この順番で進めましょう。'), 300); },
-          function(){ U.done(A); return U.say(ctx, A, U.cl('<ol class="steps"><li>今のやり方を、箇条書きで教える</li><li>見本の資料を、1つ渡す</li><li>「同じようにやって」と頼む</li></ol>'), 300); }
-        ]);
-      }
-      if (k === 4){
-        return seq(ctx, [
-          function(){ U.clear(A); return ctx.wait(300); },
-          function(){ return U.type(ctx, A, 'うまくいった。この頼み方を、\n書いて残して', 20); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 700); },
-          function(){ return U.say(ctx, A, U.perm('うまくいった頼み方.md', '書き込み'), 600); },
-          function(){ return U.hit(ctx, A, 'once'); },
-          function(){ U.done(A); return U.say(ctx, A, U.file('うまくいった頼み方.md', '「月末チェックの頼み方」を書きました', 'md')); }
-        ]);
-      }
-    }
-  };
-
-  /* 23 ⑤ 迷ったら ─ 業務を並べて、どこまで任せられるか聞く */
-  SIM[22] = {
-    reset: function(sl){ sl._A = U.app($(sl, '#s23app')); },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return ctx.wait(400); },
-          function(){ return U.type(ctx, A, '私が普段やっている業務を箇条書きにします。それぞれ、Claude Codeにどこまで任せられるか教えてください。\n・月次の仕訳チェック\n・顧問先への請求書づくり\n・電話メモの整理\n・年末調整の書類回収', 44); },
-          function(){ return U.submit(ctx, A); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.think(ctx, A, 1000); },
-          function(){ U.clear(A); U.done(A); return U.say(ctx, A, U.cl('<div class="lvl">' +
-            '<div><b>仕訳チェック</b><span class="lv b">下書きまで</span></div>' +
-            '<div><b>請求書づくり</b><span class="lv a">ほぼ任せられる</span></div>' +
-            '<div><b>電話メモの整理</b><span class="lv a">ほぼ任せられる</span></div>' +
-            '<div><b>年末調整の回収</b><span class="lv c">人の段取りが要る</span></div></div>'), 600); }
-        ]);
-      }
-      if (k === 4){
-        return U.say(ctx, A, U.cl('まずは<b>「電話メモの整理」</b>から試しませんか？<br>失敗しても、影響が小さいです'), 400);
-      }
-    }
-  };
-
-  /* 25 ⑥ 1冊に ─ 共有フォルダの手順書を、まとめて頼む */
-  SIM[24] = {
-    reset: function(sl){ sl._A = U.app($(sl, '#s25app'), { folder: '共有フォルダ' }); },
-    step: function(k, sl, ctx){
-      var A = sl._A;
-      if (k === 2){
-        return seq(ctx, [
-          function(){ return ctx.wait(400); },
-          function(){ return U.type(ctx, A, 'このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして', 34); },
-          function(){ return U.submit(ctx, A); },
-          function(){ return U.think(ctx, A, 800); },
-          function(){ return U.say(ctx, A, U.tool('読み取り', '共有フォルダ', '10ファイル'), 600); },
-          function(){ U.done(A); return U.say(ctx, A, U.cl('10本の手順書を読みました。<br>重複を整理して、目次をつけます'), 400); }
-        ]);
-      }
-      if (k === 3){
-        return seq(ctx, [
-          function(){ return U.say(ctx, A, U.perm('マニュアル_第1版.docx', '書き込み'), 700); },
-          function(){ return U.hit(ctx, A, 'once'); },
-          function(){ return U.say(ctx, A, U.tool('作成', 'マニュアル_第1版.docx', '完了', 'ok'), 500); },
-          function(){ U.done(A); return U.say(ctx, A, U.file('マニュアル_第1版.docx', '目次つき・42ページ', 'docx')); }
-        ]);
-      }
-    }
-  };
-
-  /* ページを開き直したとき（#s20 や ?shot=）に、あとから登録した動きで描き直す */
-  var hm = (location.hash || '').match(/^#s(\d+)$/), sh = (location.search || '').match(/shot=(\d+)\.(\d+)/);
-  if (window.DECK){
-    if (sh && parseInt(sh[1], 10) > 13) DECK.go(parseInt(sh[1], 10) - 1, parseInt(sh[2], 10), { instant: true });
-    else if (hm && parseInt(hm[1], 10) > 13) DECK.go(parseInt(hm[1], 10) - 1, 1);
-  }
 })();
 </script>
 
+</body>
+</html>
