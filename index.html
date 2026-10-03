@@ -878,6 +878,32 @@ body.shot #ink i{animation:none}
 .choice-memo{margin-top:38px;padding-top:24px}
 .choice-memo ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:17px;margin:20px 0 0;font-size:33px;line-height:1.4}
 .choice-memo li::before{content:"•";color:#9099bc;margin-right:20px}
+
+/* Windows向けの画面例と、指定された依頼文の表示 */
+.picker-titlebar>.target-tab{flex:none;font-size:24px;font-weight:700;margin-right:2px}
+.picker-titlebar .picker-tabs{margin-left:12px;gap:16px}
+.windows-controls{margin-left:auto;font-size:21px;color:#b5b0a6;white-space:nowrap}
+.windows-picker{border-radius:6px}
+.windows-picker .native-title{display:flex;align-items:center;justify-content:space-between;text-align:left;background:#202020;font-size:23px;padding:10px 15px}
+.windows-picker .native-title>span:last-child{font-size:20px;color:#b8b8b8}
+.windows-address{display:flex;align-items:center;gap:12px;padding:9px 15px;font-size:21px;background:#303030;border-bottom:1px solid #555}
+.windows-address>span{flex:1;padding:4px 12px;border:1px solid #606060;font-size:22px}
+.windows-picker .native-body{min-height:150px;grid-template-columns:280px minmax(0,1fr)}
+.windows-picker .native-sidebar{background:#242424}
+.windows-picker .native-content{background:#303030}
+.windows-folder-name{display:flex;align-items:center;gap:14px;padding:9px 16px;font-size:22px;border-top:1px solid #555}
+.windows-folder-name>span{flex:1;padding:4px 12px;border:1px solid #666;background:#303030}
+.windows-picker .native-footer{border-top:0;background:#292929;padding:10px 18px;font-size:22px}
+.windows-picker .open-target{background:#414d61;font-weight:400;padding:6px 14px;border-radius:0}
+.windows-picker .native-footer>span{border-radius:0;padding:6px 18px}
+#s15 .setup-with-screen{margin-top:30px}
+#s15 .setup-actions{gap:48px}
+#s15 .setup-actions li:nth-child(2){min-height:85px;align-items:center}
+.two-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+#s18 .reading-layout .prompt-line{font-size:27px;line-height:1.45;padding:8px 0}
+#s18 .reading-layout .prompt-continuation{border-top:0;padding-top:0}
+#s18 .reading-layout .prompt-text{padding-top:10px;padding-bottom:12px}
+.expanded-task .prompt-line{font-size:29px;line-height:1.55;padding:13px 0}
 </style>
 </head>
 <body>
@@ -1135,64 +1161,64 @@ body.shot #ink i{animation:none}
 <div class="setup-with-screen">
 <ol class="setup-actions" aria-label="準備の順番">
 <li><span class="action-no">1</span><div><h3>クロコを開く</h3><p>上の「Code」タブを選びます。</p></div></li>
-<li><span class="action-no">2</span><div><h3>デスクトップを選ぶ</h3><p>「Local」→「Select folder」<br>→「デスクトップ」→「開く」</p></div></li>
+<li><span class="action-no">2</span><div><h3>デスクトップを選ぶ</h3></div></li>
 <li><span class="action-no">3</span><div><h3>「こんにちは」と送る</h3><p>返事が来たら、準備完了。</p></div></li>
 </ol>
-<figure class="folder-guide" aria-label="クロコのCodeタブでLocalとSelect folderを選び、フォルダ選択画面でデスクトップを選んで開く操作の画面例">
+<figure class="folder-guide" aria-label="Codeタブを左上に配置し、Windowsのフォルダー選択画面でデスクトップを選ぶ操作の画面例">
 <figcaption>操作する場所を抜き出した画面例</figcaption>
 <div class="code-picker-mock">
-<div class="picker-titlebar"><span class="window-dots"><i></i><i></i><i></i></span><span>Claude</span><div class="picker-tabs"><span>Chat</span><span>Cowork</span><span class="target-tab">Code</span></div></div>
+<div class="picker-titlebar"><span class="target-tab">Code</span><span>Claude</span><div class="picker-tabs"><span>Chat</span><span>Cowork</span></div><span class="windows-controls">—　□　×</span></div>
 <div class="picker-compose"><p>何をお手伝いしましょうか？</p><div class="picker-controls"><span class="local-pill">Local ▾</span><span class="folder-pill">▣ Select folder</span><span class="picker-send">↑</span></div></div>
 <div class="picker-callout">「Local」を選んで、このボタンを押す <span>↑</span></div>
 </div>
 <div class="guide-down">↓ フォルダを選ぶ画面が開く</div>
-<div class="native-picker-mock">
-<div class="native-title">フォルダを選択</div>
-<div class="native-body"><div class="native-sidebar"><span>よく使う項目</span><b class="desktop-target">▣ デスクトップ</b><span>書類</span><span>ダウンロード</span></div><div class="native-content"><svg viewBox="0 0 100 80" aria-hidden="true"><path d="M7 20V10h34l12 12h40v48H7Z" fill="#5f8bb5"/><path d="M7 30h86v40H7Z" fill="#80b3d8"/></svg><b>デスクトップ</b><span>今日の作業場所</span></div></div>
-<div class="native-footer"><span>キャンセル</span><b class="open-target">開く</b></div>
+<div class="native-picker-mock windows-picker">
+<div class="native-title"><span>フォルダーの選択</span><span>—　□　×</span></div><div class="windows-address">←　↑　<span>PC　›　デスクトップ</span></div>
+<div class="native-body"><div class="native-sidebar"><span>クイック アクセス</span><b class="desktop-target">▣ デスクトップ</b><span>ドキュメント</span><span>ダウンロード</span></div><div class="native-content"><svg viewBox="0 0 100 80" aria-hidden="true"><path d="M7 20V10h34l12 12h40v48H7Z" fill="#5f8bb5"/><path d="M7 30h86v40H7Z" fill="#80b3d8"/></svg><b>デスクトップ</b><span>今日の作業場所</span></div></div>
+<div class="windows-folder-name">フォルダー：<span>デスクトップ</span></div><div class="native-footer"><b class="open-target">フォルダーの選択</b><span>キャンセル</span></div>
 </div>
-<a class="guide-source" href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener noreferrer">操作手順の出典：公式ガイド</a>
+
 </figure>
 </div>
-<p class="practice-note">今日使うのは架空の情報です。顧問先名・個人名・実際の金額は入れません。</p>
+
 </section>
 
 <section class="slide practice readable choose" id="s14" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="新人に説明したい業務を、1つ選ぶ">
 <div class="chap"><span class="no">15</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
 <h2 class="h">新人に説明したい業務を、<em>1つ選ぶ</em></h2>
 
-<p class="work-lead">普段、自分が担当している業務で進めます。</p>
+<p class="work-lead">普段自分が担当している業務を想像してください</p>
 <div class="choice-options" aria-label="選ぶ業務の例">
 <div><span class="choice-tag">たとえば</span><h3>月次の記帳</h3><p>資料を見て、仕訳を入力する仕事</p></div>
 <div><span class="choice-tag">たとえば</span><h3>通帳と記帳の照合</h3><p>入出金を見比べ、違いを見つける仕事</p></div>
 <div><span class="choice-tag">たとえば</span><h3>試算表のチェック</h3><p>数字を見て、気になる点を確かめる</p></div>
 </div>
-<div class="choice-next choice-memo"><span class="result-label">選べたらOK</span><ol><li>何か一つ思い浮かべてください</li><li>メモしてください</li><li>詳しい言語化は次のスライドでやります</li></ol></div>
+<div class="choice-next choice-memo"><span class="result-label">選べたらOK</span><ol><li>一つ思い浮かんだらOKです</li><li>複数思い浮かんだ人は、全て箇条書きにしてください</li><li>詳しい言語化は次のスライドでやります</li></ol></div>
 </section>
 
 <section class="slide practice readable prompt-page" id="s18" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="AIの質問に答えて、説明資料を作る">
 <div class="chap"><span class="no">16</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
 <h2 class="h">AIの質問に答えて、<em>説明資料を作る</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="interview"><p class="prompt-line">私の業務内容と普段の進め方を、5問まで、一つずつ聞いてください。</p><p class="prompt-line">新人に対する説明資料にまとめ、AIに任せることと私が確認することも添えてください。</p><p class="prompt-line">デスクトップに「新人に対する説明資料.md」で保存してください。</p><p class="prompt-line">個人・顧問先の情報や実際の金額は使わず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>仕事の流れが<br>伝わっている？</h3><p>新人が、何から始めて<br>どう進めるか分かる内容に。</p><small>思い出せないことは、そのまま伝えてOK。</small></aside></div></section>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="interview"><p class="prompt-line">[目的]私の業務を新人に教えるための説明資料が必要です。</p><p class="prompt-line">[して欲しいこと]税理士事務所の従業員の私に対して、業務内容と普段の進め方を5~7問ぐらい質問して、</p><p class="prompt-line prompt-continuation">新人に対する説明資料にまとめてください。</p><p class="prompt-line">[AIがどこまでできるかを聞く]その中で、AI エージェントに任せられそうなものと無理そうなものを分けて教えてください。</p><p class="prompt-line">[最終的に何を出して欲しいか]デスクトップに「新人に対する説明資料」をword形式とmd形式で保存してください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>仕事の流れが<br>伝わっている？</h3><p>新人が、何から始めて<br>どう進めるか分かる内容に。</p><small>思い出せないことは、そのまま伝えてOK。</small></aside></div></section>
 
 <section class="slide practice readable prompt-page" id="s20" data-use="実践 3-i" data-steps="1" data-practice-stage="3-i" data-title="説明資料を、5枚のスライドにする">
 <div class="chap"><span class="no">17</span><span class="lb">スライド</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item now" data-stage-key="3-i" aria-current="step"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
 <h2 class="h">説明資料を、<em>5枚のスライドにする</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたファイルを開く</h3><p>デスクトップのHTMLファイルを見る</p></div></li><li><span class="action-no">3</span><div><h3>内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="slide"><p class="prompt-line">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライドにしてください。</p><p class="prompt-line">HTMLファイルとしてデスクトップに保存してください。構成は任せます。</p><p class="prompt-line">個人・顧問先の情報や実際の金額は使わず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>5枚で、仕事の<br>流れが伝わる？</h3><p>説明資料と見比べて、<br>違うところはAIに直してもらう。</p></aside></div></section>
+<ol class="action-route two-actions" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたら、内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="slide"><p class="prompt-line">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライド(HTML形式)にしてください。</p><p class="prompt-line">見やすく伝わりやすいデザインにしてください。必要であれば動きも入れてください。</p><p class="prompt-line">内容の構成は任せます。デスクトップに保存して、完成したら、開いてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>5枚で、仕事の<br>流れが伝わる？</h3><p>説明資料と見比べて、<br>違うところはAIに直してもらう。</p></aside></div></section>
 
 <section class="slide practice readable prompt-page" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="仕事を任せて、結果を確かめる">
 <div class="chap"><span class="no">18</span><span class="lb">依頼</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
 <h2 class="h">仕事を任せて、<em>結果を確かめる</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>この会話で作った説明資料を使う</p></div></li><li><span class="action-no">2</span><div><h3>業務の一部を任せる</h3><p>架空データで、実際に処理してもらう</p></div></li><li><span class="action-no">3</span><div><h3>結果と根拠を確認する</h3><p>作ったファイルを開き、内容を確かめる</p></div></li></ol>
-<div class="job-example"><span>例：通帳と記帳を照合</span><p>架空データ <b>→</b> AIが照合 <b>→</b> 未記帳・不一致の候補 <b>→</b> 人が確認</p><a class="practice-download" href="practice-data.zip" download>練習データを保存</a></div>
-<div class="reading-layout task-reading"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="task"><p class="prompt-line">この会話の説明資料をもとに、私の業務に合う作業を1つ選び、架空データで実行してください。</p><p class="prompt-line">例は仕訳案の作成や通帳と記帳の照合です。練習データがあれば使ってください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、根拠と私が確認する点を示してください。</p><p class="prompt-line">仕訳の確定・申告・送信・外部への登録はせず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>何が進んだ？</h3><p>未記帳・不一致の候補や、<br>仕訳案を、根拠と一緒に確認。</p><small>練習データはZIPを開き、2つのCSVをデスクトップへ。@で一緒に渡します。</small></aside></div></section>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>この会話で作った説明資料を使う</p></div></li><li><span class="action-no">2</span><div><h3>業務の一部を任せる</h3><p>実際に処理してもらう</p></div></li><li><span class="action-no">3</span><div><h3>結果と根拠を確認する</h3><p>作ったファイルを開き、内容を確かめる</p></div></li></ol>
+<div class="job-example"><span>例：通帳と記帳を照合</span><p>通帳と記帳データ <b>→</b> AIが照合 <b>→</b> 未記帳・不一致の候補 <b>→</b> 人が確認</p></div>
+<div class="reading-layout task-reading expanded-task"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="task"><p class="prompt-line">[目的]上記で言語化した、私の業務/作業を可能な限りあなたがやって欲しいです。</p><p class="prompt-line">[して欲しいこと]私の言語化した業務がどの程度あなたができるのか私に教えて。またその上で、私の優秀な部下として、私の仕事をやって欲しい。疑問点や不明点があれば、私に質問してください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>何が進んだ？</h3><p>未記帳・不一致の候補や、<br>仕訳案を、根拠と一緒に確認。</p></aside></div></section>
 
 
   </div>
 </div>
 
 <div id="ticks"></div>
-<div id="num">01 / 19</div>
+<div id="num">01 / 18</div>
 <button type="button" id="gridBtn" aria-label="スライド一覧を開く">一覧 G</button>
 <div id="hint" role="status"></div>
 <div id="grid" hidden><div class="gwrap"></div></div>
