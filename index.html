@@ -697,7 +697,7 @@ body.shot #ink i{animation:none}
 .app .lv.b{background:rgba(255,197,61,.18);color:#FFD27A}
 .app .lv.c{background:rgba(255,155,142,.18);color:#FF9B8E}
 
-/* 実習：開いた時点で依頼文の全文が読める */
+/* 実践：開いた時点で依頼文の全文が読める */
 .practice{padding-top:128px;transition:none}
 .slide.practice.on{opacity:1;transform:none;filter:none;transition:none}
 .slide.practice.leaving{visibility:hidden;opacity:0;transition:none}
@@ -753,6 +753,131 @@ body.shot #ink i{animation:none}
 .closing .wrap p{margin:0}
 .closing-next{font-size:32px;line-height:1.6;margin:28px 0 0;color:var(--ink2)}
 .closing .wrap .closing-next{margin:24px 0 0}
+/* 実践に入る前に、順番と作るものを一覧で示す */
+.agenda-lead{font-size:33px;line-height:1.5;color:var(--ink2);margin:24px 0 0}
+.agenda-list{list-style:none;padding:0;margin:28px 0;display:flex;flex-direction:column;gap:16px}
+.agenda-list li{display:grid;grid-template-columns:76px minmax(0,1fr) 350px;align-items:center;gap:28px;padding:12px 28px;border:2px solid var(--line);border-radius:16px;background:rgba(17,26,69,.8);min-width:0}
+.agenda-no{font-family:var(--mono);font-size:39px;font-weight:700;color:var(--ya)}
+.agenda-name h3{font-size:36px;line-height:1.3;margin:0 0 8px}
+.agenda-name p{font-size:27px;line-height:1.4;color:var(--ink2);margin:0}
+.agenda-result{font-size:27px;line-height:1.4;color:var(--ya);border-left:2px solid var(--line);padding-left:28px}
+/* 実践の4段階と現在地を、どの実演画面でも同じ位置に表示 */
+.practice{padding-top:152px}
+.work-flow{top:26px;display:grid;grid-template-columns:220px 375px 270px minmax(0,1fr);gap:12px;font-size:23px;align-items:stretch}
+.flow-item{border-radius:14px;gap:12px;padding:10px 14px;line-height:1.35;min-height:78px;min-width:0}
+.flow-item b{font-size:24px;flex:none;white-space:nowrap}
+.flow-item.now{box-shadow:0 0 0 2px rgba(255,197,61,.3)}
+.flow-item.now span{font-weight:700}
+.flow-item.now::after{content:"現在地";position:absolute;top:-15px;right:8px;font-size:17px;background:var(--ya);color:#14163A;padding:2px 8px;border-radius:5px}
+.flow-item{position:relative}
+.agenda-list li{grid-template-columns:100px minmax(0,1fr) 330px;gap:20px;padding:12px 22px}
+.agenda-no{font-size:33px}
+.agenda-name h3{font-size:30px}
+.agenda-result{font-size:26px;padding-left:22px}
+.overview .work-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.overview .work-card{padding:28px 22px}
+.overview .work-no{width:auto;min-width:62px;border-radius:10px;padding:0 14px;display:inline-grid;font-size:29px}
+.overview .work-card h3{font-size:30px}
+.overview .work-card p{font-size:26px}
+.practice-agenda{padding-top:128px}
+#s20 .h,#s23 .h{font-size:60px}
+.experience-invite{font-size:47px;font-weight:700;line-height:1.5;color:var(--ink2);height:80px;white-space:nowrap}
+.experience-invite em{font-style:normal;color:var(--ya);font-size:1.23em;padding:0 5px}
+#s13 .experience-invite{margin-top:26px}
+
+/* 実践：操作の順番を先に見せ、依頼文と確認点はその下へ */
+.readable .h{font-size:64px!important}
+.readable .work-flow .flow-item:not(.now){background:transparent;border-color:rgba(142,154,208,.2);color:#9099bc}
+.readable .work-flow .flow-item.now{background:rgba(255,197,61,.13);border-color:var(--ya);color:var(--ya);box-shadow:none}
+.app-context{font-size:25px;line-height:1.4;color:var(--ink2);margin:12px 0 0}
+.switch-context{color:#b3c6ff}
+.action-no{font:700 29px var(--mono);color:#cad5ff;border:2px solid #7183b8;border-radius:50%;width:48px;height:48px;flex:none;display:grid;place-items:center}
+.action-route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;padding:24px 0;margin:24px 0 26px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);gap:30px}
+.action-route li{display:flex;align-items:flex-start;gap:17px;min-width:0}
+.action-route li+li{border-left:2px solid var(--line);padding-left:24px}
+.action-route h3{font-size:32px;line-height:1.35;margin:1px 0 10px}
+.action-route p{font-size:24px;line-height:1.5;color:var(--ink2);margin:0}
+.reading-layout{display:grid;grid-template-columns:minmax(0,1080px) minmax(0,1fr);gap:38px;align-items:start}
+.reading-layout .ph{padding:14px 24px;background:rgba(65,79,135,.25)}
+.reading-layout .pt{font-size:25px;color:var(--ink2)}
+.reading-layout .copy{font-size:26px;padding:10px 24px;min-width:130px;justify-content:center}
+.reading-layout .prompt-text{padding:12px 26px 16px}
+.reading-layout .prompt-line{font-size:28px;line-height:1.5;padding:9px 0}
+.result-panel{padding:24px 0;min-width:0}
+.result-label{font-size:25px;font-weight:700;color:var(--ok)}
+.result-panel h3{font-size:35px;line-height:1.4;margin:16px 0 20px}
+.result-panel p{font-size:28px;line-height:1.6;margin:0;color:var(--ink2)}
+.result-panel small{display:block;font-size:24px;line-height:1.6;margin-top:24px;color:var(--mut)}
+.setup-focus{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:60px;margin:38px 0 0;align-items:center}
+.setup-actions{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:38px}
+.setup-actions li{display:flex;align-items:flex-start;gap:25px}
+.setup-actions .action-no{width:58px;height:58px;font-size:32px}
+.setup-actions h3{font-size:38px;line-height:1.35;margin:2px 0 12px}
+.setup-actions p{font-size:28px;color:var(--ink2);margin:0;line-height:1.5}
+.setup-destination{border-left:2px solid var(--line);padding:14px 0 14px 46px}
+.setup-destination svg{display:block;width:190px;height:140px;margin:20px 0}
+.setup-destination h3{font-size:42px;margin:0 0 16px}
+.setup-destination p{font-size:28px;line-height:1.6;margin:0;color:var(--ink2)}
+.practice-note{font-size:27px;line-height:1.5;color:var(--ink2);margin:auto 0 0;padding-top:22px;border-top:2px solid var(--line)}
+.choice-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:46px}
+.choice-options>div{border-top:4px solid #7183b8;background:rgba(17,26,69,.6);padding:28px 26px 34px;border-radius:0 0 14px 14px}
+.choice-tag{font-size:23px;color:var(--mut)}
+.choice-options h3{font-size:38px;line-height:1.4;margin:17px 0 20px}
+.choice-options p{font-size:26px;color:var(--ink2);line-height:1.6;margin:0}
+.choice-next{margin-top:54px;border-top:2px solid var(--line);padding-top:28px}
+.choice-next p{font-size:35px;line-height:1.5;margin:16px 0}
+.choice-next strong{color:var(--ink);font-weight:700}
+.choice-next small{font-size:28px;color:var(--mut)}
+.practice-agenda .agenda-list{margin-top:40px;gap:22px}
+.practice-agenda .agenda-name h3{font-size:33px}
+.practice-agenda .agenda-list li{padding:17px 24px}
+.job-example{display:flex;align-items:center;gap:24px;margin:-4px 0 24px;padding:17px 22px;background:rgba(71,88,144,.2);border-radius:12px;min-width:0}
+.job-example>span{font-size:24px;font-weight:700;white-space:nowrap;color:#cad5ff}
+.job-example p{font-size:23px;color:var(--ink2);margin:0;line-height:1.4}
+.job-example b{color:var(--mut);padding:0 5px}
+.practice-download{flex:none;margin-left:auto;font-size:23px;color:#cad5ff;text-decoration:none;border:1px solid #7183b8;border-radius:8px;padding:10px 14px}
+.practice-download:hover{background:rgba(142,154,208,.2)}
+.task-reading .prompt-line{font-size:27px;line-height:1.45;padding:8px 0}
+.task-reading .result-panel{padding-top:12px}
+.task-reading .result-panel h3{margin:12px 0}
+.task-reading .result-panel small{font-size:23px;margin-top:18px}
+
+/* 設定：既存のアプリ再現と同じダーク表示で、押す場所を示す */
+.setup-with-screen{display:grid;grid-template-columns:570px minmax(0,1fr);gap:52px;align-items:center;margin-top:24px}
+.setup-with-screen .setup-actions{gap:42px}
+.setup-with-screen .setup-actions h3{font-size:35px}
+.setup-with-screen .setup-actions p{font-size:27px;line-height:1.6}
+.folder-guide{margin:0;min-width:0}
+.folder-guide figcaption{font-size:23px;color:var(--mut);margin-bottom:12px}
+.code-picker-mock{border-radius:14px;background:#262624;border:1px solid #55514a;color:#f5f4ee;overflow:hidden;box-shadow:0 16px 35px rgba(0,0,0,.22)}
+.picker-titlebar{display:flex;align-items:center;gap:20px;padding:15px 18px;border-bottom:1px solid #46433d;background:#1e1d1b;font-size:22px}
+.window-dots{display:flex;gap:6px}.window-dots i{width:12px;height:12px;border-radius:50%;background:#ee6c61}.window-dots i:nth-child(2){background:#efc04d}.window-dots i:nth-child(3){background:#68c254}
+.picker-tabs{display:flex;gap:20px;margin-left:auto;font-size:24px;color:#b5b0a6;align-items:center}
+.target-tab{color:#fff;padding:5px 14px;outline:3px solid var(--ya);background:#3b3a36;border-radius:6px}
+.picker-compose{margin:18px 20px 8px;padding:18px 20px 14px;border-radius:14px;border:1px solid #5e5a52;background:#302f2c}
+.picker-compose p{font-size:25px;color:#aaa599;margin:0 0 22px}
+.picker-controls{display:flex;gap:15px;align-items:center;font-size:24px}
+.local-pill{border:1px solid #817965;border-radius:8px;padding:7px 14px;background:#3a3935}
+.folder-pill{outline:3px solid var(--ya);border-radius:8px;padding:7px 16px;background:#3a3935;font-weight:700}
+.picker-send{margin-left:auto;background:#d97757;border-radius:8px;padding:4px 12px}
+.picker-callout{display:flex;align-items:center;justify-content:center;gap:16px;font-size:23px;color:#ffd37a;padding:9px 16px 15px}
+.picker-callout span{font-size:32px;line-height:1}
+.guide-down{font-size:24px;margin:12px 0;color:var(--ink2);text-align:center}
+.native-picker-mock{border-radius:14px;overflow:hidden;background:#292827;border:1px solid #66615b;color:#eee;box-shadow:0 16px 35px rgba(0,0,0,.22)}
+.native-title{padding:12px 18px;font-size:24px;text-align:center;background:#353331;border-bottom:1px solid #514c46}
+.native-body{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:155px}
+.native-sidebar{display:flex;flex-direction:column;gap:10px;padding:17px 16px;background:#343230;font-size:23px;color:#ccc6bc}
+.native-sidebar>span:first-child{font-size:19px;color:#9e978d}
+.desktop-target{color:#fff;background:#454c56;border-radius:7px;padding:5px 8px;outline:3px solid var(--ya)}
+.native-content{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:24px}
+.native-content svg{width:82px;height:60px}.native-content>span{font-size:21px;color:#bbb3a7}
+.native-footer{padding:12px 18px;display:flex;align-items:center;justify-content:flex-end;gap:18px;background:#353331;font-size:23px;border-top:1px solid #514c46}
+.native-footer>span{border:1px solid #777069;border-radius:7px;padding:5px 13px}
+.open-target{border-radius:7px;padding:5px 25px;background:#466c9b;outline:3px solid var(--ya)}
+.guide-source{display:block;text-align:right;margin-top:10px;font-size:19px;color:var(--mut);text-decoration:none}
+.choice-memo{margin-top:38px;padding-top:24px}
+.choice-memo ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:17px;margin:20px 0 0;font-size:33px;line-height:1.4}
+.choice-memo li::before{content:"•";color:#9099bc;margin-right:20px}
 </style>
 </head>
 <body>
@@ -764,6 +889,7 @@ body.shot #ink i{animation:none}
 
     <!-- 1 表紙 ───────────────────────── -->
     <section class="slide" id="s1" data-use="表紙" data-steps="2" data-title="表紙　AIに、事務所のやり方を覚えさせる">
+<div class="chap"><span class="no">01</span><span class="lb">研修</span><span class="bar"></span></div>
       <div class="cover">
         <div class="eyebrow">第 2 回　A I 研 修</div>
         <h1 class="ttl" id="coverTtl">AIに、事務所の<br><em>やり方</em>を覚えさせる</h1>
@@ -775,7 +901,7 @@ body.shot #ink i{animation:none}
 
     <!-- 2 違い ───────────────────────── -->
     <section class="slide" id="s2" data-use="②座学" data-steps="4" data-title="いままでのAIと、今日のAIは違う">
-      <div class="chap"><span class="no">01</span><span class="lb">ちがい</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">02</span><span class="lb">ちがい</span><span class="bar"></span></div>
       <div class="head">
         <h2 class="h">いままでのAIと、今日のAIは<em>違う</em></h2>
       </div>
@@ -797,7 +923,7 @@ body.shot #ink i{animation:none}
 
     <!-- 3 手足 ───────────────────────── -->
     <section class="slide" id="s3" data-use="待ち時間" data-steps="3" data-title="賢い頭脳に、手足がついた">
-      <div class="chap"><span class="no">02</span><span class="lb">しくみ</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">03</span><span class="lb">しくみ</span><span class="bar"></span></div>
       <h2 class="h" style="margin-bottom:12px">賢い頭脳に、<em>手足</em>がついた</h2>
       <div class="swap" style="margin-bottom:34px"><p class="t" data-only="1">パソコンを操作して、実行までやり切る「手足」</p><p class="t" data-only="2,3">パソコンの中に住んで、ファイルを直接さわる</p></div>
       <div class="stagebox">
@@ -823,7 +949,7 @@ body.shot #ink i{animation:none}
 
     <!-- 4 並行 ───────────────────────── -->
     <section class="slide" id="s4" data-use="待ち時間" data-steps="2" data-title="待たずに、次を頼める">
-      <div class="chap"><span class="no">03</span><span class="lb">並行</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">04</span><span class="lb">並行</span><span class="bar"></span></div>
       <h2 class="h" style="margin-bottom:12px">待たずに、<em>次</em>を頼める</h2>
       <p class="t" style="margin-bottom:34px">一つが終わるのを待たなくていい。別の会話で、次を進められる</p>
       <div class="duo">
@@ -841,7 +967,7 @@ body.shot #ink i{animation:none}
 
     <!-- 5 頼める ───────────────────────── -->
     <section class="slide" id="s5" data-use="待ち時間" data-steps="6" data-title="だから、こんなことが頼める">
-      <div class="chap"><span class="no">03</span><span class="lb">できること</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">05</span><span class="lb">できること</span><span class="bar"></span></div>
       <h2 class="h">だから、こんなことが<em>頼める</em></h2>
       <div class="verbs" id="s5verbs">
         <div class="verb">読む</div><div class="verb">作る</div><div class="verb">直す</div><div class="verb">調べる</div><div class="verb">まとめる</div>
@@ -861,7 +987,7 @@ body.shot #ink i{animation:none}
 
     <!-- 5 頼み方 ───────────────────────── -->
     <section class="slide" id="s6" data-use="待ち時間" data-steps="4" data-title="頼み方は、3つだけ">
-      <div class="chap"><span class="no">04</span><span class="lb">頼み方</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">06</span><span class="lb">頼み方</span><span class="bar"></span></div>
       <h2 class="h">頼み方は、<em>3つ</em>だけ</h2>
       <div class="lay">
         <div class="ways" id="s6ways">
@@ -876,7 +1002,7 @@ body.shot #ink i{animation:none}
 
     <!-- 6 まず触る ───────────────────────── -->
     <section class="slide" id="s7" data-use="待ち時間" data-steps="4" data-title="まずは、触ってみる">
-      <div class="chap"><span class="no">05</span><span class="lb">はじめかた</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">07</span><span class="lb">はじめかた</span><span class="bar"></span></div>
       <h2 class="h">まずは、<em>触ってみる</em></h2>
       <div class="lay">
         <div class="rail">
@@ -891,7 +1017,7 @@ body.shot #ink i{animation:none}
 
     <!-- 7 新入社員 ───────────────────────── -->
     <section class="slide" id="s8" data-use="②座学" data-steps="5" data-title="イメージは「すごく優秀な新入社員」">
-      <div class="chap"><span class="no">06</span><span class="lb">たとえ</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">08</span><span class="lb">たとえ</span><span class="bar"></span></div>
       <h2 class="h">イメージは「すごく優秀な<em>新入社員</em>」</h2>
       <div class="lay">
         <div class="col can fromL dim" data-s="2" id="s8can">
@@ -909,7 +1035,7 @@ body.shot #ink i{animation:none}
 
     <!-- 8 気をつける ───────────────────────── -->
     <section class="slide" id="s9" data-use="待ち時間" data-steps="4" data-title="これだけは、気をつける">
-      <div class="chap"><span class="no">07</span><span class="lb">やくそく</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">09</span><span class="lb">やくそく</span><span class="bar"></span></div>
       <h2 class="h">これだけは、<em>気をつける</em></h2>
       <div class="lay">
         <div class="rules" id="s9rules">
@@ -935,7 +1061,7 @@ body.shot #ink i{animation:none}
 
     <!-- 9 失敗 ───────────────────────── -->
     <section class="slide" id="s10" data-use="⑨締め" data-steps="4" data-title="「配って終わり」は、失敗する">
-      <div class="chap"><span class="no">08</span><span class="lb">失敗例</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">10</span><span class="lb">失敗例</span><span class="bar"></span></div>
       <h2 class="h">「配って終わり」は、<em>失敗する</em></h2>
       <div class="lay">
         <div>
@@ -953,7 +1079,7 @@ body.shot #ink i{animation:none}
 
     <!-- 10 成功 ───────────────────────── -->
     <section class="slide" id="s11" data-use="⑨締め" data-steps="4" data-title="成功のコツは「習慣」と「褒め合い」">
-      <div class="chap"><span class="no">09</span><span class="lb">成功例</span><span class="bar"></span></div>
+      <div class="chap"><span class="no">11</span><span class="lb">成功例</span><span class="bar"></span></div>
       <h2 class="h">成功のコツは「<em>習慣</em>」と「<em>褒め合い</em>」</h2>
       <div class="lay" id="s11lay">
         <div class="co dim" data-lit="2">
@@ -986,95 +1112,87 @@ body.shot #ink i{animation:none}
       </div>
     </section>
 
-<section class="slide practice overview" id="s12" data-use="今日やること" data-steps="1" data-title="今日やること　話して、形にして、任せる">
-<div class="chap"><span class="no">10</span><span class="lb">今日</span><span class="bar"></span></div>
-<h2 class="h">自分の仕事を、<em>AIと形にする</em></h2>
-<p class="work-lead">話して伝える。資料にする。小さな仕事を任せてみる。</p>
-<div class="work-cards">
-<div class="work-card"><span class="work-no">1</span><h3>説明資料を作る</h3><p>AIの質問に答えて、<br>普段の進め方を残す</p></div>
-<div class="work-card"><span class="work-no">2</span><h3>スライドにする</h3><p>新人に説明できる<br>5枚のスライドを作る</p></div>
-<div class="work-card"><span class="work-no">3</span><h3>仕事を任せる</h3><p>下書き・チェック表・整理を<br>1つ、実際に頼んでみる</p></div>
-</div>
-<div class="work-timing"><span><b>最初の約90分</b>　説明資料とスライドを作る</span><span><b>残りの約30分</b>　仕事を任せて、結果を確認する</span></div>
-<p class="work-footer">うまく話せなくても大丈夫。AIが一つずつ聞いてくれます。</p>
-</section>
 
-<section class="slide practice closing" id="s13" data-use="実習への導入" data-steps="1" data-title="事務所の一番の資産を、今日かたちにする">
+
+<section class="slide practice closing" id="s13" data-use="実践への導入" data-steps="2" data-title="事務所の一番の資産を、今日かたちにする">
+<div class="chap"><span class="no">12</span><span class="lb">体験へ</span><span class="bar"></span></div>
 <canvas id="s13cv" width="1920" height="1080"></canvas>
-<div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにします</p></div>
+<div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにします</p><p class="experience-invite" data-s="2">それでは実際に<em>体験</em>に入りましょう</p></div>
 </section>
 
-<section class="slide practice choose" id="s14" data-use="業務を選ぶ" data-steps="1" data-title="いつもの業務を1つ選ぶ">
-<div class="chap"><span class="no">01</span><span class="lb">えらぶ</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
-<h2 class="h">いつもの業務を、<em>1つ選ぶ</em></h2>
-<p class="work-lead">新人に「普段はこう進めています」と話せる仕事にしましょう。</p>
-<div class="work-question"><span>たとえば</span><p>月次の記帳／資料の回収／試算表のチェック</p><small>実際の顧問先の情報は使わず、一般的な進め方を話します。</small></div>
-<div class="work-cards compact">
-<div class="work-card"><span class="work-no">1</span><h3>何から始める？</h3><p>最初に見る資料や、<br>仕事が始まるきっかけ</p></div>
-<div class="work-card"><span class="work-no">2</span><h3>どんな順番？</h3><p>普段の進め方を、<br>ざっくり思い出す</p></div>
-<div class="work-card"><span class="work-no">3</span><h3>どこで迷う？</h3><p>自分で確認する点や、<br>先輩に相談するところ</p></div>
-</div>
-<p class="work-footer">まだ書かなくて大丈夫。細かい例外は、あとから足せます。</p>
+<section class="slide practice practice-agenda" id="practice-agenda" data-use="実践の目次" data-steps="1" data-title="実践の目次　設定・言語化・スライド・クロコへの依頼">
+<div class="chap"><span class="no">13</span><span class="lb">目次</span><span class="bar"></span></div>
+<h2 class="h">実践の<em>目次</em></h2>
+<p class="agenda-lead">ここからは、実際に触ってみます。</p>
+<ol class="agenda-list"><li><span class="agenda-no">1.</span><div class="agenda-name"><h3>設定する</h3><p>クロコを開き、保存先をデスクトップにする</p></div><span class="agenda-result">使う準備を整える</span></li><li><span class="agenda-no">2.</span><div class="agenda-name"><h3>自分の業務を言語化する</h3><p>担当業務を1つ選び、新人に対する説明資料を作る</p></div><span class="agenda-result">新人に対する説明資料</span></li><li><span class="agenda-no">3-i.</span><div class="agenda-name"><h3>スライドにする</h3><p>同じ説明資料から、新人に見せる5枚を作る</p></div><span class="agenda-result">5枚のスライド</span></li><li><span class="agenda-no">3-ii.</span><div class="agenda-name"><h3>実際にその業務をクロコに依頼する</h3><p>説明資料をもとに、仕訳案の作成や記帳データの照合を任せる</p></div><span class="agenda-result">仕訳案のExcel・照合結果</span></li></ol>
+
 </section>
 
-<section class="slide practice setup" id="s15" data-use="準備と確認" data-steps="1" data-title="準備して、そのまま始める">
-<div class="chap"><span class="no">02</span><span class="lb">準備</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
-<h2 class="h">準備して、<em>そのまま始める</em></h2>
-<div class="work-cards">
-<div class="work-card"><span class="work-no">1</span><h3>Claudeを開く</h3><p>講師と一緒に開き、<br>文字を入力できるか確認する</p></div>
-<div class="work-card"><span class="work-no">2</span><h3>保存先を確認</h3><p>今日の資料は<br>デスクトップに保存する</p></div>
-<div class="work-card"><span class="work-no">3</span><h3>実際の情報は使わない</h3><p>顧問先名・個人名・金額は<br>架空の表現にする</p></div>
+<section class="slide practice readable setup" id="s15" data-use="実践 1" data-steps="1" data-practice-stage="1" data-title="クロコの準備">
+<div class="chap"><span class="no">14</span><span class="lb">設定</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item now" data-stage-key="1" aria-current="step"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+
+<h2 class="h">クロコの<em>準備</em></h2>
+<div class="setup-with-screen">
+<ol class="setup-actions" aria-label="準備の順番">
+<li><span class="action-no">1</span><div><h3>クロコを開く</h3><p>上の「Code」タブを選びます。</p></div></li>
+<li><span class="action-no">2</span><div><h3>デスクトップを選ぶ</h3><p>「Local」→「Select folder」<br>→「デスクトップ」→「開く」</p></div></li>
+<li><span class="action-no">3</span><div><h3>「こんにちは」と送る</h3><p>返事が来たら、準備完了。</p></div></li>
+</ol>
+<figure class="folder-guide" aria-label="クロコのCodeタブでLocalとSelect folderを選び、フォルダ選択画面でデスクトップを選んで開く操作の画面例">
+<figcaption>操作する場所を抜き出した画面例</figcaption>
+<div class="code-picker-mock">
+<div class="picker-titlebar"><span class="window-dots"><i></i><i></i><i></i></span><span>Claude</span><div class="picker-tabs"><span>Chat</span><span>Cowork</span><span class="target-tab">Code</span></div></div>
+<div class="picker-compose"><p>何をお手伝いしましょうか？</p><div class="picker-controls"><span class="local-pill">Local ▾</span><span class="folder-pill">▣ Select folder</span><span class="picker-send">↑</span></div></div>
+<div class="picker-callout">「Local」を選んで、このボタンを押す <span>↑</span></div>
 </div>
-<div class="setup-file"><span class="file-symbol">MD</span><div><b>新人向けの説明資料.md</b><p>次の依頼で作るファイルです。今は用意しなくて大丈夫。</p></div></div>
-<p class="setup-note">Claude Codeで保存するときは、作業フォルダを「デスクトップ」にします。<br>保存できない画面では、できた資料をダウンロードしてデスクトップへ。</p>
-<p class="work-footer">入力できたら準備完了。困ったら手を挙げてください。</p>
+<div class="guide-down">↓ フォルダを選ぶ画面が開く</div>
+<div class="native-picker-mock">
+<div class="native-title">フォルダを選択</div>
+<div class="native-body"><div class="native-sidebar"><span>よく使う項目</span><b class="desktop-target">▣ デスクトップ</b><span>書類</span><span>ダウンロード</span></div><div class="native-content"><svg viewBox="0 0 100 80" aria-hidden="true"><path d="M7 20V10h34l12 12h40v48H7Z" fill="#5f8bb5"/><path d="M7 30h86v40H7Z" fill="#80b3d8"/></svg><b>デスクトップ</b><span>今日の作業場所</span></div></div>
+<div class="native-footer"><span>キャンセル</span><b class="open-target">開く</b></div>
+</div>
+<a class="guide-source" href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener noreferrer">操作手順の出典：公式ガイド</a>
+</figure>
+</div>
+<p class="practice-note">今日使うのは架空の情報です。顧問先名・個人名・実際の金額は入れません。</p>
 </section>
 
-<section class="slide practice prompt-page" id="s18" data-use="実習1" data-steps="1" data-title="書かずに、聞かれて答える">
-<div class="chap"><span class="no">03</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item now"><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
-<h2 class="h">書かずに、<em>聞かれて答える</em></h2>
-<div class="prompt-layout">
-<div class="pcard">
-<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div>
-<div class="prompt-text" data-prompt="interview"><p class="prompt-line">私の担当業務について、新人向けの説明資料を作りたいです。</p><p class="prompt-line">普段の進め方が分かるように、必要なことを5つまで、一つずつ質問してください。細かい例外は今は聞かなくて大丈夫です。</p><p class="prompt-line">答えをもとに資料を作り、AIに任せられそうなことと、私が最後に確認すべきことも書いてください。</p><p class="prompt-line">顧問先名・個人名・実際の金額は書かず、デスクトップに「新人向けの説明資料.md」として保存してください。</p></div>
+<section class="slide practice readable choose" id="s14" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="新人に説明したい業務を、1つ選ぶ">
+<div class="chap"><span class="no">15</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<h2 class="h">新人に説明したい業務を、<em>1つ選ぶ</em></h2>
+
+<p class="work-lead">普段、自分が担当している業務で進めます。</p>
+<div class="choice-options" aria-label="選ぶ業務の例">
+<div><span class="choice-tag">たとえば</span><h3>月次の記帳</h3><p>資料を見て、仕訳を入力する仕事</p></div>
+<div><span class="choice-tag">たとえば</span><h3>通帳と記帳の照合</h3><p>入出金を見比べ、違いを見つける仕事</p></div>
+<div><span class="choice-tag">たとえば</span><h3>試算表のチェック</h3><p>数字を見て、気になる点を確かめる</p></div>
 </div>
-<aside class="prompt-help"><h3>コピー → 貼り付け → 送信</h3><ol><li>AIの質問に、一つずつ答える</li><li>思い出せないところは、そのまま伝える</li><li>できた資料を読み、普段の進め方と合っているか見る</li></ol><div class="done-check"><span>次へ進む目安</span><p>説明資料ができて、<br>自分の仕事の流れが書かれている</p></div></aside>
-</div>
-<p class="work-footer">完成度は気にしなくて大丈夫。まずは普段の進め方を残します。</p>
+<div class="choice-next choice-memo"><span class="result-label">選べたらOK</span><ol><li>何か一つ思い浮かべてください</li><li>メモしてください</li><li>詳しい言語化は次のスライドでやります</li></ol></div>
 </section>
 
-<section class="slide practice prompt-page" id="s20" data-use="実習2" data-steps="1" data-title="説明資料を、5枚のスライドに">
-<div class="chap"><span class="no">04</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item now"><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
-<h2 class="h">説明資料を、<em>5枚のスライドに</em></h2>
-<div class="prompt-layout">
-<div class="pcard">
-<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div>
-<div class="prompt-text" data-prompt="slide"><p class="prompt-line">@新人向けの説明資料.md</p><p class="prompt-line">この資料を、新人に見せる5枚のHTMLスライドにしてください。</p><p class="prompt-line">「何をする仕事か・最初に確認するもの・仕事の流れ・迷ったときの対応・AIに任せられることと人が確認すること」を1枚ずつにして、Artifactを作ってください。</p><p class="prompt-line">顧問先名・個人名・実際の金額は入れず、分からないことは「要確認」と書いてください。</p></div>
-</div>
-<aside class="prompt-help"><h3>資料をClaudeへ渡す</h3><ol><li>チャット画面で、説明資料の.mdファイルを添付する</li><li>依頼文をコピーして送り、Artifactを作る</li><li>新人に見せるつもりで、内容を確認する</li></ol><div class="done-check"><span>次へ進む目安</span><p>5枚のスライドができて、<br>自分の説明と合っている</p></div></aside>
-</div>
-<p class="work-footer">同じ説明資料を使います。共有する場合は社内限定にしてください。</p>
-</section>
+<section class="slide practice readable prompt-page" id="s18" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="AIの質問に答えて、説明資料を作る">
+<div class="chap"><span class="no">16</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<h2 class="h">AIの質問に答えて、<em>説明資料を作る</em></h2>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="interview"><p class="prompt-line">私の業務内容と普段の進め方を、5問まで、一つずつ聞いてください。</p><p class="prompt-line">新人に対する説明資料にまとめ、AIに任せることと私が確認することも添えてください。</p><p class="prompt-line">デスクトップに「新人に対する説明資料.md」で保存してください。</p><p class="prompt-line">個人・顧問先の情報や実際の金額は使わず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>仕事の流れが<br>伝わっている？</h3><p>新人が、何から始めて<br>どう進めるか分かる内容に。</p><small>思い出せないことは、そのまま伝えてOK。</small></aside></div></section>
 
-<section class="slide practice prompt-page" id="s23" data-use="実習3" data-steps="1" data-title="AIに、小さな仕事を任せる">
-<div class="chap"><span class="no">05</span><span class="lb">実習</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item now"><b>3</b>仕事を任せる</span></div>
-<h2 class="h">AIに、<em>小さな仕事を任せる</em></h2>
-<div class="prompt-layout">
-<div class="pcard">
-<div class="ph"><span class="pt">この依頼文を使います</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div>
-<div class="prompt-text" data-prompt="task"><p class="prompt-line">@新人向けの説明資料.md</p><p class="prompt-line">この資料をもとに、AIに任せられそうな小さな仕事を1つ選び、実際にやってください。</p><p class="prompt-line">顧問先の実際の情報は使わず、下書き・チェック表・資料の整理のどれかを作って、デスクトップに保存してください。</p><p class="prompt-line">仕訳の確定や申告、メール送信、会計ソフトへの登録は行わず、最後にAIに任せたことと自分が確認することを教えてください。</p></div>
-</div>
-<aside class="prompt-help"><h3>Claude Codeへ渡す</h3><ol><li>作業フォルダを「デスクトップ」にする</li><li>@で説明資料を選び、依頼文を送る</li><li>できたファイルと、AIの報告を確認する</li></ol><div class="done-check"><span>次へ進む目安</span><p>小さな成果物ができて、<br>自分が確認する点が分かる</p></div></aside>
-</div>
-<p class="work-footer">早く終わった人から進めてOK。下書き・チェック表・整理から試します。</p>
-</section>
+<section class="slide practice readable prompt-page" id="s20" data-use="実践 3-i" data-steps="1" data-practice-stage="3-i" data-title="説明資料を、5枚のスライドにする">
+<div class="chap"><span class="no">17</span><span class="lb">スライド</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item now" data-stage-key="3-i" aria-current="step"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<h2 class="h">説明資料を、<em>5枚のスライドにする</em></h2>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたファイルを開く</h3><p>デスクトップのHTMLファイルを見る</p></div></li><li><span class="action-no">3</span><div><h3>内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="slide"><p class="prompt-line">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライドにしてください。</p><p class="prompt-line">HTMLファイルとしてデスクトップに保存してください。構成は任せます。</p><p class="prompt-line">個人・顧問先の情報や実際の金額は使わず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>5枚で、仕事の<br>流れが伝わる？</h3><p>説明資料と見比べて、<br>違うところはAIに直してもらう。</p></aside></div></section>
+
+<section class="slide practice readable prompt-page" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="仕事を任せて、結果を確かめる">
+<div class="chap"><span class="no">18</span><span class="lb">依頼</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<h2 class="h">仕事を任せて、<em>結果を確かめる</em></h2>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>この会話で作った説明資料を使う</p></div></li><li><span class="action-no">2</span><div><h3>業務の一部を任せる</h3><p>架空データで、実際に処理してもらう</p></div></li><li><span class="action-no">3</span><div><h3>結果と根拠を確認する</h3><p>作ったファイルを開き、内容を確かめる</p></div></li></ol>
+<div class="job-example"><span>例：通帳と記帳を照合</span><p>架空データ <b>→</b> AIが照合 <b>→</b> 未記帳・不一致の候補 <b>→</b> 人が確認</p><a class="practice-download" href="practice-data.zip" download>練習データを保存</a></div>
+<div class="reading-layout task-reading"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="task"><p class="prompt-line">この会話の説明資料をもとに、私の業務に合う作業を1つ選び、架空データで実行してください。</p><p class="prompt-line">例は仕訳案の作成や通帳と記帳の照合です。練習データがあれば使ってください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、根拠と私が確認する点を示してください。</p><p class="prompt-line">仕訳の確定・申告・送信・外部への登録はせず、不明点は「要確認」にしてください。</p></div></div><aside class="result-panel"><span class="result-label">できたら確認</span><h3>何が進んだ？</h3><p>未記帳・不一致の候補や、<br>仕訳案を、根拠と一緒に確認。</p><small>練習データはZIPを開き、2つのCSVをデスクトップへ。@で一緒に渡します。</small></aside></div></section>
 
 
   </div>
 </div>
 
 <div id="ticks"></div>
-<div id="num">01 / 18</div>
+<div id="num">01 / 19</div>
 <button type="button" id="gridBtn" aria-label="スライド一覧を開く">一覧 G</button>
 <div id="hint" role="status"></div>
 <div id="grid" hidden><div class="gwrap"></div></div>
@@ -1087,7 +1205,7 @@ body.shot #ink i{animation:none}
       <dt>数字キー</dt><dd>そのスライドへ（11 は 1 を2回）</dd>
       <dt>G</dt><dd>一覧</dd>
       <dt>A</dt><dd>自動再生（待ち時間に流しっぱなし）</dd>
-      <dt>C</dt><dd>いま表示している実習の依頼文をコピー</dd>
+      <dt>C</dt><dd>いま表示している実践の依頼文をコピー</dd>
       <dt>Z</dt><dd>このスライドの完成形</dd>
       <dt>R</dt><dd>このスライドを最初から</dd>
       <dt>B</dt><dd>画面を黒くする</dd>
@@ -1477,7 +1595,7 @@ var U = {
         return seq(ctx, [
           function(){ return U.type(ctx, L, '説明資料をスライドにして', 22); },
           function(){ return U.submit(ctx, L); },
-          function(){ return U.say(ctx, L, U.tool('読み取り', '新人向けの説明資料.md', ''), 1000); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', '新人に対する説明資料.md', ''), 1000); },
           function(){ return U.say(ctx, L, U.tool('読み取り', '前回のスライド', ''), 1000); },
           function(){ return U.say(ctx, L, U.tool('読み取り', '参考画像フォルダ', '8件'), 1000); },
           function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 1100); },
@@ -1777,7 +1895,7 @@ var U = {
   };
 
   /* 12 締め ─ 散らばった光が、10人の頭に集まり、1冊のかたちになる */
-  SIM[12] = (function(){
+  SIM[11] = (function(){
     var P = [], raf = 0, mode = 1, cv, cx, rnd = 1;
     function r(){ rnd = (rnd * 16807) % 2147483647; return rnd / 2147483647; }
     function book(n){
@@ -1928,7 +2046,7 @@ var U = {
         return new Promise(function(res, rej){ setTimeout(function(){ my === gen ? res() : rej('x'); }, ms); });
       }
     };
-    busy = !ctx.instant;
+    busy = !ctx.instant && !slides[i].classList.contains("practice");
     document.body.classList.toggle('busy', busy);
     return Promise.resolve()
       .then(function(){ return sim.step(k, slides[i], ctx); })
@@ -2121,7 +2239,7 @@ var U = {
 </script>
 
 <script>
-/* 実習のコピーは、画面に見えている全文をそのまま使う。 */
+/* 実践のコピーは、画面に見えている全文をそのまま使う。 */
 (function(){
   'use strict';
   function copyText(text){
