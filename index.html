@@ -623,6 +623,222 @@ body.shot #ink i{animation:none}
 #s4 .screen{flex:1;min-height:0;position:relative}
 #s4 .screen .app{height:100%}
 
+
+/* ═══════════════ 実践パート ③〜⑥（14枚目〜）═══════════════
+   追記専用。1〜13枚目のCSSは触らない。 */
+
+/* 現在地（上の帯）─ 各スライドの data-phase から JS が描く */
+.where{position:absolute;left:260px;right:150px;top:36px;height:54px;display:flex;align-items:center;gap:8px;font-size:26px;font-weight:700;pointer-events:none;z-index:3}
+.where .p{display:flex;align-items:center;gap:12px;padding:6px 22px 6px 16px;border-radius:999px;border:2px solid var(--line);color:var(--mut);white-space:nowrap;transition:all .4s}
+.where .p .no{font-family:var(--mono);font-size:27px}
+.where .p .tm{font-family:var(--mono);font-size:20px;font-weight:400;opacity:.85}
+.where .ln{width:26px;height:2px;background:var(--line);flex:none}
+.where .p.done{opacity:.5;border-color:transparent}
+.where .p.done .no::after{content:"✓";font-family:var(--ud);margin-left:6px;color:var(--ok)}
+.where .p.now{background:var(--ya);border-color:var(--ya);color:#14163A}
+.where .sub{display:flex;gap:4px;margin-left:4px}
+.where .sub i{width:22px;height:8px;border-radius:4px;background:rgba(20,22,58,.2)}
+.where .sub i.past{background:rgba(20,22,58,.55)}
+.where .sub i.on{background:#14163A}
+
+/* 実践スライド共通 */
+.hs .lay{flex:1;display:grid;gap:56px;min-height:0;margin-top:30px}
+.hs .scr{min-height:0;position:relative}
+.hs .scr .app{height:100%}
+.hs .col{display:flex;flex-direction:column;gap:24px;min-width:0;justify-content:center}
+.hs .rail{display:flex;flex-direction:column;gap:26px;justify-content:center;min-width:0}
+.hs .rail .r{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center}
+.hs .rail .n{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:38px;border:3px solid var(--line);color:var(--mut);transition:all .4s}
+.hs .rail .r:not(.unlit) .n{border-color:var(--ya);color:var(--ya)}
+.hs .rail .t{font-size:38px;font-weight:700;line-height:1.3;text-wrap:balance}
+.hs .rail .s{font-size:27px;color:var(--mut);margin-top:4px;line-height:1.35}
+.hs .rail.sm{gap:16px}
+.hs .rail.sm .r{grid-template-columns:60px 1fr;gap:16px}
+.hs .rail.sm .n{width:60px;height:60px;font-size:30px}
+.hs .rail.sm .t{font-size:32px}
+.hs .rail.sm .s{font-size:24px;margin-top:2px}
+
+/* 指示文カード（省略表示＋コピー） */
+.pcard{border:2px solid var(--line);border-radius:16px;background:rgba(17,26,69,.75);display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.pcard .ph{display:flex;align-items:center;gap:14px;padding:12px 18px 12px 22px;background:var(--bg3);border-bottom:2px solid var(--line)}
+.pcard .pt{font-size:26px;font-weight:700;color:var(--ya);letter-spacing:.06em;white-space:nowrap}
+.pcard .tag{font-size:20px;font-weight:700;color:#14163A;background:var(--ink2);border-radius:6px;padding:1px 10px;white-space:nowrap}
+.pcard .copy{margin-left:auto;display:flex;align-items:center;gap:10px;font:700 25px var(--ud);color:#14163A;background:var(--ya);border:0;border-radius:10px;padding:8px 20px;cursor:pointer;transition:background .2s,transform .15s}
+.pcard .copy:hover{transform:translateY(-1px)}
+.pcard .copy svg{width:24px;height:24px}
+.pcard .copy.done{background:var(--ok)}
+.pcard .pb{position:relative;padding:16px 22px 14px;font-size:28px;line-height:1.55;color:var(--ink);white-space:pre-line;overflow:hidden}
+.pcard .pb.clip{max-height:236px;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.pcard .more{padding:0 22px 14px;font-family:var(--mono);font-size:22px;color:var(--mut);margin-top:-6px}
+.pcard .pb .at{color:#9CC2FF;background:rgba(80,130,230,.22);border-radius:6px;padding:0 6px;font-family:var(--mono);font-size:.92em}
+
+/* アプリ画面の追加部品 */
+.app .pst{display:inline-flex;align-items:center;gap:10px;background:#3B3A36;border:1px solid #5A5853;border-radius:10px;padding:2px 16px 2px 12px;font-size:.84em;color:var(--w-ink);white-space:nowrap}
+.app .pst::before{content:"";width:16px;height:20px;border:2px solid #A8A49A;border-radius:3px;flex:none}
+.app-in .r2 .chip{transition:box-shadow .3s,background .3s}
+.app-in .r2 .chip.ring{box-shadow:0 0 0 4px rgba(255,197,61,.9);background:#4A4843}
+.fpop{position:absolute;left:12px;bottom:calc(100% + 10px);width:470px;background:#2C2B28;border:1px solid var(--w-line);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.4);padding:10px;display:flex;flex-direction:column;gap:2px;
+  opacity:0;transform:translateY(12px);transition:opacity .25s,transform .3s var(--e-in);pointer-events:none}
+.fpop.show{opacity:1;transform:none}
+.fpop .fh{font-size:20px;color:var(--w-mut);padding:6px 16px 8px}
+.fpop .op{display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:10px;font-size:26px;color:var(--w-ink);white-space:nowrap}
+.fpop .op svg{width:28px;height:28px;flex:none}
+.fpop .op.sel{background:#3B3A36}
+.fpop .op.hit{background:#4A4843;box-shadow:inset 0 0 0 2px #9CC2FF}
+.app .lvl{display:flex;flex-direction:column;gap:8px}
+.app .lvl > div{display:flex;align-items:center;gap:14px;font-size:29px;white-space:nowrap}
+.app .lv{display:inline-block;padding:0 14px;border-radius:8px;font-size:.84em;font-weight:700}
+.app .lv.a{background:rgba(127,211,166,.2);color:#7FD3A6}
+.app .lv.b{background:rgba(255,197,61,.18);color:#FFD27A}
+.app .lv.c{background:rgba(255,155,142,.18);color:#FF9B8E}
+
+/* 14 今日の流れ */
+#s14 .sub{font-size:40px;color:var(--ink2);margin:14px 0 0}
+#s14 .agenda{flex:1;display:flex;flex-direction:column;gap:18px;justify-content:center;min-height:0;margin-top:22px}
+#s14 .ag{position:relative;display:grid;grid-template-columns:90px minmax(0,1fr) 300px 330px;align-items:center;gap:26px;padding:22px 34px;border-radius:16px;background:rgba(17,26,69,.7);border:2px solid var(--line)}
+#s14 .ag .n{font-family:var(--mono);font-size:62px;font-weight:700;color:var(--ya);line-height:1}
+#s14 .ag .nm{font-size:46px;font-weight:700;line-height:1.2}
+#s14 .ag .nm span{display:block;font-size:29px;color:var(--mut);font-weight:400;margin-top:6px}
+#s14 .ag .tm{font-family:var(--mono);font-size:31px;color:var(--ink2);white-space:nowrap}
+#s14 .ag .bw{display:flex;align-items:center;gap:16px}
+#s14 .ag .bar{flex:1;height:22px;border-radius:11px;background:rgba(142,154,208,.18);position:relative;overflow:hidden}
+#s14 .ag .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:11px;background:var(--mut);width:0;transition:width 1s var(--e-in) .25s}
+#s14 .ag.in .bar i{width:var(--w)}
+#s14 .ag.main .bar i{background:var(--ya)}
+#s14 .ag .bw b{font-family:var(--mono);font-size:32px;min-width:84px;text-align:right}
+#s14 .ag .glow{position:absolute;inset:-3px;border:4px solid var(--ya);border-radius:18px;box-shadow:0 0 40px rgba(255,197,61,.35)}
+
+/* 15 作業フォルダ */
+#s15 .lay{grid-template-columns:620px 1fr}
+
+/* 16 できましたか */
+#s16 .lay{grid-template-columns:1fr;align-content:center;gap:28px}
+#s16 .chk{display:grid;grid-template-columns:120px 1fr;gap:34px;align-items:center;padding:30px 44px;border-radius:18px;border:2px solid var(--line);background:rgba(17,26,69,.65)}
+#s16 .chk .ring{width:120px;height:120px;border-radius:50%;border:5px solid var(--line);display:grid;place-items:center;transition:all .5s var(--e-in)}
+#s16 .chk .ring svg{width:70px;height:70px}
+#s16 .chk .ring path{fill:none;stroke:#0A1030;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70;transition:stroke-dashoffset .6s var(--e-in) .25s}
+#s16 .chk.in .ring{background:var(--ok);border-color:var(--ok)}
+#s16 .chk.in .ring path{stroke-dashoffset:0}
+#s16 .chk .t{font-size:50px;font-weight:700;line-height:1.3}
+#s16 .chk .s{font-size:32px;color:var(--mut);margin-top:6px}
+#s16 .ask{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+#s16 .ask .t{font-size:38px;color:var(--ink2)}
+
+/* 17 業務を1つ選ぶ */
+#s17 .lay{grid-template-columns:600px 1fr;align-items:stretch}
+#s17 .q{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:36px 40px;border-radius:18px;border:2px solid var(--line);background:rgba(17,26,69,.65)}
+#s17 .q .ql{font-size:28px;font-weight:700;color:var(--ya);letter-spacing:.2em}
+#s17 .q .qt{font-size:46px;font-weight:700;line-height:1.45;text-wrap:balance}
+#s17 .mind{display:flex;flex-direction:column;justify-content:center;gap:36px;min-width:0}
+#s17 .ml{display:flex;align-items:center;gap:22px;font-size:42px;font-weight:700}
+#s17 .ml span{font-family:var(--mono);font-size:30px;color:#14163A;background:var(--ya);border-radius:8px;padding:2px 16px}
+#s17 .flow{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding-top:10px}
+#s17 .flow::before{content:"";position:absolute;left:8%;right:8%;top:56px;height:4px;background:var(--line)}
+#s17 .nd{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:27px;color:var(--mut);text-align:center;transition:color .4s}
+#s17 .nd i{width:92px;height:92px;border-radius:50%;background:var(--bg);border:4px solid var(--line);display:grid;place-items:center;font-style:normal;font-family:var(--mono);font-size:38px;font-weight:700;transition:all .45s var(--e-spring)}
+#s17 .nd.on{color:var(--ink)}
+#s17 .nd.on i{border-color:var(--ya);background:var(--ya);color:#14163A;transform:scale(1.1);box-shadow:0 0 40px rgba(255,197,61,.45)}
+#s17 .tm{display:flex;align-items:center;gap:22px}
+#s17 .tm svg{width:110px;height:110px;transform:rotate(-90deg);flex:none}
+#s17 .tm circle{fill:none;stroke-width:12}
+#s17 .tm .bg{stroke:var(--line)}
+#s17 .tm .fg{stroke:var(--ya);stroke-linecap:round;stroke-dasharray:289;stroke-dashoffset:0}
+#s17 .tm .tt{font-size:34px;color:var(--ink2);line-height:1.4}
+#s17 .tm .tt b{font-family:var(--mono);color:var(--ya);font-size:48px}
+
+/* 18 インタビュー */
+#s18 .lay{grid-template-columns:690px 1fr;gap:48px}
+
+/* 19 Word */
+#s19 .lay{grid-template-columns:590px 1fr}
+.paper{position:absolute;inset:0;border-radius:20px;overflow:hidden;background:#DDE3EE;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1);display:flex;flex-direction:column}
+.paper .wb{flex:none;display:flex;align-items:center;gap:14px;height:58px;padding:0 22px;background:#2B579A;color:#fff;font-size:24px;font-weight:700}
+.paper .wb b{display:grid;place-items:center;width:34px;height:34px;border-radius:6px;background:#fff;color:#2B579A;font-family:Arial,sans-serif;font-size:22px}
+.paper .pg{flex:1;margin:22px 40px 0;background:#fff;color:#1F1E1C;padding:30px 44px;box-shadow:0 6px 24px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.paper .pg h4{margin:0 0 4px;font-family:var(--mincho);font-size:44px;font-weight:800;border-bottom:3px solid #2B579A;padding-bottom:8px}
+.paper .pg p{margin:0;font-size:25px;line-height:1.45}
+.paper .pg p b{color:#2B579A}
+.paper .pg p mark{background:#FFE58A;padding:0 4px}
+
+/* 20 別のセッション */
+#s20 .lay{grid-template-columns:600px 1fr}
+#s20 .scr{display:flex;flex-direction:column;gap:12px}
+.tabs{flex:none;display:flex;gap:10px}
+.tabs .tab{display:flex;align-items:center;gap:12px;font-size:26px;color:var(--mut);border:2px solid var(--line);border-radius:12px;padding:8px 22px;background:rgba(17,26,69,.6);white-space:nowrap;transition:all .3s}
+.tabs .tab.on{color:var(--ink);border-color:var(--ya);background:rgba(255,197,61,.1)}
+.tabs .tab.hit{transform:scale(.95);box-shadow:0 0 0 6px rgba(255,197,61,.4)}
+.tabs .tab i{width:14px;height:14px;border-radius:50%;background:var(--mut);flex:none}
+.tabs .tab i.ok{background:var(--ok)}
+.tabs .tab i.busy{background:var(--cc);animation:pulse 1s ease-in-out infinite}
+#s20 .hosts{flex:1;min-height:0;position:relative}
+#s20 .hosts > div{position:absolute;inset:0}
+#s20 .hosts > div.off{visibility:hidden}
+
+/* 21 共有フォルダ */
+#s21 .lay{grid-template-columns:1fr;align-content:center}
+.fx{display:grid;grid-template-columns:1fr 90px 1.1fr;gap:0;align-items:stretch;height:100%}
+.fx .win{--r:#F7F6F2;background:var(--win);color:var(--win-ink);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);display:flex;flex-direction:column;min-width:0}
+.fx .tb{flex:none;display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--win-line);background:#ECEAE3;font-size:25px;font-weight:700}
+.fx .tb::before{content:"";width:14px;height:14px;border-radius:50%;background:#E8685F;box-shadow:24px 0 0 #E9B84C,48px 0 0 #5EBE62;margin-right:58px}
+.fx .path{padding:10px 22px;font-size:23px;color:var(--win-mut);border-bottom:1px solid var(--win-line);background:#FAF9F5}
+.fx .path em{font-style:normal;color:#B26A00;font-weight:700}
+.fx .fl{flex:1;display:flex;flex-direction:column;gap:2px;padding:14px 12px;min-height:0;overflow:hidden}
+.fx .f{display:flex;align-items:center;gap:16px;padding:8px 14px;border-radius:8px;font-size:26px;white-space:nowrap;transition:background .4s}
+.fx .f .ic{width:30px;height:36px;flex:none}
+.fx .f .st{margin-left:auto;font-size:21px;color:var(--win-mut)}
+.fx .f.me{background:#EFE9D2}
+.fx .f.new{background:#DDF3E5;animation:flyIn .9s var(--e-in) both}
+.fx .f.late .st{color:#B26A00;font-weight:700}
+.fx .f.sent .st::after{content:"コピー済み ✓";color:#1E7A4C;font-weight:700}
+@keyframes flyIn{from{opacity:0;transform:translateX(-340px) scale(.9)}to{opacity:1;transform:none}}
+.snap .fx .f.new{animation:none}
+.fx .mid{display:grid;place-items:center;color:var(--ya);font-size:60px;font-weight:700}
+.fx .cnt{flex:none;padding:12px 22px;border-top:1px solid var(--win-line);font-size:23px;color:var(--win-mut);background:#FAF9F5;display:flex;gap:10px;align-items:center}
+.fx .cnt b{font-family:var(--mono);color:var(--win-ink);font-size:27px}
+
+/* 22 試す */
+#s22 .lay{grid-template-columns:600px 1fr}
+.helpbox{position:absolute;inset:0;border-radius:20px;background:#262624;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;color:#F5F4EE}
+.helpbox svg{width:170px;height:170px;transform-origin:50% 90%;animation:wave 1.6s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+.helpbox .t1{font-size:56px;font-weight:700}
+.helpbox .t2{font-size:34px;color:#A8A49A}
+
+/* 23 迷ったら */
+#s23 .lay{grid-template-columns:660px 1fr;gap:48px}
+
+/* 24 気をつける */
+#s24 .tiles{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:28px;min-height:0;margin-top:30px}
+#s24 .tile{display:flex;flex-direction:column;gap:12px;justify-content:center;padding:26px 36px;border-radius:18px;border:2px solid #7A3B4A;background:rgba(255,111,111,.07);min-width:0}
+#s24 .tile.ok{border-color:#2F7F63;background:rgba(94,214,160,.08)}
+#s24 .tile .tag{align-self:flex-start;font-size:26px;font-weight:700;color:#14163A;background:var(--ng);border-radius:6px;padding:1px 16px;letter-spacing:.1em}
+#s24 .tile.ok .tag{background:var(--ok)}
+#s24 .tile .tt{font-size:54px;font-weight:700;line-height:1.2}
+#s24 .tile .ex{font-size:30px;color:var(--ink2);line-height:1.5}
+#s24 .tile .demo{position:relative;display:inline-block;font-family:var(--mono);font-size:30px;color:var(--ink);background:rgba(255,255,255,.07);border-radius:8px;padding:4px 14px;margin-top:2px}
+#s24 .tile .demo i{position:absolute;left:-4px;right:-4px;top:8%;bottom:8%;background:#050816;border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .55s var(--e-in) .7s}
+#s24 .tile.in .demo i{transform:scaleX(1)}
+
+/* 25 1冊に */
+#s25 .lay{grid-template-columns:600px 1fr;gap:48px}
+#s25 .merge{position:absolute;inset:0;display:grid;place-items:center}
+#s25 .book{position:relative;width:440px;height:580px;border-radius:8px 18px 18px 8px;background:linear-gradient(90deg,#0E1A52 0 22px,#1C2C80 22px);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 2px rgba(255,197,61,.5);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;text-align:center;padding:0 40px 0 62px}
+#s25 .book .bt{font-family:var(--mincho);font-size:46px;line-height:1.35;white-space:nowrap}
+#s25 .book .bv{font-size:36px;color:var(--ya);font-weight:700}
+#s25 .book .bm{font-size:26px;color:var(--ink2);line-height:1.5}
+
+/* 26 持ち帰る */
+#s26 .lay{grid-template-columns:600px 1fr;gap:70px}
+#s26 .take{display:flex;flex-direction:column;gap:20px;justify-content:center}
+#s26 .take .cap{font-size:30px;font-weight:700;color:var(--ya);letter-spacing:.2em;margin:0}
+#s26 .tk{display:flex;align-items:center;gap:26px;padding:20px 30px;border-radius:16px;border:2px solid var(--line);background:rgba(17,26,69,.7)}
+#s26 .tk .ico{width:64px;height:76px;flex:none}
+#s26 .tk .ico svg{width:100%;height:100%}
+#s26 .tk .t{font-size:40px;font-weight:700;line-height:1.25}
+#s26 .tk .s{font-size:27px;color:var(--mut);margin-top:2px}
+#s26 .habits .r:nth-child(2){transition-delay:.15s}
+#s26 .habits .r:nth-child(3){transition-delay:.3s}
+.app .steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:2px}
 </style>
 
 <div id="viewport" lang="ja">
@@ -768,7 +984,7 @@ body.shot #ink i{animation:none}
         </div>
         <div class="col cant fromR" data-s="3">
           <div class="hd">知らないこと</div>
-          <ul><li>この事務所のやり方</li><li>「この顧問先はこう」という判断</li><li>だから、最初は間違える → 教えて、育てる</li></ul>
+          <ul><li>この事務所のやり方</li><li>「この顧問先はこう」という判断</li><li>だから、最初は間違える<br>→ 教えて、育てる</li></ul>
         </div>
       </div>
       <div class="memo" data-s="4" id="s8app"></div>
@@ -883,6 +1099,270 @@ body.shot #ink i{animation:none}
         <p class="l2" data-s="2">皆さんの<em>頭の中</em>にある</p>
         <p class="l3" data-s="3">それを、今日かたちにします</p>
       </div>
+    </section>
+
+    <!-- ═══════════ 実践パート ③〜⑥（14枚目〜）。この下に追記する ═══════════ -->
+
+    <!-- 14 今日の流れ ───────────────────────── -->
+    <section class="slide hs" id="s14" data-use="導入" data-phase="0" data-steps="6" data-title="今日の流れ　③準備から⑥まとめ">
+      <div class="chap"><span class="no">00</span><span class="lb">流れ</span><span class="bar"></span></div>
+      <h2 class="h">ここからは、見るのではなく<em>触る</em></h2>
+      <div class="agenda">
+        <div class="ag" data-s="2"><span class="n">③</span><div class="nm">準備<span>作業フォルダを選ぶ</span></div><div class="tm">14:20〜14:30</div><div class="bw"><div class="bar"><i style="--w:20%"></i></div><b>10分</b></div></div>
+        <div class="ag main" data-s="3"><span class="n">④</span><div class="nm">マニュアル作り<span>自分の業務を、AIにまとめてもらう</span></div><div class="tm">14:30〜15:00</div><div class="bw"><div class="bar"><i style="--w:60%"></i></div><b>30分</b></div><div class="glow" data-s="6"></div></div>
+        <div class="ag main" data-s="4"><span class="n">⑤</span><div class="nm">自分の業務で試す<span>ほかの仕事も、やらせてみる</span></div><div class="tm">15:00〜15:50</div><div class="bw"><div class="bar"><i style="--w:100%"></i></div><b>50分</b></div><div class="glow" data-s="6"></div></div>
+        <div class="ag" data-s="5"><span class="n">⑥</span><div class="nm">まとめ<span>10人分が、1冊になる</span></div><div class="tm">15:50〜16:00</div><div class="bw"><div class="bar"><i style="--w:20%"></i></div><b>10分</b></div></div>
+      </div>
+      <div class="band wide" data-s="6" style="margin-top:26px">④と⑤が、今日のメイン。合わせて80分</div>
+    </section>
+
+    <!-- 15 ③ 作業フォルダ ───────────────────────── -->
+    <section class="slide hs" id="s15" data-use="③ 準備" data-phase="3" data-steps="4" data-title="③ 作業フォルダを選ぶ">
+      <div class="chap"><span class="no">③</span><span class="lb">フォルダ</span><span class="bar"></span></div>
+      <h2 class="h">作業フォルダを<em>選ぶ</em></h2>
+      <div class="lay">
+        <div class="rail">
+          <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">フォルダ名を押す</div><div class="s">入力欄の、左下にあります</div></div></div>
+          <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">「研修用フォルダ」を選ぶ</div><div class="s">今日は、ここで作業します</div></div></div>
+          <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">@ を打つ</div><div class="s">フォルダの中のファイルが、候補に出ます</div></div></div>
+        </div>
+        <div class="scr" id="s15app"></div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">候補が出たら、準備は完了です</div>
+    </section>
+
+    <!-- 16 ③ できましたか ───────────────────────── -->
+    <section class="slide hs" id="s16" data-use="③ 確認" data-phase="3" data-steps="4" data-title="③ できましたか？">
+      <div class="chap"><span class="no">③</span><span class="lb">確認</span><span class="bar"></span></div>
+      <h2 class="h">できましたか？</h2>
+      <div class="lay">
+        <div class="chk" data-s="2"><span class="ring"><svg viewBox="0 0 70 70" aria-hidden="true"><path d="M14 36l15 15 28-31"/></svg></span><div><div class="t">左下が「研修用フォルダ」になっている</div><div class="s">入力欄の左下を見てください</div></div></div>
+        <div class="chk" data-s="3"><span class="ring"><svg viewBox="0 0 70 70" aria-hidden="true"><path d="M14 36l15 15 28-31"/></svg></span><div><div class="t">@ を打つと、ファイルの候補が出る</div><div class="s">候補が出たら、ここまでは完璧です</div></div></div>
+        <div class="ask" data-s="4"><div class="band">できた人から、手を挙げてください</div><div class="t">うまく出ない人も、手を挙げてください。近くの講師が行きます</div></div>
+      </div>
+    </section>
+
+    <!-- 17 ④-1 業務を選ぶ ───────────────────────── -->
+    <section class="slide hs" id="s17" data-use="④-1 選ぶ" data-phase="4" data-sub="1" data-steps="4" data-title="④-1 業務を1つ選ぶ（3分）">
+      <div class="chap"><span class="no">④</span><span class="lb">えらぶ</span><span class="bar"></span></div>
+      <h2 class="h">「自分が抜けたら困る」業務を<em>1つ</em></h2>
+      <div class="lay">
+        <div class="q" data-s="2"><div class="ql">たとえば</div><div class="qt">明日から自分が休んだら、誰かに引き継がないといけない仕事</div></div>
+        <div class="mind">
+          <div class="ml">頭の中で、最初から最後まで流す<span>3分</span></div>
+          <div class="flow" id="s17flow">
+            <div class="nd"><i>1</i>はじめ</div><div class="nd"><i>2</i></div><div class="nd"><i>3</i></div><div class="nd"><i>4</i></div><div class="nd"><i>5</i></div><div class="nd"><i>6</i>おわり</div>
+          </div>
+          <div class="tm" data-s="3">
+            <svg viewBox="0 0 110 110" aria-hidden="true"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" id="s17ring" cx="55" cy="55" r="46"/></svg>
+            <div class="tt"><b>3分</b><br>手元に何も書かなくていい</div>
+          </div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">まだ書かない。きれいに思い出さなくていい</div>
+    </section>
+
+    <!-- 18 ④-2 インタビュー ───────────────────────── -->
+    <section class="slide hs" id="s18" data-use="④-2 聞かれる" data-phase="4" data-sub="2" data-steps="5" data-title="④-2 AIにインタビューさせる（15分）">
+      <div class="chap"><span class="no">④</span><span class="lb">インタビュー</span><span class="bar"></span></div>
+      <h2 class="h">書くのではなく、<em>聞かれて答える</em></h2>
+      <div class="lay">
+        <div class="col">
+          <div class="pcard">
+            <div class="ph"><span class="pt">配る指示文</span><button type="button" class="copy" data-p="interview"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
+            <div class="pb clip">私は税理士事務所で働いています。私が担当している業務の手順書（マニュアル）を作りたいです。
+
+いきなり書き始めないでください。まず私に質問してください。1回に1つずつ、全部で10問くらい聞いてください。</div>
+            <div class="more">… 全文は［コピー］で</div>
+          </div>
+          <div class="rail sm">
+            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">コピーして、貼って、送る</div></div></div>
+            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">聞かれたことに、答える</div></div></div>
+            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">あいまいなら、聞き返される</div></div></div>
+          </div>
+        </div>
+        <div class="scr" id="s18app"></div>
+      </div>
+      <div class="band wide" data-s="5" style="margin-top:28px">答えがあいまいでも大丈夫。AIが聞き返してくれます</div>
+    </section>
+
+    <!-- 19 ④-3 Word ───────────────────────── -->
+    <section class="slide hs" id="s19" data-use="④-3 Word" data-phase="4" data-sub="3" data-steps="4" data-title="④-3 Wordのマニュアルにする（8分）">
+      <div class="chap"><span class="no">④</span><span class="lb">Word</span><span class="bar"></span></div>
+      <h2 class="h">聞き終わったら、<em>Word</em>にしてもらう</h2>
+      <div class="lay">
+        <div class="col">
+          <div class="rail">
+            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">「Wordにして」と頼む</div></div></div>
+            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">保存の確認は<br>「一度だけ許可」</div></div></div>
+            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">できたら、開いて見る</div></div></div>
+          </div>
+          <div class="pcard">
+            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="word"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
+            <div class="pb">ここまでの話をマニュアルにして、Wordファイルで保存して</div>
+          </div>
+        </div>
+        <div class="scr" id="s19scr">
+          <div id="s19app" style="position:absolute;inset:0"></div>
+          <div class="paper" data-s="4">
+            <div class="wb"><b>W</b>月次報告の手順.docx</div>
+            <div class="pg">
+              <h4>月次報告の手順</h4>
+              <p><b>1　目的</b>　顧問先に、毎月の数字を報告する</p>
+              <p><b>2　いつ</b>　毎月10日まで</p>
+              <p><b>3　使うもの</b>　会計ソフト／通帳のコピー</p>
+              <p><b>4　手順</b>　取り込む → 確認する → 報告書にまとめる</p>
+              <p><b>5　間違えやすいところ</b>　<mark>通帳の日付と、仕訳の日付のずれ</mark></p>
+              <p><b>6　困ったとき</b>　先輩に聞く</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">自分の言葉が、そのままマニュアルになった</div>
+    </section>
+
+    <!-- 20 ④-4 スライド版 ───────────────────────── -->
+    <section class="slide hs" id="s20" data-use="④-4 省略可" data-phase="4" data-sub="4" data-steps="4" data-title="④-4 スライド版は、別のセッションで（2分）">
+      <div class="chap"><span class="no">④</span><span class="lb">スライド</span><span class="bar"></span></div>
+      <h2 class="h">スライド版は、<em>別のセッション</em>で</h2>
+      <div class="lay">
+        <div class="col">
+          <div class="rail sm">
+            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">新しいセッションを開く</div></div></div>
+            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">@ でWordを選んで、貼る</div></div></div>
+            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">待たずに、次へ進む</div></div></div>
+          </div>
+          <div class="pcard">
+            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
+            <div class="pb"><span class="at">@Wordファイル</span> ← @ で選ぶ
+を見て、同じ内容をスライドにして</div>
+          </div>
+        </div>
+        <div class="scr" id="s20scr">
+          <div class="tabs"><span class="tab on" id="s20t1">セッション1<i class="ok"></i></span><span class="tab" id="s20t2">＋ 新しいセッション<i></i></span></div>
+          <div class="hosts"><div id="s20h1"></div><div id="s20h2" class="off"></div></div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">できるのを待たない。できたら、あとで置けばいい</div>
+    </section>
+
+    <!-- 21 ④-5 共有フォルダ ───────────────────────── -->
+    <section class="slide hs" id="s21" data-use="④-5 保存" data-phase="4" data-sub="5" data-steps="4" data-title="④-5 共有フォルダに保存する（2分）">
+      <div class="chap"><span class="no">④</span><span class="lb">保存</span><span class="bar"></span></div>
+      <h2 class="h">できたファイルを、<em>共有フォルダ</em>へ</h2>
+      <div class="lay">
+        <div class="scr" id="s21scr">
+          <div class="fx">
+            <div class="win">
+              <div class="tb">研修用フォルダ</div>
+              <div class="path">自分のパソコン</div>
+              <div class="fl" id="s21l"></div>
+            </div>
+            <div class="mid">→</div>
+            <div class="win">
+              <div class="tb">共有フォルダ</div>
+              <div class="path">場所：<em>当日、講師がご案内します</em></div>
+              <div class="fl" id="s21r"></div>
+              <div class="cnt">ファイル数　<b id="s21n">4</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">置くのは手順書だけ。顧問先のデータは置かない</div>
+    </section>
+
+    <!-- 22 ⑤ 試す ───────────────────────── -->
+    <section class="slide hs" id="s22" data-use="⑤ 試す" data-phase="5" data-steps="4" data-title="⑤ 自分の業務で試す（50分）">
+      <div class="chap"><span class="no">⑤</span><span class="lb">試す</span><span class="bar"></span></div>
+      <h2 class="h">④のやり方で、<em>ほかの業務</em>も</h2>
+      <div class="lay">
+        <div class="rail">
+          <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">まず、AIに聞く</div><div class="s">「〇〇したい。どういう手順？」</div></div></div>
+          <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">詰まったら、手を挙げる</div><div class="s">近くの講師が、席まで行きます</div></div></div>
+          <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">うまくいったら、残す</div><div class="s">頼み方を書いておけば、次も使える</div></div></div>
+        </div>
+        <div class="scr" id="s22scr">
+          <div id="s22app" style="position:absolute;inset:0"></div>
+          <div class="helpbox" data-only="3">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="#FFC53D"><rect x="30" y="52" width="60" height="52" rx="22"/><rect x="30" y="20" width="12" height="46" rx="6"/><rect x="46" y="10" width="12" height="56" rx="6"/><rect x="62" y="14" width="12" height="52" rx="6"/><rect x="78" y="24" width="12" height="42" rx="6"/><rect x="12" y="58" width="12" height="34" rx="6" transform="rotate(-30 18 75)"/></g></svg>
+            <div class="t1">手を挙げてください</div>
+            <div class="t2">近くの講師が、席まで行きます</div>
+          </div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">正解はありません。失敗しても、やり直せば大丈夫</div>
+    </section>
+
+    <!-- 23 ⑤ 迷ったら ───────────────────────── -->
+    <section class="slide hs" id="s23" data-use="⑤ 迷ったら" data-phase="5" data-steps="4" data-title="⑤ 何を任せたらいいか、迷ったら">
+      <div class="chap"><span class="no">⑤</span><span class="lb">迷ったら</span><span class="bar"></span></div>
+      <h2 class="h">何を任せるか迷ったら、<em>業務を並べる</em></h2>
+      <div class="lay">
+        <div class="col">
+          <div class="rail sm">
+            <div class="r" data-lit="2"><span class="n">1</span><div><div class="t">自分の業務を、箇条書きにする</div></div></div>
+            <div class="r" data-lit="3"><span class="n">2</span><div><div class="t">指示文と一緒に送る</div></div></div>
+            <div class="r" data-lit="4"><span class="n">3</span><div><div class="t">任せられそうなものを、1つ試す</div></div></div>
+          </div>
+          <div class="pcard">
+            <div class="ph"><span class="pt">指示文</span><button type="button" class="copy" data-p="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
+            <div class="pb">私が普段やっている業務を箇条書きにします。それぞれ、Claude Codeにどこまで任せられるか教えてください。</div>
+          </div>
+        </div>
+        <div class="scr" id="s23app"></div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">全部は任せない。まず1つ、試してみる</div>
+    </section>
+
+    <!-- 24 ⑤ 気をつける ───────────────────────── -->
+    <section class="slide hs" id="s24" data-use="⑤ 注意" data-phase="5" data-steps="5" data-title="⑤ もう一度、気をつける">
+      <div class="chap"><span class="no">⑤</span><span class="lb">やくそく</span><span class="bar"></span></div>
+      <h2 class="h">試す前に、もう一度<em>約束</em></h2>
+      <div class="tiles">
+        <div class="tile" data-s="2"><span class="tag">入れない</span><div class="tt">個人情報</div><div class="ex">名前・マイナンバー・給与</div><div><span class="demo">山田 太郎　月給 38万円<i></i></span></div></div>
+        <div class="tile" data-s="3"><span class="tag">貼らない</span><div class="tt">パスワード</div><div class="ex">ログインの情報は、チャットに書かない</div><div><span class="demo">パスワード： Taro-2026!<i></i></span></div></div>
+        <div class="tile" data-s="4"><span class="tag">置かない</span><div class="tt">顧問先のデータ</div><div class="ex">共有フォルダには、手順書だけ</div><div><span class="demo">なにわ製作所_決算.xlsx<i></i></span></div></div>
+        <div class="tile ok" data-s="5"><span class="tag">見る</span><div class="tt">結果は、人が確認する</div><div class="ex">AIは下書き係。最後に見るのは、人</div></div>
+      </div>
+    </section>
+
+    <!-- 25 ⑥ 1冊に ───────────────────────── -->
+    <section class="slide hs" id="s25" data-use="⑥ 講師が操作" data-phase="6" data-steps="4" data-title="⑥ 10人分が、1冊になりました">
+      <div class="chap"><span class="no">⑥</span><span class="lb">まとめ</span><span class="bar"></span></div>
+      <h2 class="h"><em>10人分</em>の手順書を、1冊に</h2>
+      <div class="lay">
+        <div class="col">
+          <p class="t" style="margin:0">15:00ごろから、裏で動かしておきました。共有フォルダの手順書を、全部まとめて頼みます</p>
+          <div class="pcard">
+            <div class="ph"><span class="pt">指示文</span><span class="tag">講師用</span><button type="button" class="copy" data-p="merge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M8 8h11v12H8zM5 16V4h11"/></svg><span class="cl">コピー</span></button></div>
+            <div class="pb clip">このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして</div>
+          </div>
+        </div>
+        <div class="scr">
+          <div id="s25app" data-only="1,2,3" style="position:absolute;inset:0"></div>
+          <div class="merge" data-only="4"><div class="book"><div class="bt">ファインブレーン<br>業務マニュアル</div><div class="bv">第1版</div><div class="bm">10人分の手順書<br>目次つき　42ページ</div></div></div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">10人分の頭の中が、今日の2時間で1冊になりました</div>
+    </section>
+
+    <!-- 26 ⑥ 持ち帰る ───────────────────────── -->
+    <section class="slide hs" id="s26" data-use="⑥ 締め" data-phase="6" data-steps="4" data-title="⑥ 持ち帰るもの、続けること">
+      <div class="chap"><span class="no">⑥</span><span class="lb">つづける</span><span class="bar"></span></div>
+      <h2 class="h">持ち帰って、<em>続ける</em></h2>
+      <div class="lay">
+        <div class="take" data-s="2">
+          <p class="cap">持ち帰るもの</p>
+          <div class="tk"><span class="ico" data-i="docx"></span><div><div class="t">自分のマニュアル</div><div class="s">Word版</div></div></div>
+          <div class="tk"><span class="ico" data-i="pptx"></span><div><div class="t">自分のマニュアル</div><div class="s">スライド版</div></div></div>
+        </div>
+        <div class="rail habits">
+          <div class="r" data-s="3"><span class="n">1</span><div><div class="t">使ったあとに、1行メモ</div><div class="s">うまくいったこと、困ったこと</div></div></div>
+          <div class="r" data-s="3"><span class="n">2</span><div><div class="t">詰まったら、まずClaudeに聞く</div><div class="s">人に聞く前に、一度</div></div></div>
+          <div class="r" data-s="3"><span class="n">3</span><div><div class="t">週に1回は使う</div><div class="s">うまくいった頼み方は、事務所で共有</div></div></div>
+        </div>
+      </div>
+      <div class="band wide" data-s="4" style="margin-top:28px">フォロー会の日程は、あらためてお知らせします</div>
     </section>
 
   </div>
@@ -1996,3 +2476,376 @@ var U = {
 })();
 
 </script>
+
+<script>
+/* ═══════════════ 実践パート ③〜⑥（14枚目〜）の動き ═══════════════
+   追記専用。上の <script> が先に動いて SIM と U ができている前提。
+   スライド番号 n の動きは SIM[n-1]。14枚目は SIM[13]。 */
+(function(){
+  'use strict';
+  var $ = function(sl, q){ return sl.querySelector(q); };
+  var $$ = function(sl, q){ return [].slice.call(sl.querySelectorAll(q)); };
+  function seq(ctx, fns){ var p = Promise.resolve(); fns.forEach(function(f){ p = p.then(f); }); return p; }
+
+  /* Word / PowerPoint のアイコン（既存の md アイコンの色違い） */
+  ICON.docx = ICON.md.replace(/#4B5BB8/g, '#2B579A').replace('>MD<', '>DOC<');
+  ICON.pptx = ICON.md.replace(/#4B5BB8/g, '#C43E1C').replace('>MD<', '>PPT<');
+  $$(document, '#s26 .ico').forEach(function(e){ e.innerHTML = ICON[e.getAttribute('data-i')] || ''; });
+
+  /* ───────── 配る指示文（全文）。画面には先頭だけ出し、［コピー］で全文を取り出す ───────── */
+  var PROMPTS = {
+    interview:
+      '私は税理士事務所で働いています。私が担当している業務の手順書（マニュアル）を作りたいです。\n\n' +
+      'いきなり書き始めないでください。まず私に質問してください。1回に1つずつ、全部で10問くらい聞いてください。\n\n' +
+      '聞いてほしいこと：その業務は何のためにやるのか／いつ、どれくらいの頻度でやるのか／何を使うのか（ソフト・資料・データ）／どんな順番でやるのか／気をつけること、間違えやすいところ／困ったときは誰に聞くのか\n\n' +
+      '私の答えが曖昧だったら、遠慮なく聞き返してください。',
+    word:  'ここまでの話をマニュアルにして、Wordファイルで保存して',
+    slide: 'を見て、同じ内容をスライドにして',
+    list:  '私が普段やっている業務を箇条書きにします。それぞれ、Claude Codeにどこまで任せられるか教えてください。',
+    merge: 'このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして'
+  };
+
+  function copyText(t){
+    function fallback(){
+      return new Promise(function(res, rej){
+        var ta = document.createElement('textarea');
+        ta.value = t; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false; try { ok = document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+        ok ? res() : rej();
+      });
+    }
+    if (navigator.clipboard && window.isSecureContext){
+      return navigator.clipboard.writeText(t).catch(fallback);
+    }
+    return fallback();
+  }
+  function doCopy(btn){
+    var t = PROMPTS[btn.getAttribute('data-p')]; if (!t) return;
+    var lb = btn.querySelector('.cl');
+    copyText(t).then(function(){
+      btn.classList.add('done'); lb.textContent = 'コピーしました';
+    }).catch(function(){
+      btn.classList.remove('done'); lb.textContent = 'コピーできませんでした';
+    }).then(function(){
+      setTimeout(function(){ btn.classList.remove('done'); lb.textContent = 'コピー'; }, 2200);
+    });
+  }
+  /* ボタンの上のクリックは、既存の進行（button は除外）に影響しない */
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('.copy'); if (b) doCopy(b);
+  });
+  /* C キー：いま見ているスライドの指示文をコピー（講師用） */
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'c' || e.key === 'C'){ var b = document.querySelector('.slide.on .copy'); if (b) doCopy(b); }
+  });
+
+  /* ───────── 現在地の帯（上）。各スライドの data-phase / data-sub から描く ───────── */
+  var PH = [
+    { k: 3, no: '③', nm: '準備',   tm: '〜14:30' },
+    { k: 4, no: '④', nm: '作る',   tm: '〜15:00' },
+    { k: 5, no: '⑤', nm: '試す',   tm: '〜15:50' },
+    { k: 6, no: '⑥', nm: 'まとめ', tm: '〜16:00' }
+  ];
+  $$(document, '.slide[data-phase]').forEach(function(sl){
+    var p = parseInt(sl.getAttribute('data-phase'), 10); if (!p) return;
+    var sub = parseInt(sl.getAttribute('data-sub') || '0', 10), html = '';
+    PH.forEach(function(o, i){
+      var cls = o.k < p ? 'done' : (o.k === p ? 'now' : '');
+      var dots = '';
+      if (o.k === p && o.k === 4 && sub){
+        dots = '<span class="sub">';
+        for (var j = 1; j <= 5; j++) dots += '<i class="' + (j < sub ? 'past' : (j === sub ? 'on' : '')) + '"></i>';
+        dots += '</span>';
+      }
+      html += (i ? '<span class="ln"></span>' : '') +
+        '<span class="p ' + cls + '"><span class="no">' + o.no + '</span>' + o.nm + '<span class="tm">' + o.tm + '</span>' + dots + '</span>';
+    });
+    var w = document.createElement('div'); w.className = 'where'; w.setAttribute('aria-label', '今日の流れの現在地'); w.innerHTML = html;
+    sl.insertBefore(w, sl.firstChild);
+  });
+
+  var PASTE = '<span class="pst">貼り付けたテキスト　+9行</span>';
+
+  /* 15 ③ 作業フォルダ ─ フォルダ名を押す → 選ぶ → @ で候補が出る */
+  SIM[14] = {
+    reset: function(sl){
+      var A = sl._A = U.app($(sl, '#s15app'), { mention: true, folder: 'フォルダを選択' });
+      A.chip = A.root.querySelector('.r2 .chip');
+      A.pop = U.h('<div class="fpop"><div class="fh">フォルダを選ぶ</div><div class="op">' + ICON.folder + 'デスクトップ</div><div class="op sel">' + ICON.folder + '研修用フォルダ</div><div class="op">' + ICON.folder + 'ドキュメント</div></div>');
+      A.inp.appendChild(A.pop);
+      A.mention.innerHTML = [['通帳_1月.csv', 'csv'], ['請求書_サンプル.xlsx', 'xlsx'], ['作業メモ.md', 'md']].map(function(o, i){
+        return '<div class="op' + (i === 0 ? ' sel' : '') + '">' + ICON[o[1]] + o[0] + '</div>';
+      }).join('');
+    },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 2){
+        return ctx.wait(500).then(function(){ A.chip.classList.add('ring'); A.pop.classList.add('show'); });
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ A.pop.querySelector('.op.sel').classList.add('hit'); return ctx.wait(650); },
+          function(){ A.pop.classList.remove('show'); A.chip.classList.remove('ring'); A.chip.innerHTML = ICON.folder + '研修用フォルダ'; return ctx.wait(300); }
+        ]);
+      }
+      if (k === 4){
+        if (ctx.instant){
+          A.ph.hidden = true; A.caret.hidden = false; A.inp.classList.add('focus');
+          A.tx.innerHTML = '<span class="at">@通帳_1月.csv</span>'; return;
+        }
+        return seq(ctx, [
+          function(){ return ctx.wait(400); },
+          function(){ return U.type(ctx, A, '@', 4); },
+          function(){ A.send.classList.remove('go'); A.mention.classList.add('show'); return ctx.wait(1700); },
+          function(){ A.mention.querySelector('.op.sel').classList.add('hit'); return ctx.wait(500); },
+          function(){ A.mention.classList.remove('show'); A.tx.innerHTML = '<span class="at">@通帳_1月.csv</span>'; return ctx.wait(300); }
+        ]);
+      }
+    }
+  };
+
+  /* 17 ④-1 業務を選ぶ ─ 頭の中で、最初から最後まで流す */
+  SIM[16] = {
+    reset: function(sl){
+      $$(sl, '.nd').forEach(function(n){ n.classList.remove('on'); });
+      var r = $(sl, '#s17ring'); r.style.transition = 'none'; r.style.strokeDashoffset = '0';
+    },
+    step: function(k, sl, ctx){
+      if (k !== 3) return;
+      var nds = $$(sl, '.nd'), r = $(sl, '#s17ring');
+      if (ctx.instant){ nds.forEach(function(n){ n.classList.add('on'); }); r.style.strokeDashoffset = '289'; return; }
+      void r.getBoundingClientRect();
+      r.style.transition = 'stroke-dashoffset 6s linear'; r.style.strokeDashoffset = '289';
+      return seq(ctx, nds.map(function(n){ return function(){ n.classList.add('on'); return ctx.wait(950); }; }));
+    }
+  };
+
+  /* 18 ④-2 インタビュー ─ 指示文を貼る → 1問ずつ聞かれる → あいまいなら聞き返される */
+  SIM[17] = {
+    reset: function(sl){ sl._A = U.app($(sl, '#s18app')); },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 2){
+        return seq(ctx, [
+          function(){ return ctx.wait(500); },
+          function(){ A.ph.hidden = true; A.caret.hidden = false; A.inp.classList.add('focus'); A.tx.innerHTML = PASTE; A.send.classList.add('go'); return ctx.wait(1300); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 900); },
+          function(){ return U.say(ctx, A, U.cl('わかりました。まず質問しますね。<br>全部で10問です'), 800); },
+          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>質問 1 / 10</b>　その業務は、何のためにやりますか？'), 600); }
+        ]);
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ return U.type(ctx, A, '顧問先に、毎月の数字を報告するため', 20); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 700); },
+          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>質問 2 / 10</b>　毎月いつ頃、何を使ってやりますか？'), 600); }
+        ]);
+      }
+      if (k === 4){
+        return seq(ctx, [
+          function(){ return U.type(ctx, A, 'うーん、ケースバイケースで…', 14); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 800); },
+          function(){ U.done(A); return U.say(ctx, A, U.cl('<b>聞き返し</b>　ケースバイケース、とのことですが、<br>たとえば先月は、どうでしたか？'), 600); }
+        ]);
+      }
+      if (k === 5){
+        return U.say(ctx, A, U.sep('…このあと、質問が7つほど続きます'), 400);
+      }
+    }
+  };
+
+  /* 19 ④-3 Word ─ 「Wordにして」→ 許可 → ファイルができる → 開いて見る */
+  SIM[18] = {
+    reset: function(sl){ sl._A = U.app($(sl, '#s19app')); },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 1){
+        U.add(A, U.sep('…10問の質問が、終わったところ'));
+        U.add(A, U.cl('ありがとうございます。<br>聞きたいことは、以上です'));
+        return;
+      }
+      if (k === 2){
+        return seq(ctx, [
+          function(){ return ctx.wait(500); },
+          function(){ return U.type(ctx, A, 'ここまでの話をマニュアルにして、\nWordファイルで保存して', 20); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 800); },
+          function(){ return U.say(ctx, A, U.cl('Wordで作ります。<br>間違えやすいところは、目立たせますね'), 700); }
+        ]);
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ return U.say(ctx, A, U.perm('manual\\月次報告の手順.docx', '書き込み'), 700); },
+          function(){ return U.hit(ctx, A, 'once'); },
+          function(){ return U.say(ctx, A, U.tool('作成', 'manual\\月次報告の手順.docx', '完了', 'ok'), 500); },
+          function(){ U.done(A); return U.say(ctx, A, U.file('月次報告の手順.docx', 'manual フォルダに保存しました', 'docx')); }
+        ]);
+      }
+    }
+  };
+
+  /* 20 ④-4 スライド版 ─ 新しいセッションを開き、待たずに次へ */
+  function s20show(sl, n){
+    $(sl, '#s20h1').classList.toggle('off', n !== 1);
+    $(sl, '#s20h2').classList.toggle('off', n !== 2);
+    $(sl, '#s20t1').classList.toggle('on', n === 1);
+    $(sl, '#s20t2').classList.toggle('on', n === 2);
+  }
+  SIM[19] = {
+    reset: function(sl){
+      var A1 = sl._A1 = U.app($(sl, '#s20h1')), A2 = sl._A2 = U.app($(sl, '#s20h2'));
+      $(sl, '#s20t2').innerHTML = '＋ 新しいセッション<i></i>';
+      $(sl, '#s20t2').classList.remove('hit');
+      s20show(sl, 1);
+      U.add(A1, U.cl('Wordファイルを作りました'));
+      U.add(A1, U.file('月次報告の手順.docx', 'manual フォルダに保存しました', 'docx'));
+    },
+    step: function(k, sl, ctx){
+      var A1 = sl._A1, A2 = sl._A2, t2 = $(sl, '#s20t2');
+      if (k === 2){
+        return seq(ctx, [
+          function(){ t2.classList.add('hit'); return ctx.wait(550); },
+          function(){ t2.classList.remove('hit'); t2.innerHTML = 'セッション2<i></i>'; s20show(sl, 2); U.add(A2, U.sep('新しいセッション')); return ctx.wait(300); }
+        ]);
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ return U.type(ctx, A2, '[[@月次報告の手順.docx]] を見て、\n同じ内容をスライドにして', 22); },
+          function(){ return U.submit(ctx, A2); },
+          function(){ return U.think(ctx, A2, 700); },
+          function(){ return U.say(ctx, A2, U.tool('読み取り', '月次報告の手順.docx', '1ファイル'), 500); },
+          function(){ t2.querySelector('i').className = 'busy'; return U.say(ctx, A2, U.stat('スライドを作っています…'), 300); }
+        ]);
+      }
+      if (k === 4){
+        return seq(ctx, [
+          function(){ return ctx.wait(500); },
+          function(){ s20show(sl, 1); U.add(A1, U.sep('スライド版は、裏で作成中')); return ctx.wait(300); }
+        ]);
+      }
+    }
+  };
+
+  /* 21 ④-5 共有フォルダ ─ できたファイルを置く。スライド版は、できしだい追加で */
+  var OTHERS = [['経理_給与計算の手順.docx', 'docx'], ['法人_決算の流れ.docx', 'docx'], ['総務_来客対応.pptx', 'pptx'], ['相続_案内状の作り方.docx', 'docx']];
+  function row(name, kind, cls, st){ return '<div class="f ' + (cls || '') + '">' + ICON[kind] + '<span>' + name + '</span><span class="st">' + (st || '') + '</span></div>'; }
+  SIM[20] = {
+    reset: function(sl){
+      $(sl, '#s21l').innerHTML = row('月次報告の手順.docx', 'docx', 'me') + row('月次報告の手順.pptx', 'pptx', 'me late', '作成中…');
+      $(sl, '#s21l').lastChild.style.opacity = '.45';
+      $(sl, '#s21r').innerHTML = OTHERS.map(function(o){ return row(o[0], o[1]); }).join('');
+      $(sl, '#s21n').textContent = '4';
+    },
+    step: function(k, sl, ctx){
+      var L = $(sl, '#s21l'), R = $(sl, '#s21r'), N = $(sl, '#s21n');
+      if (k === 2){
+        var f1 = L.children[0]; f1.classList.add('sent'); f1.querySelector('.st').textContent = '';
+        R.insertAdjacentHTML('beforeend', row('月次報告の手順.docx', 'docx', 'new'));
+        N.textContent = '5';
+      }
+      if (k === 3){
+        var f2 = L.children[1]; f2.style.opacity = ''; f2.classList.remove('late'); f2.classList.add('sent'); f2.querySelector('.st').textContent = '';
+        R.insertAdjacentHTML('beforeend', row('月次報告の手順.pptx', 'pptx', 'new'));
+        N.textContent = '6';
+      }
+    }
+  };
+
+  /* 22 ⑤ 試す ─ まずAIに聞く → 詰まったら手を挙げる → うまくいったら残す */
+  SIM[21] = {
+    reset: function(sl){ sl._A = U.app($(sl, '#s22app')); },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 2){
+        return seq(ctx, [
+          function(){ return ctx.wait(400); },
+          function(){ return U.type(ctx, A, '毎月の月末チェックを、やらせたい。\nどういう手順？', 20); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 800); },
+          function(){ return U.say(ctx, A, U.cl('この順番で進めましょう。'), 300); },
+          function(){ U.done(A); return U.say(ctx, A, U.cl('<ol class="steps"><li>今のやり方を、箇条書きで教える</li><li>見本の資料を、1つ渡す</li><li>「同じようにやって」と頼む</li></ol>'), 300); }
+        ]);
+      }
+      if (k === 4){
+        return seq(ctx, [
+          function(){ U.clear(A); return ctx.wait(300); },
+          function(){ return U.type(ctx, A, 'うまくいった。この頼み方を、\n書いて残して', 20); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 700); },
+          function(){ return U.say(ctx, A, U.perm('うまくいった頼み方.md', '書き込み'), 600); },
+          function(){ return U.hit(ctx, A, 'once'); },
+          function(){ U.done(A); return U.say(ctx, A, U.file('うまくいった頼み方.md', '「月末チェックの頼み方」を書きました', 'md')); }
+        ]);
+      }
+    }
+  };
+
+  /* 23 ⑤ 迷ったら ─ 業務を並べて、どこまで任せられるか聞く */
+  SIM[22] = {
+    reset: function(sl){ sl._A = U.app($(sl, '#s23app')); },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 2){
+        return seq(ctx, [
+          function(){ return ctx.wait(400); },
+          function(){ return U.type(ctx, A, '私が普段やっている業務を箇条書きにします。それぞれ、Claude Codeにどこまで任せられるか教えてください。\n・月次の仕訳チェック\n・顧問先への請求書づくり\n・電話メモの整理\n・年末調整の書類回収', 44); },
+          function(){ return U.submit(ctx, A); }
+        ]);
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ return U.think(ctx, A, 1000); },
+          function(){ U.clear(A); U.done(A); return U.say(ctx, A, U.cl('<div class="lvl">' +
+            '<div><b>仕訳チェック</b><span class="lv b">下書きまで</span></div>' +
+            '<div><b>請求書づくり</b><span class="lv a">ほぼ任せられる</span></div>' +
+            '<div><b>電話メモの整理</b><span class="lv a">ほぼ任せられる</span></div>' +
+            '<div><b>年末調整の回収</b><span class="lv c">人の段取りが要る</span></div></div>'), 600); }
+        ]);
+      }
+      if (k === 4){
+        return U.say(ctx, A, U.cl('まずは<b>「電話メモの整理」</b>から試しませんか？<br>失敗しても、影響が小さいです'), 400);
+      }
+    }
+  };
+
+  /* 25 ⑥ 1冊に ─ 共有フォルダの手順書を、まとめて頼む */
+  SIM[24] = {
+    reset: function(sl){ sl._A = U.app($(sl, '#s25app'), { folder: '共有フォルダ' }); },
+    step: function(k, sl, ctx){
+      var A = sl._A;
+      if (k === 2){
+        return seq(ctx, [
+          function(){ return ctx.wait(400); },
+          function(){ return U.type(ctx, A, 'このフォルダの中にある手順書を全部読んで、1冊の事務所マニュアルにまとめて。目次をつけて、重複している説明は1つにして', 34); },
+          function(){ return U.submit(ctx, A); },
+          function(){ return U.think(ctx, A, 800); },
+          function(){ return U.say(ctx, A, U.tool('読み取り', '共有フォルダ', '10ファイル'), 600); },
+          function(){ U.done(A); return U.say(ctx, A, U.cl('10本の手順書を読みました。<br>重複を整理して、目次をつけます'), 400); }
+        ]);
+      }
+      if (k === 3){
+        return seq(ctx, [
+          function(){ return U.say(ctx, A, U.perm('マニュアル_第1版.docx', '書き込み'), 700); },
+          function(){ return U.hit(ctx, A, 'once'); },
+          function(){ return U.say(ctx, A, U.tool('作成', 'マニュアル_第1版.docx', '完了', 'ok'), 500); },
+          function(){ U.done(A); return U.say(ctx, A, U.file('マニュアル_第1版.docx', '目次つき・42ページ', 'docx')); }
+        ]);
+      }
+    }
+  };
+
+  /* ページを開き直したとき（#s20 や ?shot=）に、あとから登録した動きで描き直す */
+  var hm = (location.hash || '').match(/^#s(\d+)$/), sh = (location.search || '').match(/shot=(\d+)\.(\d+)/);
+  if (window.DECK){
+    if (sh && parseInt(sh[1], 10) > 13) DECK.go(parseInt(sh[1], 10) - 1, parseInt(sh[2], 10), { instant: true });
+    else if (hm && parseInt(hm[1], 10) > 13) DECK.go(parseInt(hm[1], 10) - 1, 1);
+  }
+})();
+</script>
+
