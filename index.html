@@ -1291,9 +1291,10 @@ var U = {
         return seq(ctx, [
           function(){ return U.type(ctx, L, 'マニュアルをスライドにして', 22); },
           function(){ return U.submit(ctx, L); },
-          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 500); },
-          function(){ return U.say(ctx, L, U.tool('読み取り', '前回のスライド', ''), 500); },
-          function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 550); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', 'manual/月次報告の手順.md', ''), 1000); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', '前回のスライド', ''), 1000); },
+          function(){ return U.say(ctx, L, U.tool('読み取り', '参考画像フォルダ', '8件'), 1000); },
+          function(){ return U.say(ctx, L, U.tool('コマンド実行', 'スライドを作成'), 1100); },
           function(){ U.add(L, U.stat('作成中…')); }
         ]);
       }
@@ -1301,8 +1302,9 @@ var U = {
         return seq(ctx, [
           function(){ return U.type(ctx, R, '毎月の請求書チェックも手伝って', 22); },
           function(){ return U.submit(ctx, R); },
-          function(){ return U.say(ctx, R, U.tool('読み取り', '請求書フォルダ', '14件'), 550); },
-          function(){ return U.think(ctx, R, 600); },
+          function(){ return U.say(ctx, R, U.tool('読み取り', '請求書フォルダ', '14件'), 1000); },
+          function(){ return U.say(ctx, R, U.tool('読み取り', '前回の支払い記録', ''), 1000); },
+          function(){ return U.think(ctx, R, 2000); },
           function(){ return U.say(ctx, R, U.cl('手順を確認します。<br>まず、今月分の請求書フォルダを見せてください')); },
           function(){ U.done(R); }
         ]);
