@@ -999,6 +999,11 @@ body.shot #ink i{animation:none}
 <p class="work-footer">うまく話せなくても大丈夫。AIが一つずつ聞いてくれます。</p>
 </section>
 
+<section class="slide practice closing" id="s13" data-use="実習への導入" data-steps="1" data-title="事務所の一番の資産を、今日かたちにする">
+<canvas id="s13cv" width="1920" height="1080"></canvas>
+<div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにします</p></div>
+</section>
+
 <section class="slide practice choose" id="s14" data-use="業務を選ぶ" data-steps="1" data-title="いつもの業務を1つ選ぶ">
 <div class="chap"><span class="no">01</span><span class="lb">えらぶ</span><span class="bar"></span></div><div class="work-flow" aria-label="今日の流れ"><span class="flow-item "><b>1</b>説明資料</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>2</b>スライド</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-item "><b>3</b>仕事を任せる</span></div>
 <h2 class="h">いつもの業務を、<em>1つ選ぶ</em></h2>
@@ -1064,11 +1069,7 @@ body.shot #ink i{animation:none}
 <p class="work-footer">早く終わった人から進めてOK。下書き・チェック表・整理から試します。</p>
 </section>
 
-<section class="slide practice closing" id="s13" data-use="締め" data-steps="1" data-title="事務所の一番の資産を、今日かたちにした">
-<canvas id="s13cv" width="1920" height="1080"></canvas>
-<div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにしました</p>
-<p class="closing-next">次は、今日作った説明資料を使って<br>普段の仕事で小さな作業を一つ、頼んでみましょう。</p></div>
-</section>
+
   </div>
 </div>
 
@@ -1776,7 +1777,7 @@ var U = {
   };
 
   /* 12 締め ─ 散らばった光が、10人の頭に集まり、1冊のかたちになる */
-  SIM[17] = (function(){
+  SIM[12] = (function(){
     var P = [], raf = 0, mode = 1, cv, cx, rnd = 1;
     function r(){ rnd = (rnd * 16807) % 2147483647; return rnd / 2147483647; }
     function book(n){
