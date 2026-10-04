@@ -1047,6 +1047,23 @@ body.shot #ink i{animation:none}
 #s20.file-reconciliation .reading-layout .structured-prompt .prompt-line+.prompt-line{margin-top:9px}
 #s20.file-reconciliation .practice-message{margin-top:6px}
 #s20.file-reconciliation .practice-message p{font-size:30px;line-height:1.55}
+
+/* 18枚目：自分の業務と照合例から進め方を選ぶ */
+#s23.practice-branch .branch-lead{margin:8px 0 15px;font-size:25px;color:var(--mut)}
+.branch-grid{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch;gap:18px}
+.branch-card{min-height:330px;padding:17px 22px 18px;border:1px solid rgba(142,154,208,.52);border-radius:12px;background:rgba(26,35,87,.56)}
+.branch-card.own-job{border-top:4px solid var(--ya)}
+.branch-card.sample-reconciliation{border-top:4px solid #80c6ae}
+.branch-kicker{margin:0 0 7px;color:var(--ya);font-size:20px;font-weight:700}
+.sample-reconciliation .branch-kicker{color:#96ddc5}
+.branch-card h3{margin:0;font-size:30px;line-height:1.22;color:var(--ink2)}
+.branch-detail{margin:10px 0;font-size:21px;line-height:1.45;color:var(--mut)}
+.branch-prompt{margin:12px 0 11px;padding:10px 12px;border-left:3px solid rgba(255,202,61,.72);background:rgba(7,12,47,.42);font-size:18px;line-height:1.42;color:#e8eeff}
+.sample-reconciliation .branch-prompt{border-left-color:#80c6ae;margin-top:10px}
+.branch-copy{float:right;margin-top:0;padding:7px 12px;font-size:17px}
+.branch-download{display:inline-block;margin:0 0 1px;padding:7px 11px;border-radius:6px;background:#80c6ae;color:#10213a;text-decoration:none;font-size:18px;font-weight:700}
+.branch-or{display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:18px;font-weight:700}
+.branch-footer{margin:13px 0 0;text-align:center;font-size:22px;color:var(--ink2)}
 </style>
 </head>
 <body>
@@ -1289,16 +1306,16 @@ body.shot #ink i{animation:none}
 <div class="wrap"><p class="l1">事務所の一番の資産は</p><p class="l2">皆さんの<em>頭の中</em>にある</p><p class="l3">それを、今日かたちにします</p><p class="experience-invite" data-s="2">それでは実際に<em>体験</em>に入りましょう</p></div>
 </section>
 
-<section class="slide practice practice-agenda" id="practice-agenda" data-use="実践の目次" data-steps="1" data-title="実践の目次　設定・言語化・ファイル照合・クロコへの依頼">
+<section class="slide practice practice-agenda" id="practice-agenda" data-use="実践の目次" data-steps="1" data-title="実践の目次　設定・言語化・スライド・照合">
 <div class="chap"><span class="no">13</span><span class="lb">目次</span><span class="bar"></span></div>
 <h2 class="h">実践の<em>目次</em></h2>
 <p class="agenda-lead">ここからは、実際に触ってみます。</p>
-<ol class="agenda-list"><li><span class="agenda-no">1.</span><div class="agenda-name"><h3>設定する</h3><p>クロコを開き、保存先をデスクトップにする</p></div><span class="agenda-result">使う準備を整える</span></li><li><span class="agenda-no">2.</span><div class="agenda-name"><h3>自分の業務を言語化する</h3><p>担当業務を1つ選び、新人に対する説明資料を作る</p></div><span class="agenda-result">新人に対する説明資料</span></li><li><span class="agenda-no">3-i.</span><div class="agenda-name"><h3>ファイルを照合する</h3><p>通帳明細と普通預金元帳を比べ、確認が必要な取引を探す</p></div><span class="agenda-result">照合結果のExcel</span></li><li><span class="agenda-no">3-ii.</span><div class="agenda-name"><h3>実際にその業務をクロコに依頼する</h3><p>説明資料をもとに、仕訳案の作成や記帳データの照合を任せる</p></div><span class="agenda-result">仕訳案のExcel・照合結果</span></li></ol>
+<ol class="agenda-list"><li><span class="agenda-no">1.</span><div class="agenda-name"><h3>設定する</h3><p>クロコを開き、保存先をデスクトップにする</p></div><span class="agenda-result">使う準備を整える</span></li><li><span class="agenda-no">2.</span><div class="agenda-name"><h3>自分の業務を言語化する</h3><p>担当業務を1つ選び、新人に対する説明資料を作る</p></div><span class="agenda-result">新人に対する説明資料</span></li><li><span class="agenda-no">3-i.</span><div class="agenda-name"><h3>スライドにする</h3><p>同じ説明資料から、新人に見せる5枚を作る</p></div><span class="agenda-result">5枚のスライド</span></li><li><span class="agenda-no">3-ii.</span><div class="agenda-name"><h3>ファイルを照合する</h3><p>自分の業務を任せるか、例の2ファイルを照合する</p></div><span class="agenda-result">確認する仕事を体験</span></li></ol>
 
 </section>
 
 <section class="slide practice readable setup" id="s15" data-use="実践 1" data-steps="1" data-practice-stage="1" data-title="クロコの準備">
-<div class="chap"><span class="no">14</span><span class="lb">設定</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item now" data-stage-key="1" aria-current="step"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>ファイルを<br>照合する</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<div class="chap"><span class="no">14</span><span class="lb">設定</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item now" data-stage-key="1" aria-current="step"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 
 <h2 class="h">クロコの<em>準備</em></h2>
 <div class="setup-with-screen">
@@ -1327,7 +1344,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide practice readable choose" id="s14" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="新人に説明したい業務を、1つ選ぶ">
-<div class="chap"><span class="no">15</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>ファイルを<br>照合する</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<div class="chap"><span class="no">15</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">新人に説明したい業務を、<em>1つ選ぶ</em></h2>
 
 <p class="work-lead">普段自分が担当している業務を想像してください</p>
@@ -1340,23 +1357,21 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide practice readable prompt-page" id="s18" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="AIの質問に答えて、説明資料を作る">
-<div class="chap"><span class="no">16</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>ファイルを<br>照合する</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
+<div class="chap"><span class="no">16</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">AIの質問に答えて、<em>説明資料を作る</em></h2>
 <ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="interview"><p class="prompt-line prompt-heading">[目的]</p><p class="prompt-line prompt-body">私の業務を新人に教えるための説明資料が必要です。</p><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">税理士事務所の従業員の私に対して、業務内容と普段の進め方を5~7問ぐらい質問して、新人に対する説明資料にまとめてください。</p><p class="prompt-line prompt-heading">[AIがどこまでできるかを聞く]</p><p class="prompt-line prompt-body">その中で、AI エージェントに任せられそうなものと無理そうなものを分けて教えてください。</p><p class="prompt-line prompt-heading">[最終的に何を出して欲しいか]</p><p class="prompt-line prompt-body">デスクトップに「新人に対する説明資料」をword形式とmd形式で保存してください。</p></div></div><aside class="practice-message"><p><strong>全部を説明しなくて<br>大丈夫です。</strong><br>質問に答えながら、<br>少しずつ<br>言語化しましょう</p></aside></div></section>
 
-<section class="slide practice readable prompt-page file-reconciliation" id="s20" data-use="実践 3-i" data-steps="1" data-practice-stage="3-i" data-title="2つのファイルを照合する">
-<div class="chap"><span class="no">17</span><span class="lb">照合</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item now" data-stage-key="3-i" aria-current="step"><b>3-i.</b><span>ファイルを<br>照合する</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
-<h2 class="h">2つのファイルを、<em>照合する</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>ファイルを保存する</h3><p>下の2つをデスクトップへ</p></div></li><li><span class="action-no">2</span><div><h3>依頼文を送る</h3><p>クロコに照合を任せる</p></div></li><li><span class="action-no">3</span><div><h3>結果を確認する</h3><p>元ファイルと見比べる</p></div></li></ol>
-<div class="practice-downloads" aria-label="照合練習用のダミーファイルをダウンロード"><span>練習用ダミーデータ</span><a href="assets/practice-data.zip" download>2ファイルをまとめてダウンロード</a><a href="assets/practice-data/通帳明細.xlsx" download>通帳明細.xlsx</a><a href="assets/practice-data/普通預金元帳.xlsx" download>普通預金元帳.xlsx</a><small>Mac・WindowsのどちらでもExcelで開けます</small></div>
-<div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="reconcile"><p class="prompt-line prompt-body">デスクトップの「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line prompt-body">未記帳・金額違い・二重記帳が疑われる取引を、根拠と一緒に一覧にしてください。</p><p class="prompt-line prompt-body">対応が判断できない取引は、「要確認」として残してください。</p><p class="prompt-line prompt-body">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div><aside class="practice-message"><p><strong>まずは、<br>結果を見比べる。</strong><br>AIが見つけた候補を<br>元の2ファイルで<br>確認しましょう</p></aside></div></section>
+<section class="slide practice readable prompt-page" id="s20" data-use="実践 3-i" data-steps="1" data-practice-stage="3-i" data-title="説明資料を、5枚のスライドにする">
+<div class="chap"><span class="no">17</span><span class="lb">スライド</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item now" data-stage-key="3-i" aria-current="step"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
+<h2 class="h">説明資料を、<em>5枚のスライドにする</em></h2>
+<ol class="action-route two-actions" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたら、内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="slide"><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライド(HTML形式)にしてください。</p><p class="prompt-line prompt-heading">[どんな風に(具体)]</p><p class="prompt-line prompt-body">見やすく伝わりやすいデザインにしてください。必要であれば動きも入れてください。</p><p class="prompt-line prompt-body">内容の構成は任せます。デスクトップに保存して、完成したら、開いてください。</p></div></div><aside class="practice-message"><p>AIが作ったものを、<br><strong>さらに修正の依頼を<br>してみましょう</strong><span class="message-example">「デザインをもっと<br>シンプルでクールにして」など</span></p></aside></div></section>
 
-<section class="slide practice readable prompt-page" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="仕事を任せて、結果を確かめる">
-<div class="chap"><span class="no">18</span><span class="lb">依頼</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>ファイルを<br>照合する</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際にその業務を<br>クロコに依頼する</span></span></div>
-<h2 class="h">仕事を任せて、<em>結果を確かめる</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>この会話で作った説明資料を使う</p></div></li><li><span class="action-no">2</span><div><h3>業務の一部を任せる</h3><p>実際に処理してもらう</p></div></li><li><span class="action-no">3</span><div><h3>結果と根拠を確認する</h3><p>作ったファイルを開き、内容を確かめる</p></div></li></ol>
-<div class="job-example"><span>例：通帳と記帳を照合</span><p>通帳と記帳データ <b>→</b> AIが照合 <b>→</b> 未記帳・不一致の候補 <b>→</b> 人が確認</p></div>
-<div class="reading-layout task-reading expanded-task"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="task"><p class="prompt-line prompt-heading">[して欲しいこと(大枠)]</p><p class="prompt-line prompt-body">上記で言語化した、私の業務/作業を可能な限りあなたがやって欲しいです。</p><p class="prompt-line prompt-heading">[して欲しいこと(具体)]</p><p class="prompt-line prompt-body">私の言語化した業務がどの程度あなたができるのか私に教えて。</p><p class="prompt-line prompt-body">またその上で、私の優秀な部下として、私の仕事をやって欲しい。</p><p class="prompt-line prompt-body">疑問点や不明点があれば、私に質問してください。</p></div></div><aside class="practice-message"><p><strong>AIはあくまで<br>部下です。</strong><br>最終チェックは<br>自分の役割です。</p></aside></div></section>
+<section class="slide practice readable prompt-page practice-branch" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="自分の業務、または例のファイルを照合する">
+<div class="chap"><span class="no">18</span><span class="lb">照合</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
+<h2 class="h">最後は、<em>どちらかを選んで体験</em></h2>
+<p class="branch-lead">業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
+<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><p class="branch-kicker">自分の業務を思いつく人</p><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した業務をもとに、できる作業を一つ任せます。</p><p class="branch-prompt" data-prompt="own-job">上記で言語化した私の業務で、できる作業を一つ実行してください。<br>不明点は質問し、結果と私が確認する点を示してください。</p><button type="button" class="copy branch-copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">依頼文をコピー</span></button></article><div class="branch-or" aria-hidden="true">または</div><article class="branch-card sample-reconciliation"><p class="branch-kicker">業務を思いつかない人</p><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">通帳明細と普通預金元帳を見比べ、確認が必要な取引を探します。</p><a class="branch-download" href="assets/practice-data.zip" download>練習用ファイルをダウンロード</a><p class="branch-prompt" data-prompt="reconcile">デスクトップの「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。<br>未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。<br>結果をExcelでデスクトップに保存し、完成したら開いてください。</p><button type="button" class="copy branch-copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">照合の依頼文をコピー</span></button></article></div>
+<p class="branch-footer">どちらを選んでも、最後はAIが出した結果を自分で確認します。</p></section>
 
 
 <!-- 参考情報 ───────────────────────── -->
