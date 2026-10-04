@@ -1050,10 +1050,10 @@ body.shot #ink i{animation:none}
 
 /* 18枚目：選択肢を即座に判断し、次の操作へ進める構成 */
 #s23.practice-branch .h{margin-bottom:4px}
-#s23.practice-branch .branch-lead{display:flex;align-items:center;gap:13px;margin:7px 0 13px;font-size:24px;color:var(--ink2)}
+#s23.practice-branch .branch-lead{display:flex;align-items:center;gap:13px;margin:8px 0 19px;font-size:24px;color:var(--ink2)}
 #s23.practice-branch .branch-lead span{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:rgba(255,202,61,.16);color:var(--ya);font-size:18px;font-weight:700}
-#s23.practice-branch .branch-grid{display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr);align-items:stretch;gap:18px}
-#s23.practice-branch .branch-card{min-height:333px;padding:17px 21px 18px;border:1px solid rgba(142,154,208,.62);border-radius:12px;background:linear-gradient(145deg,rgba(31,45,107,.82),rgba(14,22,62,.8));box-shadow:0 8px 22px rgba(0,0,0,.12);display:flex;flex-direction:column}
+#s23.practice-branch .branch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:26px}
+#s23.practice-branch .branch-card{min-height:350px;padding:20px 24px;border:1px solid rgba(142,154,208,.62);border-radius:12px;background:linear-gradient(145deg,rgba(31,45,107,.82),rgba(14,22,62,.8));box-shadow:0 8px 22px rgba(0,0,0,.12);display:flex;flex-direction:column}
 #s23.practice-branch .branch-card.own-job{border-top:4px solid var(--ya)}
 #s23.practice-branch .branch-card.sample-reconciliation{border-top:4px solid #80c6ae}
 #s23.practice-branch .branch-card-top{display:flex;align-items:center;gap:10px;margin-bottom:7px}
@@ -1077,7 +1077,7 @@ body.shot #ink i{animation:none}
 #s23.practice-branch .branch-or{position:relative;flex-direction:column;gap:10px}
 #s23.practice-branch .branch-or:before{top:25px}#s23.practice-branch .branch-or:after{bottom:25px}
 #s23.practice-branch .branch-or span{position:relative;z-index:1;padding:6px 3px;background:#0e1646}
-#s23.practice-branch .branch-footer{margin:12px 0 0;padding:9px 13px;border-radius:8px;background:rgba(38,55,117,.34);text-align:center;color:#dfe7ff;font-size:20px}
+#s23.practice-branch .branch-footer{margin:18px 0 0;padding:9px 13px;border-radius:8px;background:rgba(38,55,117,.34);text-align:center;color:#dfe7ff;font-size:20px}
 #s23.practice-branch .branch-footer span{margin-right:8px;color:var(--ya);font-weight:800}
 #s23.practice-branch .branch-footer strong{color:var(--ink2)}
 </style>
@@ -1386,8 +1386,8 @@ body.shot #ink i{animation:none}
 <div class="chap"><span class="no">18</span><span class="lb">照合</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">次は、<em>自分に合う方を選ぶ</em></h2>
 <p class="branch-lead"><span>選び方</span>自分の業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
-<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="branch-send-box"><span class="branch-send-label">送る依頼文</span><p data-prompt="own-job">上記で言語化した私の業務で、できる作業を一つ実行してください。<br>不明点は質問し、結果と私が確認する点を示してください。</p></div><button type="button" class="copy branch-copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">依頼文をコピー</span></button></article><div class="branch-or" aria-hidden="true"><span>または</span></div><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/practice-data.zip" download><span>1</span>練習用ファイルをダウンロード</a><div class="branch-send-box"><span class="branch-send-label">2　送る依頼文</span><p data-prompt="reconcile">デスクトップの「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。<br>未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。<br>結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div><button type="button" class="copy branch-copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">照合の依頼文をコピー</span></button></article></div>
-<p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず見比べます。</p></section>
+<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="branch-send-box"><span class="branch-send-label">送る依頼文</span><p data-prompt="own-job">上記で言語化した私の業務で、できる作業を一つ実行してください。<br>不明点は質問し、結果と私が確認する点を示してください。</p></div><button type="button" class="copy branch-copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">依頼文をコピー</span></button></article><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/practice-data.zip" download><span>1</span>練習用ファイルをダウンロード</a><div class="branch-send-box"><span class="branch-send-label">2　送る依頼文</span><p data-prompt="reconcile">デスクトップの「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。<br>未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。<br>結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div><button type="button" class="copy branch-copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">照合の依頼文をコピー</span></button></article></div>
+<p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p></section>
 
 
 <!-- 参考情報 ───────────────────────── -->
