@@ -69,6 +69,6 @@ GitHub Pagesは `main` / `/ (root)` で公開中です。
 
 - `assets/practice-data/通帳明細.xlsx`
 - `assets/practice-data/普通預金元帳.xlsx`
-- `assets/practice-data.zip`（2ファイルをまとめたZIP）
+- `assets/税理士事務所_AI依頼業務例.zip`（2ファイルをまとめたZIP）
 
 MacとWindowsのどちらでもExcelで開ける標準のExcel（.xlsx）形式です。通帳にだけあるATM引出、金額が異なる電気料金、元帳に重複した家賃を含めています。答えはファイル内に記載せず、クロコの結果と原本を参加者が見比べる形式です。
