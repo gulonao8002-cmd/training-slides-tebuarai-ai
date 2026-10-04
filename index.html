@@ -920,6 +920,117 @@ body.shot #ink i{animation:none}
 #s18 .reading-layout .structured-prompt .prompt-heading{font-size:24px;line-height:1.25;font-weight:700;color:#b3c6ff;margin:0 0 4px}
 .reading-layout .structured-prompt .prompt-body + .prompt-heading,
 #s18 .reading-layout .structured-prompt .prompt-body + .prompt-heading{margin-top:12px}
+
+
+/* 参考情報：背景・章番号・カードの体裁を保ち、結論と例に強弱をつける */
+.reference{padding:100px 150px 110px 260px}
+.reference.on,.reference.leaving{transition:none}
+.reference .chap{top:100px;bottom:110px}
+.reference em{font-style:normal;color:var(--ya)}
+.ref-kicker{margin:0 0 18px;font-family:var(--mono);font-size:24px;color:var(--ya);font-weight:700;letter-spacing:.08em}
+.ref-head{font-size:68px;line-height:1.25;margin:0;letter-spacing:.01em;text-wrap:balance}
+.ref-sub{font-size:30px;line-height:1.5;color:var(--ink2);margin:22px 0 0}
+.ref-title-inner{margin:auto 0;max-width:1400px}
+.ref-title .ref-kicker{font-size:28px;margin-bottom:30px}
+.ref-title h2{font-family:var(--mincho);font-size:112px;line-height:1.35;margin:0;letter-spacing:.02em}
+.ref-rule{width:260px;height:7px;border-radius:99px;background:var(--ya);margin-top:40px}
+.ref-index{display:flex;gap:64px;margin-top:42px}
+.ref-index>div{border-left:2px solid var(--line);padding-left:24px;display:flex;flex-direction:column;gap:12px}
+.ref-index span{font:24px var(--mono);color:var(--mut)}
+.ref-index strong{font-size:32px;font-weight:500;color:var(--ink2)}
+.ref-work-loop{display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:center;margin-top:64px;gap:0}
+.loop-step{background:rgba(17,26,69,.84);border:1px solid var(--line);border-radius:16px;padding:30px 26px;min-height:228px}
+.loop-step .owner{font-size:25px;color:var(--ya);font-weight:700}
+.loop-step.ai .owner{color:var(--ok)}
+.loop-step strong{display:block;font-size:43px;margin-top:17px;line-height:1.3;white-space:nowrap}
+.loop-step p{font-size:25px;line-height:1.5;color:var(--ink2);margin:16px 0 0}
+.loop-arrow{font-size:38px;text-align:center;color:var(--mut)}
+.loop-return{grid-column:5/8;border:2px solid var(--line);border-top:0;border-radius:0 0 16px 16px;text-align:center;font-size:27px;padding:12px 16px;margin:0 22px;color:var(--ink2)}
+.loop-return span{color:var(--ya);font-size:34px;margin-right:15px}
+.ref-dialogue{display:flex;gap:22px;align-items:center;margin-top:40px;flex-wrap:wrap}
+.dialogue-caption{width:100%;font-size:24px;color:var(--mut)}
+.ref-dialogue>div{border-left:3px solid #7183b8;padding:12px 20px;display:flex;gap:22px;align-items:baseline;background:rgba(17,26,69,.5);border-radius:0 10px 10px 0}
+.ref-dialogue b{font-size:27px;color:var(--ya);white-space:nowrap}
+.ref-dialogue>div:first-of-type b{color:var(--ok)}
+.ref-dialogue p{font-size:28px;line-height:1.5;margin:0;color:var(--ink)}
+.dialogue-arrow{font-size:34px;color:var(--mut)}
+.ref-prompt-map{display:grid;grid-template-columns:385px minmax(0,1fr);gap:30px;margin-top:42px;align-items:stretch}
+.ref-ask-parts{list-style:none;display:grid;grid-template-rows:repeat(4,1fr);gap:0;padding:0;margin:82px 0 0}
+.reference .purpose{--part-color:var(--ya)}
+.reference .material{--part-color:#b3c6ff}
+.reference .finish{--part-color:var(--ok)}
+.reference .method{--part-color:#d6b8fa}
+.ref-ask-parts li{display:flex;align-items:center;gap:22px;padding:10px 0}
+.ref-ask-parts li>b{width:48px;height:48px;border:2px solid var(--part-color);border-radius:50%;display:grid;place-items:center;font:700 25px var(--mono);color:var(--part-color);flex:none}
+.ref-ask-parts strong{font-size:38px;color:var(--part-color);display:block;line-height:1.3}
+.ref-ask-parts span:not(.map-arrow){font-size:27px;color:var(--ink2);display:block;margin-top:5px}
+.map-arrow{margin-left:auto;font-size:34px;color:var(--part-color)}
+.ref-prompt-card{min-width:0;border-radius:16px;background:rgba(17,26,69,.84);border:1px solid var(--line);overflow:hidden}
+.ref-prompt-card .ph{padding:15px 26px;background:rgba(65,79,135,.25)}
+.ref-prompt-card .pt{font-size:25px;color:var(--ink2)}
+.ref-prompt-card .copy{font-size:25px;padding:10px 22px;min-width:130px;justify-content:center}
+.ref-prompt-body{padding:22px 30px}
+.reference .ref-prompt-body .prompt-line{font-size:31px;line-height:1.6;padding:0;margin:0;border:0}
+.ref-annotated .prompt-part{border-left:4px solid var(--part-color);padding:12px 0 12px 20px}
+.ref-annotated .prompt-part+.prompt-part{margin-top:10px}
+.reference .ref-annotated .prompt-line{font-size:29px;line-height:1.45;white-space:pre-line}
+.ref-annotated .prompt-line b{font-size:25px;font-weight:700;color:var(--part-color)}
+.ref-tip-layout{display:grid;grid-template-columns:465px minmax(0,1fr);gap:44px;margin-top:48px;align-items:start}
+.ref-tip-list{padding:0;margin:0;list-style:none;display:grid;gap:26px}
+.ref-tip-list li{position:relative;padding:12px 0 12px 70px;border-bottom:1px solid var(--line)}
+.ref-tip-list b{position:absolute;left:0;top:15px;font:700 27px var(--mono);color:var(--ya)}
+.ref-tip-list strong{font-size:37px;line-height:1.35;display:block}
+.ref-tip-list span{font-size:27px;color:var(--ink2);display:block;margin-top:12px}
+.ref-free-prompt .prompt-line+.prompt-line{margin-top:26px}
+.reference .prompt-line strong{color:var(--ya);font-weight:700}
+.ref-one-point{margin-top:44px;border-top:2px solid var(--line);padding-top:28px;display:flex;flex-direction:column;gap:13px}
+.ref-one-point strong{font-size:37px;font-weight:700;color:var(--ink)}
+.ref-one-point span{font-size:28px;color:var(--ink2)}
+.ref-edit-layout{display:grid;grid-template-columns:330px 64px minmax(0,1fr);gap:28px;align-items:center;margin-top:48px}
+.ref-vague{border:1px solid var(--line);border-radius:16px;padding:26px 28px;background:rgba(17,26,69,.5)}
+.ref-vague span{font-size:25px;line-height:1.5;display:block;color:var(--mut)}
+.ref-vague p{font-size:40px;line-height:1.5;color:var(--ink2);margin:30px 0 0}
+.ref-edit-arrow{font-size:52px;text-align:center;color:var(--ya)}
+.ref-edit-prompt>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:15px 0}
+.ref-edit-prompt>div+div{border-top:1px solid var(--line)}
+.edit-tag{color:var(--ya);font-size:26px;padding-top:6px}
+.ref-result-sketch{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.ref-result-sketch>span{font-size:25px;color:var(--mut);margin-right:12px}
+.ref-result-sketch>div{border:1px solid #7183b8;border-radius:12px;padding:15px 22px;font-size:28px;background:rgba(17,26,69,.6)}
+.ref-result-sketch>b{color:var(--ya);font-size:32px}
+.ref-result-sketch small{font-size:25px;color:var(--ink2);width:100%;margin-top:10px}
+.ref-file-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:55px}
+.ref-file-stages article{border:1px solid var(--line);border-radius:16px;background:rgba(17,26,69,.84);padding:28px 30px}
+.phase-label{font-size:26px;color:var(--ink2)}
+.ref-file-stages h3{font-size:43px;line-height:1.35;margin:20px 0 30px}
+.ref-file-stages p{font-size:26px;color:var(--ink2);margin:24px 0 0;line-height:1.5}
+.file-copy-diagram,.file-open-diagram{display:flex;align-items:center;justify-content:center;gap:24px;min-height:160px}
+.file-icon{position:relative;border:2px solid #7183b8;border-radius:5px 24px 5px 5px;width:118px;height:142px;background:rgba(65,79,135,.25);display:flex;align-items:center;justify-content:center;text-align:center;font-size:26px;line-height:1.4;color:var(--ink2);flex:none}
+.work-copy{color:var(--ya);border-color:var(--ya)}
+.file-copy-diagram b{font-size:36px;color:var(--mut)}
+.file-open-diagram strong{font-size:29px;line-height:1.8;font-weight:500;color:var(--ink)}
+.permission-diagram{min-height:160px;display:flex;flex-direction:column;justify-content:center;gap:18px;border:1px solid #7183b8;background:rgba(65,79,135,.18);border-radius:10px;padding:20px 18px;text-align:center}
+.permission-diagram span{font-size:28px;color:var(--ink2)}
+.permission-diagram strong{font-size:28px;line-height:1.5;color:var(--ink)}
+.ref-permission-prompt{margin-top:40px;border-left:4px solid var(--ya);padding:12px 26px;background:rgba(255,197,61,.06);display:grid;grid-template-columns:360px minmax(0,1fr);gap:32px;align-items:center}
+.ref-permission-prompt b{font-size:29px;line-height:1.6;color:var(--ya)}
+.ref-permission-prompt p{font-size:31px;line-height:1.6;color:var(--ink);margin:0}
+.ref-responsibility{margin-top:48px}
+.responsibility-header,.responsibility-row{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:18px}
+.responsibility-header{padding:0 30px 22px}
+.responsibility-header strong{font-size:32px;color:var(--ok)}
+.responsibility-header strong:last-child{color:var(--ya)}
+.responsibility-row{padding:22px 30px;border-top:1px solid var(--line);background:rgba(17,26,69,.65)}
+.responsibility-row:last-child{border-bottom:1px solid var(--line)}
+.responsibility-row h3{font-size:40px;line-height:1.3;margin:0}
+.responsibility-row p{font-size:27px;color:var(--ink2);line-height:1.4;margin:11px 0 0}
+.responsibility-row>span{font-size:37px;color:var(--mut);text-align:center}
+.ref-simple-terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
+.ref-simple-terms article{border:1px solid var(--line);border-radius:14px;background:rgba(17,26,69,.84);padding:26px 28px;min-height:245px}
+.ref-simple-terms h3{font-size:28px;color:var(--ink2);font-weight:500;line-height:1.4;margin:0 0 20px}
+.ref-simple-terms strong{display:block;font-size:40px;line-height:1.35;color:var(--ya)}
+.ref-simple-terms p{font-size:25px;line-height:1.5;color:var(--ink2);margin:20px 0 0}
+
 </style>
 </head>
 <body>
@@ -1230,11 +1341,130 @@ body.shot #ink i{animation:none}
 <div class="reading-layout task-reading expanded-task"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="task"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="task"><p class="prompt-line prompt-heading">[して欲しいこと(大枠)]</p><p class="prompt-line prompt-body">上記で言語化した、私の業務/作業を可能な限りあなたがやって欲しいです。</p><p class="prompt-line prompt-heading">[して欲しいこと(具体)]</p><p class="prompt-line prompt-body">私の言語化した業務がどの程度あなたができるのか私に教えて。</p><p class="prompt-line prompt-body">またその上で、私の優秀な部下として、私の仕事をやって欲しい。</p><p class="prompt-line prompt-body">疑問点や不明点があれば、私に質問してください。</p></div></div><aside class="practice-message"><p><strong>AIはあくまで<br>部下です。</strong><br>最終チェックは<br>自分の役割です。</p></aside></div></section>
 
 
+<!-- 参考情報 ───────────────────────── -->
+<section class="slide reference ref-title" id="reference-title" data-use="参考情報" data-steps="1" data-title="参考情報　AIを使うコツと基礎知識">
+  <div class="chap"><span class="no">19</span><span class="lb">参考</span><span class="bar"></span></div>
+  <div class="ref-title-inner">
+    <p class="ref-kicker">参考情報</p>
+    <h2>AIを使う<br><em>コツと基礎知識</em></h2>
+    <div class="ref-rule" aria-hidden="true"></div>
+    <div class="ref-index"><div><span>20–23</span><strong>頼み方・進め方・直し方</strong></div><div><span>24–26</span><strong>ファイル・確認・用語</strong></div></div>
+  </div>
+</section>
+
+<section class="slide reference" id="ref-process" data-use="参考情報" data-steps="1" data-title="一度で完成させず、会話で仕上げる">
+  <div class="chap"><span class="no">20</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <p class="ref-kicker">使い方のコツ　1 / 4</p><h2 class="ref-head">一度で完成させず、<em>会話で仕上げる</em></h2>
+  <p class="ref-sub">質問に答えることも、修正を頼むことも、仕事の一部です。</p>
+  <div class="ref-work-loop" aria-label="人が依頼し、AIが作業、人が確認、AIが修正する流れ">
+    <div class="loop-step person"><span class="owner">自分</span><strong>依頼する</strong><p>目的と完成形を伝える</p></div><span class="loop-arrow" aria-hidden="true">→</span>
+    <div class="loop-step ai"><span class="owner">AI</span><strong>作業する</strong><p>不明点は質問してもらう</p></div><span class="loop-arrow" aria-hidden="true">→</span>
+    <div class="loop-step person"><span class="owner">自分</span><strong>確認する</strong><p>内容と根拠を確かめる</p></div><span class="loop-arrow" aria-hidden="true">→</span>
+    <div class="loop-step ai"><span class="owner">AI</span><strong>修正する</strong><p>気になる点を直してもらう</p></div>
+    <div class="loop-return"><span aria-hidden="true">←</span>修正後も、もう一度「確認する」</div>
+  </div>
+  <div class="ref-dialogue"><span class="dialogue-caption">途中の会話の例</span><div><b>AI</b><p>照合する期間を教えてください。</p></div><span class="dialogue-arrow" aria-hidden="true">→</span><div><b>自分</b><p>9月分です。通帳と記帳データを比べてください。</p></div></div>
+</section>
+
+<section class="slide reference" id="ref-request" data-use="参考情報" data-steps="1" data-title="依頼文は、4つに分ける">
+  <div class="chap"><span class="no">21</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <p class="ref-kicker">使い方のコツ　2 / 4</p><h2 class="ref-head">依頼文は、<em>4つに分ける</em></h2>
+  <p class="ref-sub">人に仕事を頼む時と同じ。見出しで分けると、伝えやすくなります。</p>
+  <div class="ref-prompt-map">
+    <ol class="ref-ask-parts" aria-label="依頼文に入れる4つの情報">
+      <li class="purpose"><b>1</b><div><strong>目的</strong><span>何のために？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
+      <li class="material"><b>2</b><div><strong>材料</strong><span>何をもとに？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
+      <li class="finish"><b>3</b><div><strong>完成形</strong><span>何を作る？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
+      <li class="method"><b>4</b><div><strong>進め方</strong><span>どう進める？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
+    </ol>
+    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">そのまま使える依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-request"><span class="cl">コピー</span></button></div>
+      <div class="ref-prompt-body ref-annotated">
+        <div class="prompt-part purpose"><p class="prompt-line"><b>[目的]</b>
+新人に、月次の記帳の流れを教えたいです。</p></div>
+        <div class="prompt-part material"><p class="prompt-line"><b>[材料]</b>
+この会話で整理した業務内容を使ってください。</p></div>
+        <div class="prompt-part finish"><p class="prompt-line"><b>[完成形]</b>
+新人に対する説明資料をWord形式で作ってください。</p></div>
+        <div class="prompt-part method"><p class="prompt-line"><b>[進め方]</b>
+足りない情報は私に質問してください。構成は任せます。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide reference" id="ref-autonomy" data-use="参考情報" data-steps="1" data-title="手順は任せて、進め方だけ伝える">
+  <div class="chap"><span class="no">22</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <p class="ref-kicker">使い方のコツ　3 / 4</p><h2 class="ref-head">手順は任せて、<em>進め方だけ伝える</em></h2>
+  <p class="ref-sub">目的を伝えたら、この3つを添えてみましょう。</p>
+  <div class="ref-tip-layout">
+    <ol class="ref-tip-list"><li><b>01</b><strong>不明点は質問して</strong><span>足りない情報を補う</span></li><li><b>02</b><strong>途中で報告して</strong><span>作業の状況がわかる</span></li><li><b>03</b><strong>保存して、開いて</strong><span>結果を手元で見られる</span></li></ol>
+    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">コツを取り入れた依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-autonomy"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-free-prompt">
+      <p class="prompt-line">通帳と記帳データを照合し、不一致の候補をExcelにまとめてください。</p>
+      <p class="prompt-line">不明点は<strong>作業前に質問</strong>し、<strong>進み具合を短く報告</strong>してください。</p>
+      <p class="prompt-line">デスクトップに<strong>保存</strong>し、完成したら<strong>開いて</strong>ください。</p>
+    </div></div>
+  </div>
+  <div class="ref-one-point"><strong>任せるのは、作業の進め方。</strong><span>できた結果は、自分で確認します。</span></div>
+</section>
+
+<section class="slide reference" id="ref-repair" data-use="参考情報" data-steps="1" data-title="修正は、どこをどう変えるかを伝える">
+  <div class="chap"><span class="no">23</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <p class="ref-kicker">使い方のコツ　4 / 4</p><h2 class="ref-head">修正は、<em>どこを・どう変えるか</em></h2>
+  <p class="ref-sub">同じ会話で、直してほしい点を具体的に伝えます。</p>
+  <div class="ref-edit-layout">
+    <div class="ref-vague"><span>これだけでは、変える場所が伝わりにくい</span><p>もっと<br>見やすくして</p></div><div class="ref-edit-arrow" aria-hidden="true">→</div>
+    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">具体的な修正の依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-repair"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-edit-prompt">
+      <div><span class="edit-tag">どこを</span><p class="prompt-line"><strong>2枚目</strong>を直してください。</p></div>
+      <div><span class="edit-tag">どう変える</span><p class="prompt-line">説明文を<strong>半分</strong>にし、照合の流れを<strong>矢印の図</strong>で見せてください。</p></div>
+      <div><span class="edit-tag">見た目</span><p class="prompt-line">デザインは<strong>シンプルでクール</strong>にしてください。</p></div>
+    </div></div>
+  </div>
+  <div class="ref-result-sketch"><span>頼んでいる図のイメージ</span><div>通帳</div><b aria-hidden="true">→</b><div>記帳と照合</div><b aria-hidden="true">→</b><div>不一致の候補</div><small>好きな見本があれば、一緒に見せる</small></div>
+</section>
+
+<section class="slide reference" id="ref-files" data-use="参考情報" data-steps="1" data-title="ファイルは、原本・操作・結果を確認">
+  <div class="chap"><span class="no">24</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <p class="ref-kicker">基礎知識　1 / 3</p><h2 class="ref-head">ファイルは、<em>原本・操作・結果</em>を確認</h2>
+  <div class="ref-file-stages">
+    <article><span class="phase-label">始める前</span><h3><em>原本</em>を残す</h3><div class="file-copy-diagram"><span class="file-icon">原本</span><b aria-hidden="true">→</b><span class="file-icon work-copy">作業用<br>コピー</span></div><p>コピーしたファイルで作業する。</p></article>
+    <article><span class="phase-label">許可を求められたら</span><h3><em>操作</em>を読む</h3><div class="permission-diagram"><span>何のファイルを？</span><strong>何のために、どう変える？</strong></div><p>内容がわかってから許可する。</p></article>
+    <article><span class="phase-label">できたら</span><h3><em>結果</em>を開く</h3><div class="file-open-diagram"><span class="file-icon">結果<br>.xlsx</span><strong>✓ 内容<br>✓ 保存場所</strong></div><p>自分の目で内容を確認する。</p></article>
+  </div>
+  <div class="ref-permission-prompt"><b>迷ったら、先に聞く</b><p>「今、何をしようとしていますか？<br>変更するファイルと操作を説明してください。」</p></div>
+</section>
+
+<section class="slide reference" id="ref-boundary" data-use="参考情報" data-steps="1" data-title="AIが作業し、人が判断する">
+  <div class="chap"><span class="no">25</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <p class="ref-kicker">基礎知識　2 / 3</p><h2 class="ref-head">AIが作業し、<em>人が判断する</em></h2>
+  <div class="ref-responsibility" role="table" aria-label="AIの作業に対して人が確認すること">
+    <div class="responsibility-header" role="row"><strong role="columnheader">AIに任せる作業</strong><span aria-hidden="true"></span><strong role="columnheader">自分が確認すること</strong></div>
+    <div class="responsibility-row" role="row"><div role="cell"><h3>資料を作る</h3><p>説明資料・スライド</p></div><span aria-hidden="true">→</span><div role="cell"><h3>内容を確かめる</h3><p>普段の業務と合っているか</p></div></div>
+    <div class="responsibility-row" role="row"><div role="cell"><h3>データを照合する</h3><p>不一致の候補・根拠</p></div><span aria-hidden="true">→</span><div role="cell"><h3>原資料と照らす</h3><p>数字・日付・見落とし</p></div></div>
+    <div class="responsibility-row" role="row"><div role="cell"><h3>仕訳案を出す</h3><p>案・根拠・確認が必要な点</p></div><span aria-hidden="true">→</span><div role="cell"><h3>最終判断をする</h3><p>仕訳の確定・税務上の判断</p></div></div>
+  </div>
+  <div class="ref-one-point"><strong>自然な文章でも、正しいとは限りません。</strong><span>数字と根拠は、原資料で確認します。</span></div>
+</section>
+
+<section class="slide reference" id="ref-terms" data-use="参考情報" data-steps="1" data-title="よく出る言葉を、普段の言葉で">
+  <div class="chap"><span class="no">26</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <p class="ref-kicker">基礎知識　3 / 3</p><h2 class="ref-head">よく出る言葉を、<em>普段の言葉で</em></h2>
+  <p class="ref-sub">覚えるより、困った時にここを見返してください。</p>
+  <div class="ref-simple-terms">
+    <article><h3>プロンプト</h3><strong>AIへの依頼文</strong><p>「この説明資料を、スライドにして」</p></article>
+    <article><h3>モデル</h3><strong>AIの頭脳の種類</strong><p>使うAIの種類やバージョン。</p></article>
+    <article><h3>セッション</h3><strong>一続きの会話</strong><p>同じ会話で、説明資料からスライドへ。</p></article>
+    <article><h3>AIエージェント</h3><strong>作業まで進めるAI</strong><p>会話しながら、ファイル作成や操作も行う。</p></article>
+    <article><h3>権限</h3><strong>操作してよい範囲</strong><p>ファイルの読み取り・変更などの許可。</p></article>
+    <article><h3>コンテキスト</h3><strong>今、参照する情報</strong><p>会話や資料。情報量を数える単位が「トークン」。</p></article>
+  </div>
+</section>
+
+
   </div>
 </div>
 
 <div id="ticks"></div>
-<div id="num">01 / 18</div>
+<div id="num">01 / 26</div>
 <button type="button" id="gridBtn" aria-label="スライド一覧を開く">一覧 G</button>
 <div id="hint" role="status"></div>
 <div id="grid" hidden><div class="gwrap"></div></div>
