@@ -1077,6 +1077,143 @@ body.shot #ink i{animation:none}
 #s23.practice-branch .branch-footer{margin:18px 0 0;padding:9px 13px;border-radius:8px;background:rgba(38,55,117,.34);text-align:center;color:#dfe7ff;font-size:20px}
 #s23.practice-branch .branch-footer span{margin-right:8px;color:var(--ya);font-weight:800}
 #s23.practice-branch .branch-footer strong{color:var(--ink2)}
+
+
+/* クロコの実際の入力画面に寄せた、送る依頼文の見せ方 */
+.claude-composer{
+  --composer-bg:#171717;
+  --composer-panel:#202020;
+  --composer-line:#565656;
+  --composer-ink:#e8e6e0;
+  --composer-muted:#aaa8a3;
+  --composer-accent:#e97958;
+  position:relative;
+  padding:12px 16px 0;
+  border:1px solid rgba(225,225,220,.24);
+  border-radius:18px;
+  background:linear-gradient(180deg,#1b1b1b 0%,#151515 100%);
+  box-shadow:0 12px 28px rgba(0,0,0,.2);
+  overflow:hidden;
+}
+.claude-composer::before{
+  content:"▱  ローカル　　　▱  フォルダなし";
+  display:block;
+  align-self:flex-start;
+  margin:0 0 8px;
+  padding:5px 10px;
+  border-radius:8px;
+  background:#2d2d2d;
+  color:#d1cfca;
+  font:500 18px/1.15 var(--ud);
+  letter-spacing:.02em;
+  white-space:pre;
+}
+.claude-composer .ph{
+  min-height:30px;
+  padding:2px 2px 8px !important;
+  background:transparent !important;
+  border:0 !important;
+}
+.claude-composer .pt{
+  color:var(--composer-muted) !important;
+  font-size:19px !important;
+  font-weight:500 !important;
+  letter-spacing:.02em !important;
+}
+.claude-composer .copy{
+  min-width:auto !important;
+  padding:7px 13px !important;
+  border-radius:7px !important;
+  background:var(--composer-accent) !important;
+  color:#211914 !important;
+  font:700 18px/1 var(--ud) !important;
+}
+.claude-composer .copy.done{background:var(--ok) !important}
+.claude-composer .prompt-text,
+.claude-composer .ref-prompt-body{
+  margin:0;
+  padding:14px 20px 15px !important;
+  border:2px solid var(--composer-line);
+  border-radius:18px;
+  background:var(--composer-panel);
+  color:var(--composer-ink);
+}
+.claude-composer .prompt-line{
+  color:var(--composer-ink);
+  border-color:rgba(255,255,255,.1) !important;
+}
+.claude-composer .prompt-heading{
+  color:#c9c7c2 !important;
+}
+.claude-composer::after{
+  content:"＋　♩　⌄　　自動　　　　　　　　 Sonnet 5.5　　中　●";
+  display:block;
+  padding:11px 5px 12px;
+  color:#dedcd7;
+  font:500 17px/1 var(--ud);
+  white-space:pre;
+  letter-spacing:.01em;
+}
+.claude-composer.ref-prompt-card::before{font-size:17px;margin-bottom:7px}
+.claude-composer.ref-prompt-card::after{font-size:16px;padding-top:10px}
+.claude-composer.ref-prompt-card .ref-prompt-body{padding:16px 22px !important}
+
+/* 18枚目は二分割カードの中でも、同じUIを縮めて見せる */
+#s23.practice-branch .claude-composer.branch-pcard{
+  padding:8px 9px 0;
+  border-color:rgba(224,224,218,.28);
+  border-radius:10px;
+  background:linear-gradient(180deg,#1b1b1b 0%,#151515 100%);
+}
+#s23.practice-branch .claude-composer.branch-pcard::before{
+  content:"▱  ローカル　　▱  フォルダなし";
+  margin:0 0 5px;
+  padding:4px 7px;
+  border-radius:6px;
+  font-size:12px;
+}
+#s23.practice-branch .claude-composer.branch-pcard .ph{padding:0 1px 5px !important}
+#s23.practice-branch .claude-composer.branch-pcard .pt{font-size:14px !important;color:#bdbbb6 !important}
+#s23.practice-branch .claude-composer.branch-pcard .copy{padding:5px 9px !important;border-radius:5px !important;font-size:14px !important}
+#s23.practice-branch .claude-composer.branch-pcard .prompt-text{
+  padding:6px 9px 7px !important;
+  border-width:1px;
+  border-radius:9px;
+}
+#s23.practice-branch .claude-composer.branch-pcard .prompt-line{padding:3px 0;font-size:15px;line-height:1.32}
+#s23.practice-branch .claude-composer.branch-pcard::after{
+  content:"＋　♩　⌄　　自動　　　　　　　　●";
+  padding:7px 1px 8px;
+  font-size:12px;
+}
+
+/* 用語を左、意味を右へ。用語集として一目で引ける表にする */
+.glossary-table{
+  margin-top:38px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(17,26,69,.62);
+}
+.glossary-head,
+.glossary-row{display:grid;grid-template-columns:34% minmax(0,1fr)}
+.glossary-head{background:rgba(65,79,135,.42);color:var(--ink2)}
+.glossary-head strong{padding:15px 28px;font-size:25px;font-weight:700;letter-spacing:.12em}
+.glossary-head strong+strong{border-left:1px solid var(--line)}
+.glossary-row{min-height:97px;border-top:1px solid var(--line)}
+.glossary-term{
+  display:flex;
+  align-items:center;
+  padding:18px 28px;
+  color:var(--ya);
+  font-size:34px;
+  line-height:1.25;
+  background:rgba(14,22,62,.27);
+}
+.glossary-row>div{padding:15px 28px;border-left:1px solid var(--line)}
+.glossary-row b{font-size:29px;line-height:1.3;color:var(--ink);font-weight:700}
+.glossary-row p{margin:5px 0 0;color:var(--ink2);font-size:20px;line-height:1.35}
+
 </style>
 </head>
 <body>
@@ -1372,18 +1509,18 @@ body.shot #ink i{animation:none}
 <section class="slide practice readable prompt-page" id="s18" data-use="実践 2" data-steps="1" data-practice-stage="2" data-title="AIの質問に答えて、説明資料を作る">
 <div class="chap"><span class="no">16</span><span class="lb">言語化</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item now" data-stage-key="2" aria-current="step"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">AIの質問に答えて、<em>説明資料を作る</em></h2>
-<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="interview"><p class="prompt-line prompt-heading">[目的]</p><p class="prompt-line prompt-body">私の業務を新人に教えるための説明資料が必要です。</p><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">税理士事務所の従業員の私に対して、業務内容と普段の進め方を5~7問ぐらい質問して、新人に対する説明資料にまとめてください。</p><p class="prompt-line prompt-heading">[AIがどこまでできるかを聞く]</p><p class="prompt-line prompt-body">その中で、AI エージェントに任せられそうなものと無理そうなものを分けて教えてください。</p><p class="prompt-line prompt-heading">[最終的に何を出して欲しいか]</p><p class="prompt-line prompt-body">デスクトップに「新人に対する説明資料」をword形式とmd形式で保存してください。</p></div></div><aside class="practice-message"><p><strong>全部を説明しなくて<br>大丈夫です。</strong><br>質問に答えながら、<br>少しずつ<br>言語化しましょう</p></aside></div></section>
+<ol class="action-route" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>依頼文を送る</h3><p>コピーして、クロコに貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>質問に答える</h3><p>業務内容を伝える</p></div></li><li><span class="action-no">3</span><div><h3>できた資料を読む</h3><p>普段の進め方と合っているか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard claude-composer"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="interview"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="interview"><p class="prompt-line prompt-heading">[目的]</p><p class="prompt-line prompt-body">私の業務を新人に教えるための説明資料が必要です。</p><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">税理士事務所の従業員の私に対して、業務内容と普段の進め方を5~7問ぐらい質問して、新人に対する説明資料にまとめてください。</p><p class="prompt-line prompt-heading">[AIがどこまでできるかを聞く]</p><p class="prompt-line prompt-body">その中で、AI エージェントに任せられそうなものと無理そうなものを分けて教えてください。</p><p class="prompt-line prompt-heading">[最終的に何を出して欲しいか]</p><p class="prompt-line prompt-body">デスクトップに「新人に対する説明資料」をword形式とmd形式で保存してください。</p></div></div><aside class="practice-message"><p><strong>全部を説明しなくて<br>大丈夫です。</strong><br>質問に答えながら、<br>少しずつ<br>言語化しましょう</p></aside></div></section>
 
 <section class="slide practice readable prompt-page" id="s20" data-use="実践 3-i" data-steps="1" data-practice-stage="3-i" data-title="説明資料を、5枚のスライドにする">
 <div class="chap"><span class="no">17</span><span class="lb">スライド</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item now" data-stage-key="3-i" aria-current="step"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item" data-stage-key="3-ii"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">説明資料を、<em>5枚のスライドにする</em></h2>
-<ol class="action-route two-actions" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたら、内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="slide"><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライド(HTML形式)にしてください。</p><p class="prompt-line prompt-heading">[どんな風に(具体)]</p><p class="prompt-line prompt-body">見やすく伝わりやすいデザインにしてください。必要であれば動きも入れてください。</p><p class="prompt-line prompt-body">構成は任せます。時間をかけていいので、完成度の高いものを作成してください。</p><p class="prompt-line prompt-body">デスクトップに保存して、完成したら、開いてください。</p></div></div><aside class="practice-message"><p>AIが作ったものを、<br><strong>さらに修正の依頼を<br>してみましょう</strong><span class="message-example">「デザインをもっと<br>シンプルでクールにして」など</span></p></aside></div></section>
+<ol class="action-route two-actions" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたら、内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard claude-composer"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="slide"><p class="prompt-line prompt-heading">[して欲しいこと]</p><p class="prompt-line prompt-body">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライド(HTML形式)にしてください。</p><p class="prompt-line prompt-heading">[どんな風に(具体)]</p><p class="prompt-line prompt-body">見やすく伝わりやすいデザインにしてください。必要であれば動きも入れてください。</p><p class="prompt-line prompt-body">構成は任せます。時間をかけていいので、完成度の高いものを作成してください。</p><p class="prompt-line prompt-body">デスクトップに保存して、完成したら、開いてください。</p></div></div><aside class="practice-message"><p>AIが作ったものを、<br><strong>さらに修正の依頼を<br>してみましょう</strong><span class="message-example">「デザインをもっと<br>シンプルでクールにして」など</span></p></aside></div></section>
 
 <section class="slide practice readable prompt-page practice-branch" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="自分の業務、または例のファイルを照合する">
 <div class="chap"><span class="no">18</span><span class="lb">照合</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
 <h2 class="h">次は、<em>自分に合う方を選ぶ</em></h2>
 <p class="branch-lead"><span>選び方</span>自分の業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
-<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="pcard branch-pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務で、できる作業を一つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard branch-pcard"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">（ダウンロードフォルダに、税理士事務所_AI依頼業務例.zipがあるので、デスクトップに移動して解凍し、）</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article></div>
+<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務で、できる作業を一つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">（ダウンロードフォルダに、税理士事務所_AI依頼業務例.zipがあるので、デスクトップに移動して解凍し、）</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article></div>
 <p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p></section>
 
 
@@ -1423,7 +1560,7 @@ body.shot #ink i{animation:none}
       <li class="finish"><b>3</b><div><strong>完成形</strong><span>何を作る？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
       <li class="method"><b>4</b><div><strong>進め方</strong><span>どう進める？</span></div><span class="map-arrow" aria-hidden="true">→</span></li>
     </ol>
-    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">そのまま使える依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-request"><span class="cl">コピー</span></button></div>
+    <div class="pcard claude-composer ref-prompt-card"><div class="ph"><span class="pt">そのまま使える依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-request"><span class="cl">コピー</span></button></div>
       <div class="ref-prompt-body ref-annotated">
         <div class="prompt-part purpose"><p class="prompt-line"><b>[目的]</b>
 新人に、月次の記帳の流れを教えたいです。</p></div>
@@ -1444,7 +1581,7 @@ body.shot #ink i{animation:none}
   <p class="ref-sub">目的を伝えたら、この3つを添えてみましょう。</p>
   <div class="ref-tip-layout">
     <ol class="ref-tip-list"><li><b>01</b><strong>不明点は質問して</strong><span>足りない情報を補う</span></li><li><b>02</b><strong>途中で報告して</strong><span>作業の状況がわかる</span></li><li><b>03</b><strong>保存して、開いて</strong><span>結果を手元で見られる</span></li></ol>
-    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">コツを取り入れた依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-autonomy"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-free-prompt">
+    <div class="pcard claude-composer ref-prompt-card"><div class="ph"><span class="pt">コツを取り入れた依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-autonomy"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-free-prompt">
       <p class="prompt-line">通帳と記帳データを照合し、不一致の候補をExcelにまとめてください。</p>
       <p class="prompt-line">不明点は<strong>作業前に質問</strong>し、<strong>進み具合を短く報告</strong>してください。</p>
       <p class="prompt-line">デスクトップに<strong>保存</strong>し、完成したら<strong>開いて</strong>ください。</p>
@@ -1459,7 +1596,7 @@ body.shot #ink i{animation:none}
   <p class="ref-sub">同じ会話で、直してほしい点を具体的に伝えます。</p>
   <div class="ref-edit-layout">
     <div class="ref-vague"><span>これだけでは、変える場所が伝わりにくい</span><p>もっと<br>見やすくして</p></div><div class="ref-edit-arrow" aria-hidden="true">→</div>
-    <div class="pcard ref-prompt-card"><div class="ph"><span class="pt">具体的な修正の依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-repair"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-edit-prompt">
+    <div class="pcard claude-composer ref-prompt-card"><div class="ph"><span class="pt">具体的な修正の依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="ref-repair"><span class="cl">コピー</span></button></div><div class="ref-prompt-body ref-edit-prompt">
       <div><span class="edit-tag">どこを</span><p class="prompt-line"><strong>2枚目</strong>を直してください。</p></div>
       <div><span class="edit-tag">どう変える</span><p class="prompt-line">説明文を<strong>半分</strong>にし、照合の流れを<strong>矢印の図</strong>で見せてください。</p></div>
       <div><span class="edit-tag">見た目</span><p class="prompt-line">デザインは<strong>シンプルでクール</strong>にしてください。</p></div>
@@ -1491,17 +1628,17 @@ body.shot #ink i{animation:none}
   <div class="ref-one-point"><strong>自然な文章でも、正しいとは限りません。</strong><span>数字と根拠は、原資料で確認します。</span></div>
 </section>
 
-<section class="slide reference" id="ref-terms" data-use="参考情報" data-steps="1" data-title="よく出る言葉を、普段の言葉で">
+<section class="slide reference" id="ref-terms" data-use="参考情報" data-steps="1" data-title="よく出る用語を、意味とセットで">
   <div class="chap"><span class="no">26</span><span class="lb">基礎</span><span class="bar"></span></div>
-  <p class="ref-kicker">基礎知識　3 / 3</p><h2 class="ref-head">よく出る言葉を、<em>普段の言葉で</em></h2>
-  <p class="ref-sub">覚えるより、困った時にここを見返してください。</p>
-  <div class="ref-simple-terms">
-    <article><h3>プロンプト</h3><strong>AIへの依頼文</strong><p>「この説明資料を、スライドにして」</p></article>
-    <article><h3>モデル</h3><strong>AIの頭脳の種類</strong><p>使うAIの種類やバージョン。</p></article>
-    <article><h3>セッション</h3><strong>一続きの会話</strong><p>同じ会話で、説明資料からスライドへ。</p></article>
-    <article><h3>AIエージェント</h3><strong>作業まで進めるAI</strong><p>会話しながら、ファイル作成や操作も行う。</p></article>
-    <article><h3>権限</h3><strong>操作してよい範囲</strong><p>ファイルの読み取り・変更などの許可。</p></article>
-    <article><h3>コンテキスト</h3><strong>今、参照する情報</strong><p>会話や資料。情報量を数える単位が「トークン」。</p></article>
+  <p class="ref-kicker">基礎知識　3 / 3</p><h2 class="ref-head">よく出る用語を、<em>意味とセットで</em></h2>
+  <p class="ref-sub">気になった言葉だけ、右側の意味を見てください。</p>
+  <div class="glossary-table" role="table" aria-label="AIでよく出る用語と意味">
+    <div class="glossary-head" role="row"><strong role="columnheader">用語</strong><strong role="columnheader">意味</strong></div>
+    <div class="glossary-row" role="row"><strong class="glossary-term" role="cell">プロンプト</strong><div role="cell"><b>AIへの依頼文</b><p>「何をしてほしいか」を書いた文章です。</p></div></div>
+    <div class="glossary-row" role="row"><strong class="glossary-term" role="cell">モデル</strong><div role="cell"><b>AIの頭脳の種類</b><p>「Sonnet」など。得意な作業や考え方が少し違います。</p></div></div>
+    <div class="glossary-row" role="row"><strong class="glossary-term" role="cell">セッション</strong><div role="cell"><b>一続きの会話</b><p>同じ会話なら、前に作った資料を続けて使えます。</p></div></div>
+    <div class="glossary-row" role="row"><strong class="glossary-term" role="cell">AIエージェント</strong><div role="cell"><b>作業まで進めるAI</b><p>会話しながら、ファイル作成や操作も行います。</p></div></div>
+    <div class="glossary-row" role="row"><strong class="glossary-term" role="cell">コンテキスト</strong><div role="cell"><b>今、AIが見ている情報</b><p>この会話の内容や、渡した資料のことです。</p></div></div>
   </div>
 </section>
 
