@@ -2035,7 +2035,7 @@ var U = {
     if (it[0] === 'perm') return U.say(ctx, A, U.perm(it[1], it[2]), 600).then(function(){ return U.hit(ctx, A, 'once'); });
   }
   /* 4 並行 ─ 一つを待っている間に、別の会話で次を頼める。
-     2つのClaude Codeを、1クリックで本当に同時に動かす（Promise.allで並走） */
+     左がしばらく動いたあとで右が動き出し、そのあとは両方がしばらく並走する */
   SIM[3] = {
     reset: function(sl){
       sl._L = U.app($(sl, '#s4app1'));
@@ -2044,8 +2044,6 @@ var U = {
     step: function(k, sl, ctx){
       if (k !== 1) return;
       var L = sl._L, R = sl._R;
-      /* 左右を1ミリ秒もズラさず同時に開始する。タイピング速度も揃えて、
-         「2つが本当に同時に動いている」のがキャレットの動きから伝わるようにする */
       function left(){
         return seq(ctx, [
           function(){ return U.type(ctx, L, '説明資料をスライドにして', 22); },
@@ -2068,8 +2066,9 @@ var U = {
           function(){ U.done(R); }
         ]);
       }
-      /* 2本のタイムラインを、1つも待たせず並走させる */
-      return Promise.all([left(), right()]);
+      /* 左が先に動き出し、2.2秒ほど経ってから右が参加する。
+         そのあとは、左が作成中に落ち着くまで両方が同時に動き続ける */
+      return Promise.all([left(), ctx.wait(2200).then(right)]);
     }
   };
 
