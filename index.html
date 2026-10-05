@@ -1050,35 +1050,6 @@ body.shot #ink i{animation:none}
 #s20.file-reconciliation .practice-message{margin-top:6px}
 #s20.file-reconciliation .practice-message p{font-size:30px;line-height:1.55}
 
-/* 18枚目：選択肢を即座に判断し、次の操作へ進める構成 */
-#s23.practice-branch .h{margin-bottom:4px}
-#s23.practice-branch .branch-lead{display:flex;align-items:center;gap:13px;margin:8px 0 19px;font-size:24px;color:var(--ink2)}
-#s23.practice-branch .branch-lead span{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:rgba(255,202,61,.16);color:var(--ya);font-size:18px;font-weight:700}
-#s23.practice-branch .branch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:26px}
-#s23.practice-branch .branch-card{min-height:392px;padding:20px 24px;border:1px solid rgba(142,154,208,.62);border-radius:12px;background:linear-gradient(145deg,rgba(31,45,107,.82),rgba(14,22,62,.8));box-shadow:0 8px 22px rgba(0,0,0,.12);display:flex;flex-direction:column}
-#s23.practice-branch .branch-card.own-job{border-top:4px solid var(--ya)}
-#s23.practice-branch .branch-card.sample-reconciliation{border-top:4px solid #80c6ae}
-#s23.practice-branch .branch-card-top{display:flex;align-items:center;gap:10px;margin-bottom:7px}
-#s23.practice-branch .branch-route{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ya);color:#171a40;font-size:19px;font-weight:800}
-#s23.practice-branch .sample-reconciliation .branch-route{background:#80c6ae}
-#s23.practice-branch .branch-kicker{margin:0;color:var(--ya);font-size:19px;font-weight:700}
-#s23.practice-branch .sample-reconciliation .branch-kicker{color:#9be3ca}
-#s23.practice-branch .branch-card h3{margin:0;color:var(--ink2);font-size:31px;line-height:1.2;letter-spacing:.01em}
-#s23.practice-branch .branch-detail{margin:9px 0 10px;color:#cdd7f4;font-size:20px;line-height:1.42}
-#s23.practice-branch .branch-download{display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 10px;border-radius:6px;background:#80c6ae;color:#10213a;text-decoration:none;font-size:17px;font-weight:800}
-#s23.practice-branch .branch-download span{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#174b48;color:#e6fff8;font-size:13px}
-#s23.practice-branch .branch-pcard{margin-top:auto;border-width:1px;border-radius:8px;background:rgba(7,12,47,.64)}
-#s23.practice-branch .sample-reconciliation .branch-pcard{margin-top:10px}
-#s23.practice-branch .branch-pcard .ph{padding:6px 10px 6px 12px;border-bottom-width:1px}
-#s23.practice-branch .branch-pcard .pt{font-size:16px;letter-spacing:0;color:var(--ya)}
-#s23.practice-branch .sample-reconciliation .branch-pcard .pt{color:#9be3ca}
-#s23.practice-branch .branch-pcard .copy{min-width:0;padding:5px 10px;border-radius:6px;font:700 16px var(--ud);line-height:1;color:#171a40}
-#s23.practice-branch .branch-pcard .prompt-text{padding:7px 12px 8px}
-#s23.practice-branch .branch-pcard .prompt-line{margin:0;padding:4px 0;font-size:16px;line-height:1.36;color:#edf1ff;overflow-wrap:anywhere}
-#s23.practice-branch .branch-pcard .prompt-line + .prompt-line{border-top:1px solid rgba(142,154,208,.22)}
-#s23.practice-branch .branch-footer{margin:18px 0 0;padding:9px 13px;border-radius:8px;background:rgba(38,55,117,.34);text-align:center;color:#dfe7ff;font-size:20px}
-#s23.practice-branch .branch-footer span{margin-right:8px;color:var(--ya);font-weight:800}
-#s23.practice-branch .branch-footer strong{color:var(--ink2)}
 
 
 /* クロコの実際の入力画面に寄せた、送る依頼文の見せ方 */
@@ -1160,34 +1131,6 @@ body.shot #ink i{animation:none}
 .claude-composer.ref-prompt-card::after{font-size:16px;padding-top:10px}
 .claude-composer.ref-prompt-card .ref-prompt-body{padding:16px 22px !important}
 
-/* 18枚目は二分割カードの中でも、同じUIを縮めて見せる */
-#s23.practice-branch .claude-composer.branch-pcard{
-  padding:8px 9px 0;
-  border-color:rgba(224,224,218,.28);
-  border-radius:10px;
-  background:linear-gradient(180deg,#1b1b1b 0%,#151515 100%);
-}
-#s23.practice-branch .claude-composer.branch-pcard::before{
-  content:"▱  ローカル　　▱  フォルダなし";
-  margin:0 0 5px;
-  padding:4px 7px;
-  border-radius:6px;
-  font-size:12px;
-}
-#s23.practice-branch .claude-composer.branch-pcard .ph{padding:0 1px 5px !important}
-#s23.practice-branch .claude-composer.branch-pcard .pt{font-size:14px !important;color:#bdbbb6 !important}
-#s23.practice-branch .claude-composer.branch-pcard .copy{padding:5px 9px !important;border-radius:5px !important;font-size:14px !important}
-#s23.practice-branch .claude-composer.branch-pcard .prompt-text{
-  padding:6px 9px 7px !important;
-  border-width:1px;
-  border-radius:9px;
-}
-#s23.practice-branch .claude-composer.branch-pcard .prompt-line{padding:3px 0;font-size:15px;line-height:1.32}
-#s23.practice-branch .claude-composer.branch-pcard::after{
-  content:"＋　♩　⌄　　自動　　　　　　　　●";
-  padding:7px 1px 8px;
-  font-size:12px;
-}
 
 /* 用語を左、意味を右へ。用語集として一目で引ける表にする */
 .glossary-table{
@@ -1216,32 +1159,68 @@ body.shot #ink i{animation:none}
 .glossary-row b{font-size:29px;line-height:1.3;color:var(--ink);font-weight:700}
 .glossary-row p{margin:5px 0 0;color:var(--ink2);font-size:20px;line-height:1.35}
 
+/* 18枚目：実践2。短いA（左）と長いB（右）を並べ、依頼文は17・19枚目と同じ大きさ（27px）で見せる */
+#s23.practice-branch .branch-lead{display:flex;align-items:center;gap:13px;margin:8px 0 19px;font-size:24px;color:var(--ink2)}
+#s23.practice-branch .branch-lead span{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:rgba(255,202,61,.16);color:var(--ya);font-size:18px;font-weight:700}
+#s23.practice-branch .branch-grid{display:grid;grid-template-columns:560px minmax(0,1fr);gap:30px;align-items:start}
+#s23.practice-branch .branch-card{display:flex;flex-direction:column;gap:12px;min-width:0;padding-top:12px;border-top:4px solid var(--ya)}
+#s23.practice-branch .branch-card.sample-reconciliation{border-top-color:#80c6ae}
+#s23.practice-branch .branch-card-top{display:flex;align-items:center;gap:12px}
+#s23.practice-branch .branch-route{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ya);color:#171a40;font-size:22px;font-weight:800}
+#s23.practice-branch .sample-reconciliation .branch-route{background:#80c6ae}
+#s23.practice-branch .branch-kicker{margin:0;color:var(--ya);font-size:24px;font-weight:700}
+#s23.practice-branch .sample-reconciliation .branch-kicker{color:#9be3ca}
+#s23.practice-branch .branch-card h3{margin:0;color:var(--ink2);font-size:32px;line-height:1.35}
+#s23.practice-branch .branch-detail{margin:0;color:#cdd7f4;font-size:24px;line-height:1.5}
+#s23.practice-branch .branch-download{display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;padding:9px 18px 9px 12px;border-radius:10px;background:#80c6ae;color:#10213a;text-decoration:none;font-size:24px;font-weight:800;line-height:1.2}
+#s23.practice-branch .branch-download span{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:#174b48;color:#e6fff8;font-size:19px}
+#s23.practice-branch .branch-prompt .prompt-line{font-size:27px;line-height:1.4;padding:5px 0}
+#s23.practice-branch .branch-footer{margin:12px 0 0;padding:8px 14px;border-radius:8px;background:rgba(38,55,117,.34);text-align:center;color:#dfe7ff;font-size:24px;line-height:1.4}
+#s23.practice-branch .branch-footer span{margin-right:8px;color:var(--ya);font-weight:800}
+#s23.practice-branch .branch-footer strong{color:var(--ink2)}
+
 /* 19枚目：もう一つの例「数字から、次回の経営面談を準備する」
    16・17枚目と同じ「操作の順番（上）→ 依頼文カード」の流れ。見出し・「選び方」の帯・依頼文カードは17〜18枚目と同じUIにそろえる */
 #mendan-prep .mendan-lead{display:flex;align-items:center;gap:13px;margin:8px 0 19px;font-size:24px;color:var(--ink2)}
 #mendan-prep .lead-tag{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:rgba(255,202,61,.16);color:var(--ya);font-size:18px;font-weight:700}
 #mendan-prep .lead-text b{font-weight:700;color:var(--ink)}
 #mendan-prep>*{flex-shrink:0}
-#mendan-prep .mendan-route{grid-template-columns:400px minmax(0,1fr) 480px;margin:0 0 14px;padding:12px 0;gap:26px}
+#mendan-prep .mendan-route{grid-template-columns:460px minmax(0,1fr) 470px;margin:0 0 14px;padding:12px 0;gap:26px}
 #mendan-prep .mendan-route li+li{padding-left:26px}
-#mendan-prep .mendan-route h3{font-size:28px;line-height:1.35;margin:1px 0 8px}
-#mendan-prep .mendan-route p{font-size:23px;line-height:1.5}
+#mendan-prep .mendan-route h3{font-size:32px;line-height:1.35;margin:1px 0 8px;text-wrap:balance}
+#mendan-prep .mendan-route p{font-size:24px;line-height:1.5}
 #mendan-prep .mendan-download{display:inline-flex;align-items:center;gap:10px;padding:9px 20px 9px 16px;border-radius:10px;background:var(--ya);color:#14163A;font-size:24px;font-weight:700;line-height:1.2;text-decoration:none;transition:transform .15s}
 #mendan-prep .mendan-download:hover{transform:translateY(-1px)}
 #mendan-prep .mendan-download svg{width:26px;height:26px;flex:none}
-#mendan-prep .mendan-file{display:block;margin-top:8px;font-size:21px;line-height:1.4;color:var(--mut)}
+#mendan-prep .mendan-file{display:block;margin-top:8px;font-size:24px;line-height:1.4;color:var(--mut)}
 #mendan-prep .mendan-prompt{min-width:0}
-#mendan-prep .mendan-prompt .prompt-line{font-size:26px;line-height:1.5;padding:6px 0}
+#mendan-prep .mendan-prompt .prompt-line{font-size:27px;line-height:1.4;padding:5px 0}
 #mendan-prep .mendan-prompt .prompt-line strong{color:var(--ya);font-weight:700}
 #mendan-prep .mendan-check{display:grid;grid-template-columns:300px minmax(0,1fr) minmax(0,1fr);margin:14px 0 0;border-left:6px solid var(--ya);border-radius:0 14px 14px 0;background:rgba(38,55,117,.34)}
-#mendan-prep .mendan-check>div{padding:11px 28px;min-width:0}
+#mendan-prep .mendan-check>div{padding:11px 24px;min-width:0}
 #mendan-prep .mendan-check>div+div{border-left:2px solid var(--line)}
-#mendan-prep .check-label b{display:block;font-size:30px;line-height:1.3;color:var(--ya)}
-#mendan-prep .check-label span{display:block;margin-top:4px;font-size:21px;line-height:1.4;color:var(--mut)}
-#mendan-prep .check-item{display:flex;align-items:flex-start;gap:16px}
+#mendan-prep .check-label b{display:block;font-size:32px;line-height:1.35;color:var(--ya)}
+#mendan-prep .check-label span{display:block;margin-top:4px;font-size:24px;line-height:1.45;color:var(--mut)}
+#mendan-prep .check-item{display:flex;align-items:flex-start;gap:14px}
 #mendan-prep .check-item i{flex:none;display:grid;place-items:center;width:40px;height:40px;margin-top:2px;border:2px solid var(--ok);border-radius:50%;color:var(--ok);font:700 23px var(--ud)}
-#mendan-prep .check-item strong{display:block;font-size:31px;line-height:1.35;color:var(--ink)}
-#mendan-prep .check-item span{display:block;margin-top:4px;font-size:22px;line-height:1.45;color:var(--ink2)}
+#mendan-prep .check-item strong{display:block;font-size:32px;line-height:1.35;color:var(--ink)}
+#mendan-prep .check-item span{display:block;margin-top:4px;font-size:24px;line-height:1.45;color:var(--ink2)}
+
+/* 文字サイズの基準そろえ：実践スライドは 見出し64／題名32／説明24／依頼文27、依頼カードの題名19・コピー18。参考情報も見出し64・依頼文27 */
+.practice-agenda .agenda-name h3{font-size:32px}
+.practice-agenda .agenda-name p{font-size:24px}
+.practice-agenda .agenda-result{font-size:24px}
+.setup-with-screen .setup-actions .action-no{width:48px;height:48px;font-size:29px}
+.setup-with-screen .setup-actions h3{font-size:32px}
+.setup-with-screen .setup-actions p{font-size:24px;line-height:1.5}
+.choice-tag{font-size:24px}
+.choice-options h3{font-size:32px}
+.choice-options p{font-size:24px}
+.ref-head{font-size:64px}
+.ref-tip-list strong{font-size:38px}
+.reference .ref-prompt-body .prompt-line{font-size:27px}
+.reference .ref-annotated .prompt-line{font-size:27px}
+.ref-annotated .prompt-line b{font-size:24px}
 
 </style>
 </head>
@@ -1549,8 +1528,12 @@ body.shot #ink i{animation:none}
 <div class="chap"><span class="no">18</span><span class="lb">業務</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際の業務を<br>任せる</span></span></div>
 <h2 class="h">実践2：<em>実際の業務を効率化してみる</em></h2>
 <p class="branch-lead"><span>選び方</span>自分の業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
-<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務で、できる作業を一つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">（ダウンロードフォルダに、税理士事務所_AI依頼業務例.zipがあるので、デスクトップに移動して解凍し、）</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article></div>
-<p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p></section>
+<div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ">
+<article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="pcard claude-composer branch-prompt"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務で、できる作業を一つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article>
+<article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard claude-composer branch-prompt"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">（ダウンロードフォルダに、税理士事務所_AI依頼業務例.zipがあるので、デスクトップに移動して解凍し、）</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article>
+</div>
+<p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p>
+</section>
 
 <section class="slide practice readable prompt-page practice-mendan" id="mendan-prep" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="もう一つの例　数字から、次回の経営面談を準備する">
 <div class="chap"><span class="no">19</span><span class="lb">面談準備</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際の業務を<br>任せる</span></span></div>
@@ -1563,8 +1546,8 @@ body.shot #ink i{animation:none}
 </ol>
 <div class="pcard claude-composer mendan-prompt"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line">DLフォルダにある、経営面談の準備_実習データ.zipを、デスクトップに移動して</p><p class="prompt-line">解凍したフォルダの月次資料と、前回面談メモを読んでください。</p><p class="prompt-line">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</p><p class="prompt-line">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを一つずつ添えてください。</p><p class="prompt-line">資料にないことは<strong>断定せず</strong>、次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</p></div></div>
 <div class="mendan-check" role="group" aria-label="最後の確認点">
-<div class="check-label"><b>最後の確認点</b><span>AIの案は「たたき台」です</span></div>
-<div class="check-item"><i aria-hidden="true">✓</i><div><strong>事実と仮説を分けているか</strong><span>資料にないことを、事実のように書いていないか</span></div></div>
+<div class="check-label"><b>最後の確認点</b><span>AIの案は「たたき台」</span></div>
+<div class="check-item"><i aria-hidden="true">✓</i><div><strong>事実と仮説を分けているか</strong><span>資料にないことを、事実として書いていないか</span></div></div>
 <div class="check-item"><i aria-hidden="true">✓</i><div><strong>支援案が資料の根拠に基づくか</strong><span>どの数字・メモから出た案か説明できるか</span></div></div>
 </div>
 </section>
