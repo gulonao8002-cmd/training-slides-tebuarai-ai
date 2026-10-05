@@ -1216,6 +1216,34 @@ body.shot #ink i{animation:none}
 .glossary-row b{font-size:29px;line-height:1.3;color:var(--ink);font-weight:700}
 .glossary-row p{margin:5px 0 0;color:var(--ink2);font-size:20px;line-height:1.35}
 
+/* 19枚目：もう一つの例「数字から、次回の経営面談を準備する」
+   14枚目と同じ「操作の順番（左）＋画面（右）」の構成。見出し・「選び方」の帯・依頼文カードは17〜18枚目と同じUIにそろえる */
+#mendan-prep .mendan-lead{display:flex;align-items:center;gap:13px;margin:8px 0 19px;font-size:24px;color:var(--ink2)}
+#mendan-prep .lead-tag{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:rgba(255,202,61,.16);color:var(--ya);font-size:18px;font-weight:700}
+#mendan-prep .lead-text b{font-weight:700;color:var(--ink)}
+#mendan-prep .mendan-main{display:grid;grid-template-columns:560px minmax(0,1fr);gap:52px;align-items:start}
+#mendan-prep .mendan-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:22px;min-width:0}
+#mendan-prep .mendan-steps li{display:flex;align-items:flex-start;gap:22px;min-width:0}
+#mendan-prep .mendan-steps .action-no{width:56px;height:56px;font-size:30px}
+#mendan-prep .mendan-steps h3{font-size:31px;line-height:1.35;margin:4px 0 8px;text-wrap:balance}
+#mendan-prep .mendan-steps p{font-size:24px;line-height:1.5;color:var(--ink2);margin:0}
+#mendan-prep .mendan-download{display:inline-flex;align-items:center;gap:12px;margin:2px 0 0;padding:12px 24px 12px 20px;border-radius:10px;background:var(--ya);color:#14163A;font-size:26px;font-weight:700;line-height:1.2;text-decoration:none;transition:transform .15s}
+#mendan-prep .mendan-download:hover{transform:translateY(-1px)}
+#mendan-prep .mendan-download svg{width:28px;height:28px;flex:none}
+#mendan-prep .mendan-file{display:block;margin-top:10px;font:400 21px var(--mono);color:var(--mut)}
+#mendan-prep .mendan-prompt{min-width:0}
+#mendan-prep .mendan-prompt .prompt-line{font-size:27px;line-height:1.5;padding:9px 0}
+#mendan-prep .mendan-prompt .prompt-line strong{color:var(--ya);font-weight:700}
+#mendan-prep .mendan-check{display:grid;grid-template-columns:300px minmax(0,1fr) minmax(0,1fr);margin:24px 0 0;border-left:6px solid var(--ya);border-radius:0 14px 14px 0;background:rgba(38,55,117,.34)}
+#mendan-prep .mendan-check>div{padding:15px 28px;min-width:0}
+#mendan-prep .mendan-check>div+div{border-left:2px solid var(--line)}
+#mendan-prep .check-label b{display:block;font-size:30px;line-height:1.3;color:var(--ya)}
+#mendan-prep .check-label span{display:block;margin-top:5px;font-size:21px;line-height:1.4;color:var(--mut)}
+#mendan-prep .check-item{display:flex;align-items:flex-start;gap:16px}
+#mendan-prep .check-item i{flex:none;display:grid;place-items:center;width:40px;height:40px;margin-top:2px;border:2px solid var(--ok);border-radius:50%;color:var(--ok);font:700 23px var(--ud)}
+#mendan-prep .check-item strong{display:block;font-size:31px;line-height:1.35;color:var(--ink)}
+#mendan-prep .check-item span{display:block;margin-top:4px;font-size:22px;line-height:1.45;color:var(--ink2)}
+
 </style>
 </head>
 <body>
@@ -1525,20 +1553,40 @@ body.shot #ink i{animation:none}
 <div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ"><article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を一つ任せます。</p><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務で、できる作業を一つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article><article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>例のファイルを、<br>照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard claude-composer branch-pcard"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">（ダウンロードフォルダに、税理士事務所_AI依頼業務例.zipがあるので、デスクトップに移動して解凍し、）</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article></div>
 <p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p></section>
 
+<section class="slide practice readable prompt-page practice-mendan" id="mendan-prep" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="もう一つの例　数字から、次回の経営面談を準備する">
+<div class="chap"><span class="no">19</span><span class="lb">面談準備</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>ファイルを<br>照合する</span></span></div>
+<h2 class="h">数字から、<em>次回の経営面談</em>を準備する</h2>
+<p class="mendan-lead"><span class="lead-tag">もう一つの例</span><span class="lead-text"><b>月次資料</b>と<b>前回の面談メモ</b>を読み、<b>確認したいこと・聞くこと・支援案</b>をまとめる</span></p>
+<div class="mendan-main">
+<ol class="mendan-steps" aria-label="操作の順番">
+<li><span class="action-no">1</span><div><h3>実習データをダウンロード</h3><a class="mendan-download" href="assets/taxoffice_keiei_mendan_practice.zip" download="taxoffice_keiei_mendan_practice.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v9.2l3.3-3.3 1.4 1.4L12 16l-5.7-5.7 1.4-1.4 3.3 3.3zM5 18h14v2H5z"/></svg>ZIPをダウンロード</a><span class="mendan-file">taxoffice_keiei_mendan_practice.zip</span></div></li>
+<li><span class="action-no">2</span><div><h3>ZIPをデスクトップへ移動して解凍</h3><p>Windowsは右クリック →「すべて展開」<br>Macはダブルクリック</p></div></li>
+<li><span class="action-no">3</span><div><h3>プロンプトをコピーしてクロコへ送る</h3><p>右のカードの「コピー」から貼り付け</p></div></li>
+<li><span class="action-no">4</span><div><h3>作られたHTMLスライドを開き、事実・仮説・支援案を確認する</h3></div></li>
+</ol>
+<div class="pcard claude-composer mendan-prompt"><div class="ph"><span class="pt">3　送る依頼文</span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line">デスクトップに解凍したフォルダの月次資料と、前回面談メモを読んでください。</p><p class="prompt-line">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</p><p class="prompt-line">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを一つずつ添えてください。</p><p class="prompt-line">資料にないことは<strong>断定せず</strong>、次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</p></div></div>
+</div>
+<div class="mendan-check" role="group" aria-label="最後の確認点">
+<div class="check-label"><b>最後の確認点</b><span>AIの案は「たたき台」です</span></div>
+<div class="check-item"><i aria-hidden="true">✓</i><div><strong>事実と仮説を分けているか</strong><span>資料にないことを、事実のように書いていないか</span></div></div>
+<div class="check-item"><i aria-hidden="true">✓</i><div><strong>支援案が資料の根拠に基づくか</strong><span>どの数字・メモから出た案か説明できるか</span></div></div>
+</div>
+</section>
+
 
 <!-- 参考情報 ───────────────────────── -->
 <section class="slide reference ref-title" id="reference-title" data-use="参考情報" data-steps="1" data-title="参考情報　AIを使うコツと基礎知識">
-  <div class="chap"><span class="no">19</span><span class="lb">参考</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">20</span><span class="lb">参考</span><span class="bar"></span></div>
   <div class="ref-title-inner">
     <p class="ref-kicker">参考情報</p>
     <h2>AIを使う<br><em>コツと基礎知識</em></h2>
     <div class="ref-rule" aria-hidden="true"></div>
-    <div class="ref-index"><div><span>20–23</span><strong>頼み方・進め方・直し方</strong></div><div><span>24–26</span><strong>ファイル・確認・用語</strong></div></div>
+    <div class="ref-index"><div><span>21–24</span><strong>頼み方・進め方・直し方</strong></div><div><span>25–27</span><strong>ファイル・確認・用語</strong></div></div>
   </div>
 </section>
 
 <section class="slide reference" id="ref-process" data-use="参考情報" data-steps="1" data-title="一度で完成させず、会話で仕上げる">
-  <div class="chap"><span class="no">20</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">21</span><span class="lb">コツ</span><span class="bar"></span></div>
   <p class="ref-kicker">使い方のコツ　1 / 4</p><h2 class="ref-head">一度で完成させず、<em>会話で仕上げる</em></h2>
   <p class="ref-sub">質問に答えることも、修正を頼むことも、仕事の一部です。</p>
   <div class="ref-work-loop" aria-label="人が依頼し、AIが作業、人が確認、AIが修正する流れ">
@@ -1552,7 +1600,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-request" data-use="参考情報" data-steps="1" data-title="依頼文は、4つに分ける">
-  <div class="chap"><span class="no">21</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">22</span><span class="lb">コツ</span><span class="bar"></span></div>
   <p class="ref-kicker">使い方のコツ　2 / 4</p><h2 class="ref-head">依頼文は、<em>4つに分ける</em></h2>
   <p class="ref-sub">人に仕事を頼む時と同じ。見出しで分けると、伝えやすくなります。</p>
   <div class="ref-prompt-map">
@@ -1578,7 +1626,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-autonomy" data-use="参考情報" data-steps="1" data-title="手順は任せて、進め方だけ伝える">
-  <div class="chap"><span class="no">22</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">23</span><span class="lb">コツ</span><span class="bar"></span></div>
   <p class="ref-kicker">使い方のコツ　3 / 4</p><h2 class="ref-head">手順は任せて、<em>進め方だけ伝える</em></h2>
   <p class="ref-sub">目的を伝えたら、この3つを添えてみましょう。</p>
   <div class="ref-tip-layout">
@@ -1593,7 +1641,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-repair" data-use="参考情報" data-steps="1" data-title="修正は、どこをどう変えるかを伝える">
-  <div class="chap"><span class="no">23</span><span class="lb">コツ</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">24</span><span class="lb">コツ</span><span class="bar"></span></div>
   <p class="ref-kicker">使い方のコツ　4 / 4</p><h2 class="ref-head">修正は、<em>どこを・どう変えるか</em></h2>
   <p class="ref-sub">同じ会話で、直してほしい点を具体的に伝えます。</p>
   <div class="ref-edit-layout">
@@ -1608,7 +1656,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-files" data-use="参考情報" data-steps="1" data-title="ファイルは、原本・操作・結果を確認">
-  <div class="chap"><span class="no">24</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">25</span><span class="lb">基礎</span><span class="bar"></span></div>
   <p class="ref-kicker">基礎知識　1 / 3</p><h2 class="ref-head">ファイルは、<em>原本・操作・結果</em>を確認</h2>
   <div class="ref-file-stages">
     <article><span class="phase-label">始める前</span><h3><em>原本</em>を残す</h3><div class="file-copy-diagram"><span class="file-icon">原本</span><b aria-hidden="true">→</b><span class="file-icon work-copy">作業用<br>コピー</span></div><p>コピーしたファイルで作業する。</p></article>
@@ -1619,7 +1667,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-boundary" data-use="参考情報" data-steps="1" data-title="AIが作業し、人が判断する">
-  <div class="chap"><span class="no">25</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">26</span><span class="lb">基礎</span><span class="bar"></span></div>
   <p class="ref-kicker">基礎知識　2 / 3</p><h2 class="ref-head">AIが作業し、<em>人が判断する</em></h2>
   <div class="ref-responsibility" role="table" aria-label="AIの作業に対して人が確認すること">
     <div class="responsibility-header" role="row"><strong role="columnheader">AIに任せる作業</strong><span aria-hidden="true"></span><strong role="columnheader">自分が確認すること</strong></div>
@@ -1631,7 +1679,7 @@ body.shot #ink i{animation:none}
 </section>
 
 <section class="slide reference" id="ref-terms" data-use="参考情報" data-steps="1" data-title="よく出る用語を、意味とセットで">
-  <div class="chap"><span class="no">26</span><span class="lb">基礎</span><span class="bar"></span></div>
+  <div class="chap"><span class="no">27</span><span class="lb">基礎</span><span class="bar"></span></div>
   <p class="ref-kicker">基礎知識　3 / 3</p><h2 class="ref-head">よく出る用語を、<em>意味とセットで</em></h2>
   <p class="ref-sub">気になった言葉だけ、右側の意味を見てください。</p>
   <div class="glossary-table" role="table" aria-label="AIでよく出る用語と意味">
@@ -1649,7 +1697,7 @@ body.shot #ink i{animation:none}
 </div>
 
 <div id="ticks"></div>
-<div id="num">01 / 26</div>
+<div id="num">01 / 27</div>
 <button type="button" id="gridBtn" aria-label="スライド一覧を開く">一覧 G</button>
 <div id="hint" role="status"></div>
 <div id="grid" hidden><div class="gwrap"></div></div>
