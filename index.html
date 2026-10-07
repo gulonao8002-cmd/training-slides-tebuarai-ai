@@ -1207,28 +1207,6 @@ body.shot #ink i{animation:none}
 #mendan-prep .check-item strong{display:block;font-size:32px;line-height:1.35;color:var(--ink)}
 #mendan-prep .check-item span{display:block;margin-top:4px;font-size:24px;line-height:1.45;color:var(--ink2)}
 
-/* 18・19枚目：依頼文を、右下のPW欄（1・2・3）で段階的に見せる。1=ぼかす／2=骨組みのヒント／3=全文（従来の表示） */
-.gate[data-lv="1"] [data-g]:not([data-g~="1"]),
-.gate[data-lv="2"] [data-g]:not([data-g~="2"]),
-.gate[data-lv="3"] [data-g]:not([data-g~="3"]){display:none}
-.gate-card .prompt-text{position:relative}
-.gate[data-lv="2"] .gate-card .prompt-line{visibility:hidden}
-.gate[data-lv="1"] .gate-card .prompt-line{filter:blur(8px);opacity:.9;user-select:none;-webkit-user-select:none}
-.gate:not([data-lv="3"]) .gate-card .prompt-text{user-select:none;-webkit-user-select:none}
-.gate:not([data-lv="3"]) .gate-card .copy{visibility:hidden}
-.gate-card .bk{margin:0 .08em;padding:.04em .4em;border:1.5px dashed rgba(255,197,61,.7);border-radius:8px;background:rgba(255,197,61,.12);color:var(--ya);font-weight:700;white-space:nowrap}
-.gate-hint{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:0 24px}
-.gate-hint p{display:flex;align-items:center;gap:16px;margin:0;font-size:27px;line-height:1.4}
-.gate-hint i{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,197,61,.16);color:var(--ya);font:700 21px var(--ud)}
-.gate-veil{position:absolute;inset:0;display:grid;place-items:center;padding:0 24px;pointer-events:none}
-.gate-veil span{padding:14px 34px;border:2px solid var(--ya);border-radius:14px;background:rgba(10,16,48,.9);color:var(--ya);font-size:32px;font-weight:700;line-height:1.45;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
-#s23 .dl-row{display:flex;align-items:center;gap:20px}
-#s23 .gate-file{min-width:0;color:var(--mut);font-size:22px;line-height:1.3}
-.gate-pw{position:absolute;top:11px;right:16px;z-index:2;display:flex;align-items:center;gap:8px;padding:2px 4px;color:var(--composer-muted);font:600 16px var(--ud);letter-spacing:.14em;opacity:.5;transition:opacity .2s;cursor:text}
-.gate-pw:hover,.gate-pw:focus-within{opacity:1}
-.gate-pw input{width:56px;padding:2px 4px;border:0;border-bottom:1.5px dashed rgba(170,168,163,.55);border-radius:0;background:transparent;color:var(--composer-ink);font:600 20px var(--mono);text-align:center;outline:none}
-.gate-pw input:focus{border-bottom-color:var(--ya);color:var(--ya)}
-
 /* 文字サイズの基準そろえ：実践スライドは 見出し64／題名32／説明24／依頼文27、依頼カードの題名19・コピー18。参考情報も見出し64・依頼文27 */
 .practice-agenda .agenda-name h3{font-size:32px}
 .practice-agenda .agenda-name p{font-size:24px}
@@ -1547,27 +1525,27 @@ body.shot #ink i{animation:none}
 <h2 class="h">説明資料を、<em>5枚のスライドにする</em></h2>
 <ol class="action-route two-actions" aria-label="操作の順番"><li><span class="action-no">1</span><div><h3>続けて依頼文を送る</h3><p>同じ会話に、コピーして貼り付ける</p></div></li><li><span class="action-no">2</span><div><h3>できたら、内容を確かめる</h3><p>新人に仕事の流れが伝わるか確認する</p></div></li></ol><div class="reading-layout"><div class="pcard claude-composer"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="依頼文をコピー" data-p="slide"><span class="cl">コピー</span></button></div><div class="prompt-text structured-prompt" data-prompt="slide"><p class="prompt-line prompt-heading">[してほしいこと]</p><p class="prompt-line prompt-body">この会話で作った説明資料を、新人に仕事の流れが伝わる5枚のスライド（HTML形式）にしてください。</p><p class="prompt-line prompt-heading">[どんな風に（具体的に）]</p><p class="prompt-line prompt-body">見やすく伝わりやすいデザインにしてください。必要であれば動きも入れてください。</p><p class="prompt-line prompt-body">構成は任せます。時間をかけていいので、完成度の高いものを作成してください。</p><p class="prompt-line prompt-body">デスクトップに保存して、完成したら、開いてください。</p></div></div><aside class="practice-message"><p>AIが作ったものに、<br><strong>さらに修正を<br>依頼してみましょう</strong><span class="message-example">「デザインをもっと<br>シンプルでクールにして」など</span></p></aside></div></section>
 
-<section class="slide practice readable prompt-page practice-branch gate" id="s23" data-lv="1" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="実践2：実際の業務を効率化してみる">
+<section class="slide practice readable prompt-page practice-branch" id="s23" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="実践2：実際の業務を効率化してみる">
 <div class="chap"><span class="no">18</span><span class="lb">業務</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際の業務を<br>任せる</span></span></div>
 <h2 class="h">実践2：<em>実際の業務を効率化してみる</em></h2>
 <p class="branch-lead"><span>選び方</span>自分の業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
 <div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ">
 <article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を1つ任せます。</p><div class="pcard claude-composer branch-prompt"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務のうち、AIにできる作業を1つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article>
-<article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>練習用のファイルを、照合する</h3><p class="branch-detail"><span data-g="3">自分の業務を考えなくても、同じ手順を体験できます。</span><span data-g="1 2">課題：通帳明細と普通預金元帳を照合し、違いの候補を一覧にする</span></p><div class="dl-row"><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><span class="gate-file" data-g="1 2">税理士事務所_AI依頼業務例.zip</span></div><div class="pcard claude-composer branch-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　ヒント（この3つを、自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">ダウンロードフォルダにある、税理士事務所_AI依頼業務例.zipを、デスクトップに移動して解凍してください。</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p><div class="gate-hint" data-g="2"><p><i>1</i><b class="bk">どこの、どのファイルを</b></p><p><i>2</i><b class="bk">どうして欲しい</b></p><p><i>3</i><b class="bk">何を作って欲しい</b></p></div><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で<br>依頼文を書いてみましょう</span></div></div><label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label></div></article>
+<article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>練習用のファイルを、照合する</h3><p class="branch-detail">自分の業務を考えなくても、同じ手順を体験できます。</p><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><div class="pcard claude-composer branch-prompt"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">ダウンロードフォルダにある、税理士事務所_AI依頼業務例.zipを、デスクトップに移動して解凍してください。</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p></div></div></article>
 </div>
 <p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p>
 </section>
 
-<section class="slide practice readable prompt-page practice-mendan gate" id="mendan-prep" data-lv="1" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="もう一つの例　数字から、次回の経営面談を準備する">
+<section class="slide practice readable prompt-page practice-mendan" id="mendan-prep" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="もう一つの例　数字から、次回の経営面談を準備する">
 <div class="chap"><span class="no">19</span><span class="lb">面談準備</span><span class="bar"></span></div><div class="work-flow" aria-label="実践の現在地"><span class="flow-item" data-stage-key="1"><b>1.</b><span>設定する</span></span><span class="flow-item" data-stage-key="2"><b>2.</b><span>自分の業務を<br>言語化する</span></span><span class="flow-item" data-stage-key="3-i"><b>3-i.</b><span>スライドにする</span></span><span class="flow-item now" data-stage-key="3-ii" aria-current="step"><b>3-ii.</b><span>実際の業務を<br>任せる</span></span></div>
 <h2 class="h">数字から、<em>次回の経営面談</em>を準備する</h2>
 <p class="mendan-lead"><span class="lead-tag">もう一つの例</span><span class="lead-text"><b>月次資料</b>と<b>前回の面談メモ</b>を読み、<b>確認したいこと・聞くこと・支援案</b>をまとめる</span></p>
 <ol class="action-route mendan-route" aria-label="操作の順番">
 <li><span class="action-no">1</span><div><h3>実習データをダウンロード</h3><a class="mendan-download" href="assets/経営面談の準備_実習データ.zip" download="経営面談の準備_実習データ.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v9.2l3.3-3.3 1.4 1.4L12 16l-5.7-5.7 1.4-1.4 3.3 3.3zM5 18h14v2H5z"/></svg>ZIPをダウンロード</a><span class="mendan-file">経営面談の準備_実習データ.zip</span></div></li>
-<li><span class="action-no">2</span><div><h3><span data-g="3">依頼文をコピーしてクロコへ送る</span><span data-g="1 2">依頼文を自分で書いてクロコへ送る</span></h3><p><span data-g="3">ZIPの移動と解凍も、クロコがします</span><span data-g="1 2">ZIPの移動と解凍も、クロコに頼みます</span></p></div></li>
+<li><span class="action-no">2</span><div><h3>依頼文をコピーしてクロコへ送る</h3><p>ZIPの移動と解凍も、クロコがします</p></div></li>
 <li><span class="action-no">3</span><div><h3>作られたHTMLスライドを開く</h3><p>事実・仮説・支援案を確認する</p></div></li>
 </ol>
-<div class="pcard claude-composer mendan-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　ヒント（この3つを、自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line">ダウンロードフォルダにある、経営面談の準備_実習データ.zipを、デスクトップに移動して</p><p class="prompt-line">解凍したフォルダの月次資料と、前回面談メモを読んでください。</p><p class="prompt-line">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</p><p class="prompt-line">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを1つずつ添えてください。</p><p class="prompt-line">資料にないことは<strong>断定しないで</strong>ください。</p><p class="prompt-line">次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</p><div class="gate-hint" data-g="2"><p><i>1</i><b class="bk">どこの、どのファイルを</b></p><p><i>2</i><b class="bk">どうして欲しい</b></p><p><i>3</i><b class="bk">何を作って欲しい</b></p></div><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で依頼文を書いてみましょう</span></div></div><label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label></div>
+<div class="pcard claude-composer mendan-prompt"><div class="ph"><span class="pt">2　送る依頼文</span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line">ダウンロードフォルダにある、経営面談の準備_実習データ.zipを、デスクトップに移動して</p><p class="prompt-line">解凍したフォルダの月次資料と、前回面談メモを読んでください。</p><p class="prompt-line">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</p><p class="prompt-line">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを1つずつ添えてください。</p><p class="prompt-line">資料にないことは<strong>断定しないで</strong>ください。</p><p class="prompt-line">次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</p></div></div>
 <div class="mendan-check" role="group" aria-label="最後の確認点">
 <div class="check-label"><b>最後の確認点</b><span>AIの案は「たたき台」</span></div>
 <div class="check-item"><i aria-hidden="true">✓</i><div><strong>事実と仮説を分けているか</strong><span>資料にないことを、事実として書いていないか</span></div></div>
@@ -2675,7 +2653,6 @@ var U = {
 
   document.addEventListener('keydown', function(e){
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.target && e.target.tagName === 'INPUT') return;   /* PW欄に打った文字で、スライドが動かないように */
     var k = e.key;
     if (!/^[0-9]$/.test(k)) cancelDigits();
     if (!help.hidden){ if (k === 'Escape' || k === '?' || k === '/' || k === 'Enter' || k === ' '){ help.hidden = true; } e.preventDefault(); return; }
@@ -2712,7 +2689,7 @@ var U = {
     cancelDigits();
     if (auto) setAuto(false);
     if (document.body.classList.contains('black')){ document.body.classList.remove('black'); return; }
-    if (e.target.closest('button, a, .prompt-text, .gate-pw')) return;
+    if (e.target.closest('button, a, .prompt-text')) return;
     (e.clientX < window.innerWidth * 0.18) ? prev() : next();
   });
   document.getElementById('gridBtn').addEventListener('click', function(e){ e.stopPropagation(); toggleGrid(); });
@@ -2768,8 +2745,6 @@ var U = {
   }
   function doCopy(btn){
     var card = btn.closest('.pcard');
-    var gate = card.classList.contains('gate-card') && card.closest('.gate');
-    if (gate && gate.getAttribute('data-lv') !== '3') return;   /* 全文を見せる前は、コピーもさせない */
     var text = [].map.call(card.querySelectorAll('.prompt-line'), function(line){ return line.textContent; }).join('\n');
     var label = btn.querySelector('.cl');
     copyText(text).then(function(){
@@ -2787,44 +2762,10 @@ var U = {
   });
   document.addEventListener('keydown', function(e){
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.target && e.target.tagName === 'INPUT') return;
     if (e.key === 'c' || e.key === 'C'){
       var btn = document.querySelector('.slide.on .copy');
       if (btn) doCopy(btn);
     }
-  });
-})();
-</script>
-
-<script>
-/* 18・19枚目の依頼文は、右下のPW欄で見え方を切り替える（半角・全角どちらでも可）。
-   1（または空）＝ぼかす　2＝骨組みのヒント　3＝全文。スライドごとに独立し、開き直すと1に戻る。 */
-(function(){
-  'use strict';
-  [].forEach.call(document.querySelectorAll('.slide.gate'), function(sl){
-    var input = sl.querySelector('.gate-pw input');
-    if (!input) return;
-    function level(){ return parseInt(sl.getAttribute('data-lv'), 10); }
-    function norm(s){ return (s || '').normalize('NFKC').trim(); }
-    function read(e){
-      var v = norm(input.value);
-      if (v === '') return 1;
-      if (/^[123]$/.test(v)) return parseInt(v, 10);
-      var d = norm(e && e.data);            /* 前の数字が残っていても、いま打った1文字を採用する */
-      return /^[123]$/.test(d) ? parseInt(d, 10) : 0;
-    }
-    input.addEventListener('focus', function(){ setTimeout(function(){ if (document.activeElement === input) input.select(); }, 0); });
-    input.addEventListener('mouseup', function(e){ if (document.activeElement === input) e.preventDefault(); });   /* クリックで選択が外れないように */
-    input.addEventListener('input', function(e){
-      var n = read(e);
-      if (!n) return;                       /* 1・2・3以外は無視（いまの表示のまま） */
-      sl.setAttribute('data-lv', String(n));
-      if (input.value !== '') input.blur(); /* 打ったらすぐ、矢印キーでスライドを進められるように */
-    });
-    input.addEventListener('blur', function(){ input.value = level() === 1 ? '' : String(level()); });
-    input.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === 'Escape'){ e.preventDefault(); input.blur(); }
-    });
   });
 })();
 </script>
