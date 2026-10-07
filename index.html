@@ -1212,22 +1212,21 @@ body.shot #ink i{animation:none}
 .gate[data-lv="2"] [data-g]:not([data-g~="2"]),
 .gate[data-lv="3"] [data-g]:not([data-g~="3"]){display:none}
 .gate-card .prompt-text{position:relative}
-.gate-card .prompt-line{display:grid}
-.gate-card .prompt-line>span{grid-area:1/1;min-width:0}
-.gate-card .t2{visibility:hidden}
-.gate[data-lv="2"] .gate-card .t2{visibility:visible}
-.gate[data-lv="2"] .gate-card .t3{visibility:hidden}
-.gate[data-lv="1"] .gate-card .t3{filter:blur(8px);opacity:.9;user-select:none;-webkit-user-select:none}
+.gate[data-lv="2"] .gate-card .prompt-line{visibility:hidden}
+.gate[data-lv="1"] .gate-card .prompt-line{filter:blur(8px);opacity:.9;user-select:none;-webkit-user-select:none}
 .gate:not([data-lv="3"]) .gate-card .prompt-text{user-select:none;-webkit-user-select:none}
 .gate:not([data-lv="3"]) .gate-card .copy{visibility:hidden}
 .gate-card .bk{margin:0 .08em;padding:.04em .4em;border:1.5px dashed rgba(255,197,61,.7);border-radius:8px;background:rgba(255,197,61,.12);color:var(--ya);font-weight:700;white-space:nowrap}
+.gate-hint{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:0 24px}
+.gate-hint p{display:flex;align-items:center;gap:16px;margin:0;font-size:27px;line-height:1.4}
+.gate-hint i{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,197,61,.16);color:var(--ya);font:700 21px var(--ud)}
 .gate-veil{position:absolute;inset:0;display:grid;place-items:center;padding:0 24px;pointer-events:none}
 .gate-veil span{padding:14px 34px;border:2px solid var(--ya);border-radius:14px;background:rgba(10,16,48,.9);color:var(--ya);font-size:32px;font-weight:700;line-height:1.45;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
 #s23 .dl-row{display:flex;align-items:center;gap:20px}
 #s23 .gate-file{min-width:0;color:var(--mut);font-size:22px;line-height:1.3}
-.gate-pw{position:absolute;right:150px;bottom:16px;display:flex;align-items:center;gap:8px;color:var(--mut);font:600 16px var(--ud);letter-spacing:.14em;opacity:.38;transition:opacity .2s;cursor:text}
-.gate-pw:hover,.gate-pw:focus-within{opacity:.95}
-.gate-pw input{width:64px;padding:2px 6px;border:0;border-bottom:1.5px dashed var(--mut);border-radius:0;background:transparent;color:var(--ink);font:600 20px var(--mono);text-align:center;outline:none}
+.gate-pw{position:absolute;top:11px;right:16px;z-index:2;display:flex;align-items:center;gap:8px;padding:2px 4px;color:var(--composer-muted);font:600 16px var(--ud);letter-spacing:.14em;opacity:.5;transition:opacity .2s;cursor:text}
+.gate-pw:hover,.gate-pw:focus-within{opacity:1}
+.gate-pw input{width:56px;padding:2px 4px;border:0;border-bottom:1.5px dashed rgba(170,168,163,.55);border-radius:0;background:transparent;color:var(--composer-ink);font:600 20px var(--mono);text-align:center;outline:none}
 .gate-pw input:focus{border-bottom-color:var(--ya);color:var(--ya)}
 
 /* 文字サイズの基準そろえ：実践スライドは 見出し64／題名32／説明24／依頼文27、依頼カードの題名19・コピー18。参考情報も見出し64・依頼文27 */
@@ -1554,10 +1553,9 @@ body.shot #ink i{animation:none}
 <p class="branch-lead"><span>選び方</span>自分の業務を思いつく人は左へ。まだ浮かばない人は、右の例で進めます。</p>
 <div class="branch-grid" aria-label="自分の業務または照合ファイルを選ぶ">
 <article class="branch-card own-job"><div class="branch-card-top"><span class="branch-route">A</span><p class="branch-kicker">業務を思いつく人</p></div><h3>自分の業務を、<br>クロコに依頼する</h3><p class="branch-detail">16枚目で言語化した説明資料を使い、できる作業を1つ任せます。</p><div class="pcard claude-composer branch-prompt"><div class="ph"><span class="pt">送る依頼文</span><button type="button" class="copy" aria-label="自分の業務の依頼文をコピー" data-p="own-job"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="own-job"><p class="prompt-line">上記で言語化した私の業務のうち、AIにできる作業を1つ実行してください。</p><p class="prompt-line">不明点は質問し、結果と私が確認する点を示してください。</p></div></div></article>
-<article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>練習用のファイルを、照合する</h3><p class="branch-detail"><span data-g="3">自分の業務を考えなくても、同じ手順を体験できます。</span><span data-g="1 2">課題：通帳明細と普通預金元帳を照合し、違いの候補を一覧にする</span></p><div class="dl-row"><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><span class="gate-file" data-g="1 2">税理士事務所_AI依頼業務例.zip</span></div><div class="pcard claude-composer branch-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　骨組みのヒント（黄色い所を自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line"><span class="t3">ダウンロードフォルダにある、税理士事務所_AI依頼業務例.zipを、デスクトップに移動して解凍してください。</span><span class="t2"><b class="bk">保存場所</b>にある<b class="bk">ZIPの名前</b>を、<b class="bk">移動先</b>に移動して解凍してください。</span></p><p class="prompt-line"><span class="t3">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</span><span class="t2">その中の<b class="bk">2つのファイル名</b>を<b class="bk">やってほしいこと</b>。</span></p><p class="prompt-line"><span class="t3">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</span><span class="t2"><b class="bk">見つけたい違い</b>の候補を、<b class="bk">添えてほしいもの</b>と一緒に、<b class="bk">どんな形</b>にしてください。</span></p><p class="prompt-line"><span class="t3">結果をExcelでデスクトップに保存し、完成したら開いてください。</span><span class="t2">結果を<b class="bk">ファイル形式</b>で<b class="bk">保存先</b>に保存し、<b class="bk">最後の動作</b>。</span></p><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で<br>依頼文を書いてみましょう</span></div></div></div></article>
+<article class="branch-card sample-reconciliation"><div class="branch-card-top"><span class="branch-route">B</span><p class="branch-kicker">業務を思いつかない人</p></div><h3>練習用のファイルを、照合する</h3><p class="branch-detail"><span data-g="3">自分の業務を考えなくても、同じ手順を体験できます。</span><span data-g="1 2">課題：通帳明細と普通預金元帳を照合し、違いの候補を一覧にする</span></p><div class="dl-row"><a class="branch-download" href="assets/税理士事務所_AI依頼業務例.zip" download="税理士事務所_AI依頼業務例.zip"><span>1</span>練習用ファイルをダウンロード</a><span class="gate-file" data-g="1 2">税理士事務所_AI依頼業務例.zip</span></div><div class="pcard claude-composer branch-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　ヒント（この3つを、自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="照合の依頼文をコピー" data-p="reconcile"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="reconcile"><p class="prompt-line">ダウンロードフォルダにある、税理士事務所_AI依頼業務例.zipを、デスクトップに移動して解凍してください。</p><p class="prompt-line">その中の「通帳明細.xlsx」と「普通預金元帳.xlsx」を照合してください。</p><p class="prompt-line">未記帳・金額違い・二重記帳の候補を、根拠と一緒に一覧にしてください。</p><p class="prompt-line">結果をExcelでデスクトップに保存し、完成したら開いてください。</p><div class="gate-hint" data-g="2"><p><i>1</i><b class="bk">どこの、どのファイルを</b></p><p><i>2</i><b class="bk">どうして欲しい</b></p><p><i>3</i><b class="bk">何を作って欲しい</b></p></div><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で<br>依頼文を書いてみましょう</span></div></div><label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label></div></article>
 </div>
 <p class="branch-footer"><span>✓</span><strong>最後は自分で確認</strong>　AIが出した結果と根拠を、必ず確認してください。</p>
-<label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label>
 </section>
 
 <section class="slide practice readable prompt-page practice-mendan gate" id="mendan-prep" data-lv="1" data-use="実践 3-ii" data-steps="1" data-practice-stage="3-ii" data-title="もう一つの例　数字から、次回の経営面談を準備する">
@@ -1569,13 +1567,12 @@ body.shot #ink i{animation:none}
 <li><span class="action-no">2</span><div><h3><span data-g="3">依頼文をコピーしてクロコへ送る</span><span data-g="1 2">依頼文を自分で書いてクロコへ送る</span></h3><p><span data-g="3">ZIPの移動と解凍も、クロコがします</span><span data-g="1 2">ZIPの移動と解凍も、クロコに頼みます</span></p></div></li>
 <li><span class="action-no">3</span><div><h3>作られたHTMLスライドを開く</h3><p>事実・仮説・支援案を確認する</p></div></li>
 </ol>
-<div class="pcard claude-composer mendan-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　骨組みのヒント（黄色い所を自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line"><span class="t3">ダウンロードフォルダにある、経営面談の準備_実習データ.zipを、デスクトップに移動して</span><span class="t2"><b class="bk">保存場所</b>にある<b class="bk">ZIPの名前</b>を、<b class="bk">移動先</b>に移動して</span></p><p class="prompt-line"><span class="t3">解凍したフォルダの月次資料と、前回面談メモを読んでください。</span><span class="t2">解凍したフォルダの<b class="bk">読ませる資料</b>を読んでください。</span></p><p class="prompt-line"><span class="t3">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</span><span class="t2">経営者に<b class="bk">確認すべきこと</b>を<b class="bk">いくつ</b>選び、<b class="bk">どう分けて</b>整理してください。</span></p><p class="prompt-line"><span class="t3">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを1つずつ添えてください。</span><span class="t2">それぞれに、<b class="bk">聞く質問</b>と、<b class="bk">事務所としてできること</b>を添えてください。</span></p><p class="prompt-line"><span class="t3">資料にないことは<strong>断定しないで</strong>ください。</span><span class="t2"><b class="bk">AIに守ってほしいルール</b>も伝えてください。</span></p><p class="prompt-line"><span class="t3">次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</span><span class="t2"><b class="bk">何を何枚</b>作り、<b class="bk">保存先</b>に保存して、<b class="bk">最後の動作</b>をしてください。</span></p><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で依頼文を書いてみましょう</span></div></div></div>
+<div class="pcard claude-composer mendan-prompt gate-card"><div class="ph"><span class="pt"><span data-g="1">2　自分で考えて書く依頼文</span><span data-g="2">2　ヒント（この3つを、自分の言葉で）</span><span data-g="3">2　送る依頼文</span></span><button type="button" class="copy" aria-label="経営面談の準備の依頼文をコピー" data-p="mendan"><span class="cl">コピー</span></button></div><div class="prompt-text" data-prompt="mendan"><p class="prompt-line">ダウンロードフォルダにある、経営面談の準備_実習データ.zipを、デスクトップに移動して</p><p class="prompt-line">解凍したフォルダの月次資料と、前回面談メモを読んでください。</p><p class="prompt-line">経営者に確認すべき変化を3つ選び、「<strong>事実</strong>（数字の根拠）」と「<strong>仮説</strong>」を分けて整理してください。</p><p class="prompt-line">それぞれに、次回面談で聞く質問と、税理士事務所として実務で支援できることを1つずつ添えてください。</p><p class="prompt-line">資料にないことは<strong>断定しないで</strong>ください。</p><p class="prompt-line">次回面談用の5枚のHTMLスライドを作り、デスクトップに保存して開いてください。</p><div class="gate-hint" data-g="2"><p><i>1</i><b class="bk">どこの、どのファイルを</b></p><p><i>2</i><b class="bk">どうして欲しい</b></p><p><i>3</i><b class="bk">何を作って欲しい</b></p></div><div class="gate-veil" data-g="1"><span>まずは、自分の言葉で依頼文を書いてみましょう</span></div></div><label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label></div>
 <div class="mendan-check" role="group" aria-label="最後の確認点">
 <div class="check-label"><b>最後の確認点</b><span>AIの案は「たたき台」</span></div>
 <div class="check-item"><i aria-hidden="true">✓</i><div><strong>事実と仮説を分けているか</strong><span>資料にないことを、事実として書いていないか</span></div></div>
 <div class="check-item"><i aria-hidden="true">✓</i><div><strong>支援案が資料の根拠に基づくか</strong><span>どの数字・メモから出た案か説明できるか</span></div></div>
 </div>
-<label class="gate-pw"><span>PW</span><input type="text" inputmode="numeric" autocomplete="off" spellcheck="false" aria-label="PW"></label>
 </section>
 
 
@@ -2773,7 +2770,7 @@ var U = {
     var card = btn.closest('.pcard');
     var gate = card.classList.contains('gate-card') && card.closest('.gate');
     if (gate && gate.getAttribute('data-lv') !== '3') return;   /* 全文を見せる前は、コピーもさせない */
-    var text = [].map.call(card.querySelectorAll('.prompt-line'), function(line){ var t = line.querySelector('.t3'); return (t || line).textContent; }).join('\n');
+    var text = [].map.call(card.querySelectorAll('.prompt-line'), function(line){ return line.textContent; }).join('\n');
     var label = btn.querySelector('.cl');
     copyText(text).then(function(){
       btn.classList.add('done'); label.textContent = 'コピーしました';
